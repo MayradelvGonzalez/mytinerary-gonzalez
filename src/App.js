@@ -4,12 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css';
 import Landing from './components/landing/Landing';
 import Footer from './components/footer/Footer';
-import NavBar from './components/navbar/Navbar';
+import Nav from './components/navbar/Navbar';
 
 function App() {
     return (
         <div className="app">
-            <NavBar />
+            <Nav />
             <Landing />
             <Footer />
         </div>

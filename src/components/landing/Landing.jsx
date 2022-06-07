@@ -8,13 +8,15 @@ return(
   
     <div className="container-landing">
      <div className="landing">
-      <div className="titulo">
+      <div className="container-titulos">
         <h1 className='titulo'>My Tinerary</h1>
+        <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2>
       </div>
-       <div className="botonCall">    
+      
+     </div>
+     <div className="botonCall">    
         <a href="../searchPage">Click here and Let's travel!</a>
        </div>
-     </div>
      <div className="conteiner-carusel">
       <Carrousel />
     </div>

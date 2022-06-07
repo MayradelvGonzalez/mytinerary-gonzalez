@@ -6,46 +6,6 @@
 /* #b1d9fc-
 #4e8cb8-#25475e-#3f7746-#b5cdd0-#2b526d
  */
-.App {
-  text-align: center;
- 
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
                         /* HEADER Y NAVBAR */
 .container-navbar{
@@ -61,15 +21,15 @@
   display:flex;
   height: 100%;
   width: 93vw;
-align-items: center;
+  align-items: center;
  
 }
-.nav-menu{
-  display:flex;
-  width: 100%;
-  height: 100%;
-  justify-content: space-between;  
+.nav{
+background-color:#25475e;  
+border-bottom:0.1em solid white;
+
 }
+
 .logo{
   width: 7vw;
   height: 10vh;
@@ -80,27 +40,27 @@ align-items: center;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
- width: 100%;
- height: 90vh;
+  width: 100%;
+  height: 90vh;
 }
 
 .landing{
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-image: url(./img/trip.webp) ;
   background-repeat: no-repeat;
   object-fit: cover;
   width: 100vw;
-  height: 55vh;
+  height: 70vh;
 }
 .titulo{
   color:#25475e ;
   white-space: nowrap;
   position: absolute;
-  transform:translate(-90%, -50%);
-  font-size: 2.5em;
+  transform:translate(0, -95%);
+  font-size: 6rem;
   font-family: sans-serif;
   letter-spacing: 0.1em;
   transition: 0.3s;
@@ -110,36 +70,44 @@ align-items: center;
 }
 
 .titulo:hover {
-  transition: 0.5s;
-  transform: scale(1.1)translate(-70%, -50%);
+  transition: all 0.5s;
+  transform: scale(1.1)translate(-5%, -90%);
     text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
     1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
     5px 13px 15px black;
 }
-
+.container-titulos{
+  height: 70vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container-titulos h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
   .botonCall{
     display:flex;
     align-items: center;
     width: 18vw;
-    height: 13vh;
+    height: 12vh;
     border-radius: 0.5em;
-    margin-left: 70%;
-    top:50%;
     border:0.5em outset gray;
-    box-shadow:1 4px 8px 0 #25475e,1 8px 25px white, 1 6px 20px 0 orange;
-    background-image: url(./img/GifViaje.gif);
+    box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 6px 25px 0 orange;
+    background-image: url(./img/gifVijeavion.gif);
     background-repeat: no-repeat;
     object-fit: cover;
   }
   .botonCall a{
     padding: 1em;
-    font-size: 1.7em;
+    font-size: 1.5em;
     align-items: center;
     justify-content: center;
-    color: white;
     font-weight: bolder;
     text-decoration: none;
-    text-shadow:0 0 8px rgb(0, 74, 0), 0 0 8px rgb(1, 92, 1), 0 0 10px rgb(1, 109, 1), 0 0 10px rgb(0, 100, 0), 0 0 30px white, 0 0 40px white, 0 0 50px white, 0 0 40px white, 0 0 100px white;
+    text-shadow: -1.5px 0 #25475e, 0 1.5px #25475e, 1.5px 0 #25475e, 0 -1.5px #25475e;
+
   }
   .botonCall:hover{
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px white, 0 10px 30px 0 white,0 10px 30px 0 white;
@@ -150,9 +118,9 @@ align-items: center;
     text-shadow: -2.5px 0 #25475e, 0 2.5px #25475e, 2.5px 0 #25475e, 0 -2.5px #25475e;
   }
 .container-carusel{
-  width: 100vw;
-  height: 35vh;
-}
+   width: 100vw;
+   height: 35vh;
+  }
                        /* FOOTER */
 .container-footer{
   height: 20vh;
