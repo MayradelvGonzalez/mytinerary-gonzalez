@@ -81,7 +81,7 @@ const Nav = () => {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
               <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
           </Box>
           
