@@ -1,6 +1,5 @@
 import React  from 'react';
-// import SearchPage from '../searchPage/SearchPage';
-import Carrousel from '../carrousel/Carrousel'
+import {Link as LinkRouter} from 'react-router-dom'
 
 
 function Landing(){
@@ -12,15 +11,17 @@ return(
         <h1 className='titulo'>My Tinerary</h1>
         <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2>
       </div>
-      
      </div>
+     <div className='container-boton'>
      <div className="botonCall">    
-        <a href="../searchPage">Click here and Let's travel!</a>
+     <LinkRouter to='/cities' className="searchpage"><button classsName="botonCall">Click here and let's travel!</button></LinkRouter>
        </div>
-     <div className="conteiner-carusel">
-      <Carrousel />
+       </div>
+
+       
     </div>
-    </div>
+
+
     );
    
 

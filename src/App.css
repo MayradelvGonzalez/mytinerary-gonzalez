@@ -3,6 +3,21 @@
   padding:0;
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cinzel:wght@500&family=Concert+One&family=Cookie&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Hubballi&family=Kaushan+Script&family=Luxurious+Script&family=Old+Standard+TT&family=Permanent+Marker&family=Shalimar&family=Smooch+Sans:wght@200&family=Ubuntu+Mono&display=swap');
+
+/* font-family: 'Acme', sans-serif;
+font-family: 'Cinzel', serif;
+font-family: 'Concert One', cursive;
+font-family: 'Cookie', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Hubballi', cursive;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Luxurious Script', cursive;
+font-family: 'Old Standard TT', serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Shalimar', cursive;
+font-family: 'Smooch Sans', sans-serif; */
+/* font-family: 'Ubuntu Mono', monospace; */
 /* #b1d9fc-
 #4e8cb8-#25475e-#3f7746-#b5cdd0-#2b526d
  */
@@ -19,18 +34,26 @@
 .menu{
   display:flex;
   height: 100%;
-  width: 93vw;
+  width: 100%;
   align-items: center;
  
 }
 .nav{
 background-color:#25475e;  
 border-bottom:0.1em solid white;
-
+position:fixed;
+z-index: 1;
 }
 
+.OpcionesMenu{
+  font-family: 'Concert One', cursive !important;
+  
+}
+.OpcionesMenu:hover{
+color:#3f7746;
+}
 .logo{
-  width: 7vw;
+  width: 8vw;
   height: 10vh;
 }
                      /* LANDING */
@@ -40,7 +63,7 @@ border-bottom:0.1em solid white;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 90vh;
+  height: 95vh;
 }
 
 .landing{
@@ -51,8 +74,8 @@ border-bottom:0.1em solid white;
   background-image: url(./img/trip.webp) ;
   background-repeat: no-repeat;
   object-fit: cover;
-  width: 100vw;
-  height: 70vh;
+  width: 100%;
+ 
 }
 .titulo{
   color:#25475e ;
@@ -60,7 +83,7 @@ border-bottom:0.1em solid white;
   position: absolute;
   transform:translate(0, -95%);
   font-size: 6rem;
-  font-family: sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.1em;
   transition: 0.3s;
   text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
@@ -77,23 +100,46 @@ border-bottom:0.1em solid white;
 }
 .container-titulos{
   height: 70vh;
+  margin-top:2em;
   display:flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.container-titulos h2{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.container-titulos h2, .TituloCarrousel{
+  font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
+}
+.container-carrousel{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  margin:2rem;
+  width: 95vw;
+  height: auto;
+  background-color: gray;
+}
+.container-boton{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+ height: 20%;
+ 
+ 
+ 
 }
   .botonCall{
     display:flex;
     align-items: center;
-    width: 18vw;
-    height: 12vh;
-    border-radius: 0.5em;
-    border:0.5em outset gray;
-    box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 6px 25px 0 orange;
+    width: 16vw;
+    height: 13vh;
+    border-radius: 1em;
+    margin:1rem;
+    border:0.4em outset gray;
+    box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
     background-image: url(./img/gifVijeavion.gif);
     background-repeat: no-repeat;
     object-fit: cover;
@@ -101,32 +147,51 @@ border-bottom:0.1em solid white;
   .botonCall a{
     padding: 1em;
     font-size: 1.5em;
+    
     align-items: center;
     justify-content: center;
     font-weight: bolder;
     text-decoration: none;
-    text-shadow: -1.5px 0 #25475e, 0 1.5px #25475e, 1.5px 0 #25475e, 0 -1.5px #25475e;
+    text-align:center;
+    color:#1b3d20;
+    text-shadow: -1.5px 0 rgb(240, 156, 30), 0 1.5px #25475e;
 
   }
   .botonCall:hover{
-    box-shadow:0 4px 8px 0 #25475e,0 10px 25px white, 0 10px 30px 0 white,0 10px 30px 0 white;
-    border:0.5em inset gray;
+    box-shadow:0 4px 8px 0 #25475e,0 10px 25px rgb(28, 159, 211), 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
+    border:0.4em inset gray;
+    
   }
   .botonCall a:hover{
-    color:yellow;
-    text-shadow: -2.5px 0 #25475e, 0 2.5px #25475e, 2.5px 0 #25475e, 0 -2.5px #25475e;
+    color:#1b3d20; 
   }
-.container-carusel{
-   width: 100vw;
-   height: 35vh;
-  }
+/* .container-carusel{
+  margin-top:1em;
+} */
+.titulo-carrousel{
+  text-align:center;
+  color:white;
+  font-family:'Cormorant Garamond', serif;
+}
+.sc-gzVnrw{
+  margin-top:1.5em;
+  background-color: #25475e;
+ 
+}
+   
+
+
                        /* FOOTER */
 .container-footer{
   height: 20vh;
-  width: 100vw;
+  width: 100%;
   display:flex;
   align-items: center;
   justify-content: space-evenly;
+  /* background-image: url(./img/plane.gif);
+  background-size: contain;
+  object-fit: cover;
+  background-repeat: no-repeat; */
 }
 .footer{
   display:flex;
@@ -135,4 +200,90 @@ border-bottom:0.1em solid white;
   background-color:#25475e ;
   height: 100%;
   width: 100%;
+  
+}
+
+/* MEDIA QUERIES --------------------------------------------------------------------------------------*/
+@media (max-width:576px){
+.titulo{
+  font-size:4em;
+  
+}
+.container-titulos h2{
+  font-size:1.5em;
+  text-align:center;
+}
+.botonCall{
+    display:flex;
+    align-items: center;
+    width: 22vw;
+    height: 13vh;
+    border-radius: 1em;
+   
+  
+  }
+
+  .botonCall a{
+   font-size: 0.5em;
+   color:#3f7746;
+   text-shadow: -1px 0 rgb(148, 128, 128), 0 1px #25475e, 1px 0 #25475e, 0 -1px #25475e;
+
+  }
+  /* .sc-EHOje{
+  justify-content: center;
+  } */
+  .sc-gzVnrw{
+   align-items:center;
+   width: 100%;
+  }
+}
+@media (max-width:768px){
+  .container-titulos{
+   padding-top:2.5em;
+  }
+  .botonCall{
+    display:flex;
+    align-items: center;
+    width: 22vw;
+    height: 13vh;
+    border-radius: 1em;
+   
+  
+  }
+  .botonCall a{
+   font-size: 0.7em;
+   color:black;
+   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px #000000, 1px 0 #25475e, 0 -1px #25475e;
+
+  }
+
+}
+@media (max-width:992px){
+  .container-titulos{
+    margin-top:3em;
+  }
+  .container-boton{
+    margin-bottom:3em;
+  }
+    .botonCall{
+    display:flex;
+    align-items: center;
+    width: 22vw;
+    height: 13vh;
+    border-radius: 1em;    
+  
+  }
+  .sc-EHOje{
+    margin:3.5em;
+  }
+  .sc-gzVnrw{
+    margin-top:4em;
+  }
+  .botonCall a{
+   font-size: 1.3em;
+   color:black;
+   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px #25475e, 1.5px 0 #25475e, 0 -1.5px #25475e;
+
+  }
+
 }

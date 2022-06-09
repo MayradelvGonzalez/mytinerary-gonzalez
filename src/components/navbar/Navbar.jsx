@@ -40,8 +40,8 @@ const Nav = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl" className="nav">
-        <Toolbar disableGutters>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+        <Toolbar disableGutters className='caja-menu'>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}}>
           <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"60px"}}/></Box>
       
 
@@ -76,7 +76,7 @@ const Nav = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography className='OpcionesMenu' textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -85,9 +85,10 @@ const Nav = () => {
               <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
           </Box>
           
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
             {pages.map((page) => (
               <Button
+              className='OpcionesMenu'
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -121,7 +122,7 @@ const Nav = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography className='OpcionesMenu' textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

@@ -1,10 +1,15 @@
 import React from 'react';
-
+// import Navbar from './components/navbar/Navbar';
+// import Footer from './components/footer/Footer';
 
 function SearchPage(){
-    
     return (
-        <h1>Soy el searchPage</h1>
+        <div>
+        {/* <Navbar /> */}
+        <div className='container-search'><h1>Search your favorites cities</h1></div>
+        {/* <Footer /> */}
+        </div>
+      
     )
 }
 
