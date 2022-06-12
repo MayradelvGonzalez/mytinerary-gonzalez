@@ -8,7 +8,7 @@ return(
     <div className="container-landing">
      <div className="landing">
       <div className="container-titulos">
-        <h1 className='titulo'>My Tinerary</h1>
+        <h1 className='titulo'>Mytinerary</h1>
         <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2>
       </div>
      </div>

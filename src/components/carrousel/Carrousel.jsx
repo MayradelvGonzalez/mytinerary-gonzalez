@@ -3,8 +3,8 @@ import Carousel from 'react-grid-carousel'
  
 const Carrousel = (props) => {
   return (
-   
-    <Carousel
+   <div className="container-carrousel">
+    <Carousel className="carrousel"
      loop
     mobileBreackpoint={300}
     responsiveLayout =
@@ -15,7 +15,7 @@ const Carrousel = (props) => {
         rows: 2,
         gap: 10,
         loop: true,
-      
+        autoplay: 4000,
       },
       {
         breakpoint: 1024,
@@ -23,6 +23,7 @@ const Carrousel = (props) => {
         rows: 2,
         gap: 10,
         loop: true,
+        autoplay: 4000,
       
       },
     
@@ -32,7 +33,7 @@ const Carrousel = (props) => {
     rows: 2,
     gap: 10,
     loop: true,
-  
+    autoplay: 4000,
   },
   {
     breakpoint: 576,
@@ -40,7 +41,7 @@ const Carrousel = (props) => {
     rows: 4,
     gap: 10,
     loop: true,
-   
+    autoplay: 4000,
   }
 ]}>
      
@@ -49,11 +50,13 @@ const Carrousel = (props) => {
    
 
       <Carousel.Item>
-        <img width="100%" src={item.image} />
+        <img width="100%" className="imgCarrousel" src={item.image} />
+       <h4 className="nombrePais">{item.name}</h4>
       </Carousel.Item>
     
        )}
     </Carousel> 
+    </div>
   )
 }
 

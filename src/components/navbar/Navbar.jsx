@@ -13,10 +13,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+const pages = ['Home', 'Cities'];
+const settings = ['SingIn', 'Logout'];
 
-
-const pages = ['Cities', 'Home'];
-const settings = ['Profile', 'Account', 'SingIn', 'Logout'];
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

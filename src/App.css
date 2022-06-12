@@ -117,8 +117,8 @@ color:#3f7746;
   padding-top: 2rem;
   margin:2rem;
   width: 95vw;
-  height: auto;
-  background-color: gray;
+  height: 70vh;
+
 }
 .container-boton{
   display:flex;
@@ -131,11 +131,15 @@ color:#3f7746;
  
  
 }
-  .botonCall{
+
+
+  .searchpage button{
     display:flex;
     align-items: center;
-    width: 16vw;
-    height: 13vh;
+    font-size:1......5em;
+    font-weight: bolder;
+    width: 14vw;
+    height: 10vh;
     border-radius: 1em;
     margin:1rem;
     border:0.4em outset gray;
@@ -143,44 +147,42 @@ color:#3f7746;
     background-image: url(./img/gifVijeavion.gif);
     background-repeat: no-repeat;
     object-fit: cover;
-  }
-  .botonCall a{
-    padding: 1em;
-    font-size: 1.5em;
-    
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
-    text-decoration: none;
-    text-align:center;
-    color:#1b3d20;
-    text-shadow: -1.5px 0 rgb(240, 156, 30), 0 1.5px #25475e;
+    text-decoration:none;
 
   }
-  .botonCall:hover{
+
+  .botonCall button:hover{
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px rgb(28, 159, 211), 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
     border:0.4em inset gray;
     
   }
-  .botonCall a:hover{
-    color:#1b3d20; 
+  .sc-dnqmqq{
+    display:flex;
+    justify-content: center;
   }
-/* .container-carusel{
-  margin-top:1em;
-} */
+  .sc-dnqmqq img{
+    width: 90%;
+
+    object-fit:cover;
+  }
+
+
 .titulo-carrousel{
   text-align:center;
   color:white;
   font-family:'Cormorant Garamond', serif;
-}
-.sc-gzVnrw{
-  margin-top:1.5em;
-  background-color: #25475e;
  
 }
+.nombrePais{
+z-index:1;
+position:absolute;  
+color:black;
+font-weight: bold;
+}
+
+
+
    
-
-
                        /* FOOTER */
 .container-footer{
   height: 20vh;
@@ -188,10 +190,10 @@ color:#3f7746;
   display:flex;
   align-items: center;
   justify-content: space-evenly;
-  /* background-image: url(./img/plane.gif);
+
   background-size: contain;
   object-fit: cover;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat; 
 }
 .footer{
   display:flex;
@@ -202,42 +204,67 @@ color:#3f7746;
   width: 100%;
   
 }
+.error{
+  width: 100%;
+height: 80vh;
+background-image: url(./img/catError.gif) ;
+background-repeat: no-repeat;
+ background-position: 10%; 
+font-size: 4rem;
+color:white;
+
+
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items:center;
+  background-color:#25475e;
+}
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
-@media (max-width:576px){
+@media (min-width:576px){
 .titulo{
-  font-size:4em;
+  font-size:4.2em;
   
 }
+.nav{
+width: 100%;
+  
+}
+.landing{
+  height: 60vh;
+  background-size:cover;
+}
 .container-titulos h2{
-  font-size:1.5em;
+  font-size:1.2em;
   text-align:center;
+  padding:auto 0.3em;
 }
 .botonCall{
     display:flex;
     align-items: center;
-    width: 22vw;
+    width: 10vw;
     height: 13vh;
     border-radius: 1em;
    
   
   }
 
-  .botonCall a{
+
+  .botonCall button{
    font-size: 0.5em;
+   width: 20vw;
    color:#3f7746;
    text-shadow: -1px 0 rgb(148, 128, 128), 0 1px #25475e, 1px 0 #25475e, 0 -1px #25475e;
 
   }
-  /* .sc-EHOje{
-  justify-content: center;
-  } */
+
   .sc-gzVnrw{
    align-items:center;
    width: 100%;
   }
 }
-@media (max-width:768px){
+@media (min-width:768px){
   .container-titulos{
    padding-top:2.5em;
   }
@@ -250,7 +277,7 @@ color:#3f7746;
    
   
   }
-  .botonCall a{
+  .botonCall button{
    font-size: 0.7em;
    color:black;
    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px #000000, 1px 0 #25475e, 0 -1px #25475e;
@@ -258,7 +285,7 @@ color:#3f7746;
   }
 
 }
-@media (max-width:992px){
+@media (min-width:992px){
   .container-titulos{
     margin-top:3em;
   }
@@ -273,17 +300,36 @@ color:#3f7746;
     border-radius: 1em;    
   
   }
-  .sc-EHOje{
-    margin:3.5em;
+  .container-carrousel {
+    margin:1em;
+    height: 60vh;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+
   }
-  .sc-gzVnrw{
-    margin-top:4em;
-  }
-  .botonCall a{
-   font-size: 1.3em;
+
+  .botonCall button{
+   font-size: 1em;
    color:black;
    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px #25475e, 1.5px 0 #25475e, 0 -1.5px #25475e;
 
   }
+  .titulo{
+    font-size: 6em;
+  }
+  .container-titulos h2{
+    font-size:2em;
+  }
+.bghjHX{
+  
+    height:60vh;
+
+  }
+.bghjHX .imgCarrousel{
+  height: 25vh;
+  object-fit:cover;
+}
+
 
 }

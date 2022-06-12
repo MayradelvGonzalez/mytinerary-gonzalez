@@ -14,13 +14,14 @@ import axios from 'axios';
 import "swiper/css/bundle";
 
 function App() {
+  
+    const [dataApi, setDataApi] = useState()
+    useEffect(() => {
+        axios.get("./data.json")
+        .then(response => setDataApi(response.data))
     
-const [dataApi, setDataApi] = useState()
-
-useEffect(() => {
-    axios.get("./data.json")
-    .then(response => setDataApi(response.data))
-      },[])  
+},[])
+console.log(dataApi)
 
     return (
         <div className="app">
@@ -28,10 +29,10 @@ useEffect(() => {
            
             <Routes>
                  <Route path='/' element={<Landing /> } />
-                 <Route path='./cities' element={<SearchPage />} />
+                 <Route path='/cities' element={<SearchPage />} />
                  <Route path='/*' element={<Error />} />
             </Routes>
-            <Carrousel />
+            <Carrousel dataApi={dataApi}/>
             <Footer />
         </div>
     )
