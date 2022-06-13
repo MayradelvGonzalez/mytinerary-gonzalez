@@ -9,14 +9,14 @@ const Carrousel = (props) => {
     mobileBreackpoint={300}
     responsiveLayout =
     {[
-      {
-        breakpoint: 1200,
-        cols: 2,  
-        rows: 2,
-        gap: 10,
-        loop: true,
-        autoplay: 4000,
-      },
+      // {
+      //   breakpoint: 1200,
+      //   cols: 3,  
+      //   rows: 2,
+      //   gap: 10,
+      //   loop: true,
+      //   autoplay: 4000,
+      // },
       {
         breakpoint: 1024,
         cols: 2,  

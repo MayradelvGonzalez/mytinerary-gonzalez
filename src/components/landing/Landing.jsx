@@ -1,16 +1,20 @@
 import React  from 'react';
 import {Link as LinkRouter} from 'react-router-dom'
+import Carrousel from '../carrousel/Carrousel'
+import "swiper/css/bundle";
 
+function Landing({dataApi}){
 
-function Landing(){
 return(
-  
+  <div>
     <div className="container-landing">
      <div className="landing">
+      
       <div className="container-titulos">
         <h1 className='titulo'>Mytinerary</h1>
         <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2>
       </div>
+    
      </div>
      <div className='container-boton'>
      <div className="botonCall">    
@@ -18,9 +22,10 @@ return(
        </div>
        </div>
 
-       
-    </div>
+       </div>
+       <Carrousel dataApi={dataApi} />
 
+       </div>
 
     );
    

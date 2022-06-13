@@ -9,9 +9,9 @@ import SearchPage from './components/searchPage/SearchPage';
 import Footer from './components/footer/Footer';
 import Nav from './components/navbar/Navbar';
 import Error from './components/error/Error'
-import Carrousel from './components/carrousel/Carrousel';
+// import Carrousel from './components/carrousel/Carrousel';
 import axios from 'axios';
-import "swiper/css/bundle";
+import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
 
 function App() {
   
@@ -26,14 +26,18 @@ console.log(dataApi)
     return (
         <div className="app">
             <Nav />
-           
             <Routes>
-                 <Route path='/' element={<Landing /> } />
+                 <Route path='/' element={<Landing dataApi={dataApi} />} />
                  <Route path='/cities' element={<SearchPage />} />
                  <Route path='/*' element={<Error />} />
             </Routes>
-            <Carrousel dataApi={dataApi}/>
+        
             <Footer />
+            <ScrollToTop 
+            style={{backgroundColor:"green"}}
+            smooth
+            component={<ArrowUpwardTwoToneIcon fontSize = 'large'/>}
+            />
         </div>
     )
 }
