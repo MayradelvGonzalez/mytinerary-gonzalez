@@ -2,8 +2,6 @@ import React from 'react';
 import  { useState, useEffect } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'swiper/css';
 import Landing from './components/landing/Landing';
 import SearchPage from './components/searchPage/SearchPage';
 import Footer from './components/footer/Footer';
@@ -18,11 +16,12 @@ import Details from './components/details/Details';
 function App() {
   
     const [dataApi, setDataApi] = useState()
+
     useEffect(() => {
-        axios.get("./data.json")
-        .then(response => setDataApi(response.data))
-    
-},[])
+        axios.get(`http://localhost:4000/api/cities`)
+        .then(res => setDataApi(res.data.response.cities))
+       },[])
+  
 console.log(dataApi)
 
     return (
@@ -30,9 +29,9 @@ console.log(dataApi)
             <Nav />
             <Routes>
                  <Route path='/' element={<Landing dataApi={dataApi} />} />
-                 <Route path='/cities' element={<SearchPage />} />
-                 <Route path='/*' element={<Error />} />
-                  <Route path='parametro/cities/city/:id' element={<Details />} /> 
+                 <Route path='/cities' element={<SearchPage cardFilter={dataApi}/>} />
+                 <Route path='*' element={<Error />} />
+                  <Route path='/cities/city/:id' element={<Details />} /> 
             </Routes>
         
             <Footer />

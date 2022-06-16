@@ -1,7 +1,6 @@
 import React  from 'react';
 import {Link as LinkRouter} from 'react-router-dom'
 import Carrousel from '../carrousel/Carrousel'
-import "swiper/css/bundle";
 
 function Landing({dataApi}){
 

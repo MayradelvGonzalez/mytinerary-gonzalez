@@ -8,9 +8,9 @@ function Details(){
     const {id} = useParams()
    useEffect(() => {
     axios.get(`http://localhost:4000/api/cities/${id}`)
-    .then(res => setDetailCity(res.data.response))
+    .then(res => setDetailCity(res.data.response.city))
    },[])
-
+console.log(detailCity)
     return(
         <div className="detalles">
            <div className="cardDetail">

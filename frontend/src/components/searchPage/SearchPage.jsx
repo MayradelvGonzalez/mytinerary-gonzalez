@@ -7,38 +7,34 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 // import data from '../../../public/data.json'
 // import City from '../city/City';
-           
-function SearchPage({cardFilter}) {
-    return cardFilter.map((data) => {
+
+export default function SearchPage({ cardFilter }) {
   return (
-    <Card sx={{ maxWidth: 345 }} className="container-search">
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={data.image}
-          alt={data.name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-           {data.name}
-          </Typography>
-        
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <LinkRouter to = {`/parametro/cities/city/${data._id}`} 
-        key={data._id}>
-         <Button size="small" color="primary"> 
-          More
-        </Button>
-        </LinkRouter>
-      </CardActions>
-    </Card>
+    cardFilter?.map((data) =>
+      <Card sx={{ maxWidth: 345 }} className="container-search">
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="140"
+            image={data.image}
+            alt={data.name}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {data.name}
+            </Typography>
+
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <LinkRouter to={`/cities/city/${data._id}`}
+            key={data._id}>
+            <Button size="small" color="primary">
+              More
+            </Button>
+          </LinkRouter>
+        </CardActions>
+      </Card>
+    )
   )
-})}
-
-    
-    
-
-export default SearchPage
+}

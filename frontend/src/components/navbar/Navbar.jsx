@@ -18,7 +18,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 
  const pages = ['Home', 'Cities'];
  const settings = [{to:'/singin', name:'Sing In'},{to:'/logout', name:'Log Out'}];
-const opcionesNavBar = [{to:'/index', name:'Home'}, {to:'/cities', name:'Cities'}]
+const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -90,18 +90,18 @@ const Nav = () => {
           </Box>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
-            {pages.map((page, index) => (
-              <LinkRouter>
-              <Button
-              className='OpcionesMenu'
-                key={index}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-              </LinkRouter>
-            ))}
+            {/* {pages.map((page, index) => (
+              // <LinkRouter>
+              // <Button
+              // className='OpcionesMenu'
+              //   key={index}
+              //   onClick={handleCloseNavMenu}
+              //   sx={{ my: 2, color: 'white', display: 'block' }}
+              // >
+              //   {page}
+              // </Button>
+              // </LinkRouter>
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -126,13 +126,13 @@ const Nav = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting,index) => (
+              {/* {settings.map((setting,index) => (
                  <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
                 <MenuItem>
                   <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
                 </MenuItem>
                 </LinkRouter>
-              ))}
+              ))} */}
             </Menu>
           </Box>
         </Toolbar>
