@@ -12,6 +12,8 @@ import Error from './components/error/Error'
 // import Carrousel from './components/carrousel/Carrousel';
 import axios from 'axios';
 import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
+import ScrollToTop from 'react-scroll-to-top';
+import Details from './components/details/Details';
 
 function App() {
   
@@ -30,11 +32,12 @@ console.log(dataApi)
                  <Route path='/' element={<Landing dataApi={dataApi} />} />
                  <Route path='/cities' element={<SearchPage />} />
                  <Route path='/*' element={<Error />} />
+                  <Route path='parametro/cities/city/:id' element={<Details />} /> 
             </Routes>
         
             <Footer />
             <ScrollToTop 
-            style={{backgroundColor:"green"}}
+            // style={{backgroundColor:"green"}}
             smooth
             component={<ArrowUpwardTwoToneIcon fontSize = 'large'/>}
             />

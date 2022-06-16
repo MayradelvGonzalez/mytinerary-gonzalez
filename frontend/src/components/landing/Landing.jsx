@@ -21,7 +21,6 @@ return(
      <LinkRouter to='/cities' className="searchpage"><button classsName="botonCall">Click here and let's travel!</button></LinkRouter>
        </div>
        </div>
-
        </div>
        <Carrousel dataApi={dataApi} />
 

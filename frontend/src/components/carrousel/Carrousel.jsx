@@ -4,19 +4,13 @@ import Carousel from 'react-grid-carousel'
 const Carrousel = (props) => {
   return (
    <div className="container-carrousel">
-    <Carousel className="carrousel"
+    <Carousel col={2} rows={2} gap={10} autoplay={4000} className="carrousel"
      loop
     mobileBreackpoint={300}
     responsiveLayout =
     {[
-      // {
-      //   breakpoint: 1200,
-      //   cols: 3,  
-      //   rows: 2,
-      //   gap: 10,
-      //   loop: true,
-      //   autoplay: 4000,
-      // },
+
+ 
       {
         breakpoint: 1024,
         cols: 2,  

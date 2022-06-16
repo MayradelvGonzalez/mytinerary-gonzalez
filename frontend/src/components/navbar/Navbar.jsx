@@ -12,10 +12,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link as LinkRouter } from 'react-router-dom';
 
-const pages = ['Home', 'Cities'];
-const settings = ['SingIn', 'Logout'];
 
+
+ const pages = ['Home', 'Cities'];
+ const settings = [{to:'/singin', name:'Sing In'},{to:'/logout', name:'Log Out'}];
+const opcionesNavBar = [{to:'/index', name:'Home'}, {to:'/cities', name:'Cities'}]
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -73,10 +76,12 @@ const Nav = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography className='OpcionesMenu' textAlign="center">{page}</Typography>
+              {opcionesNavBar.map((cadaOpcion, index) => (
+              <LinkRouter key={index} to={cadaOpcion.to} onClick={handleCloseNavMenu}>
+                <MenuItem>
+                  <Typography className='OpcionesMenu' textAlign="center">{cadaOpcion.name}</Typography>
                 </MenuItem>
+              </LinkRouter>
               ))}
             </Menu>
           </Box>
@@ -85,15 +90,17 @@ const Nav = () => {
           </Box>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
+              <LinkRouter>
               <Button
               className='OpcionesMenu'
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
+              </LinkRouter>
             ))}
           </Box>
 
@@ -119,10 +126,12 @@ const Nav = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography className='OpcionesMenu' textAlign="center">{setting}</Typography>
+              {settings.map((setting,index) => (
+                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
+                <MenuItem>
+                  <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
                 </MenuItem>
+                </LinkRouter>
               ))}
             </Menu>
           </Box>

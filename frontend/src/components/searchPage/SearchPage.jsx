@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { Link as LinkRouter } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import data from './data.json'
-import City from '../city/City';
+// import data from '../../../public/data.json'
+// import City from '../city/City';
            
 function SearchPage({cardFilter}) {
     return cardFilter.map((data) => {
@@ -26,9 +27,12 @@ function SearchPage({cardFilter}) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <LinkRouter to = {`/parametro/cities/city/${data._id}`} 
+        key={data._id}>
+         <Button size="small" color="primary"> 
           More
         </Button>
+        </LinkRouter>
       </CardActions>
     </Card>
   )
