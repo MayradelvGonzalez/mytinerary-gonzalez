@@ -2,49 +2,55 @@ import React from 'react';
 import  { useState, useEffect } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'swiper/css';
-import Landing from './components/landing/Landing';
+import Home from './components/landing/Home';
 import SearchPage from './components/searchPage/SearchPage';
 import Footer from './components/footer/Footer';
 import Nav from './components/navbar/Navbar';
-import Error from './components/error/Error'
-// import Carrousel from './components/carrousel/Carrousel';
+import Error from './components/error/Error';
 import axios from 'axios';
 import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
 import ScrollToTop from 'react-scroll-to-top';
 import Details from './components/details/Details';
+import Cities from './components/city/City';
+import SingIn from './components/singin/SingIn';
+import LogOut from './components/logout/LogOut';
 
-function App() {
+import cityActions from '../src/redux/actions/cityActions'
+
+function App(props) {
   
-    const [dataApi, setDataApi] = useState()
+    // const [dataApi, setDataApi] = useState()
+
     useEffect(() => {
-        axios.get("./data.json")
-        .then(response => setDataApi(response.data))
-    
-},[])
-console.log(dataApi)
+        props.getCities()
+        // axios.get(`http://localhost:4000/api/cities`)
+        // .then(res => setDataApi(res.data.response.cities))
+       },[])
+  console.log(props)
 
     return (
         <div className="app">
             <Nav />
-            <Routes>
-                 <Route path='/' element={<Landing dataApi={dataApi} />} />
-                 <Route path='/cities' element={<SearchPage />} />
+             <Routes>
+                 <Route path='/' element={<Home props={props} />} />
+                 <Route path='/cities' element={<Cities props={props}/>} />
                  <Route path='/*' element={<Error />} />
-                  <Route path='parametro/cities/city/:id' element={<Details />} /> 
-            </Routes>
-        
+                 <Route path='/cities/city/:id' element={<Details />} /> 
+                 <Route path='/singin' element={<SingIn />} />
+                 <Route path='/logout' element = {<LogOut />} />
+
+             </Routes>
+
             <Footer />
             <ScrollToTop 
-            // style={{backgroundColor:"green"}}
+            style={{backgroundColor:"#25475e", color:"white"}}
             smooth
-            component={<ArrowUpwardTwoToneIcon fontSize = 'large'/>}
-            />
+            component={<ArrowUpwardTwoToneIcon />}/>
         </div>
     )
-}
+   
 
+}
 
 export default App
 

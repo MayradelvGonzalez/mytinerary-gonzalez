@@ -21,15 +21,28 @@ font-family: 'Smooch Sans', sans-serif; */
 /* #b1d9fc-
 #4e8cb8-#25475e-#3f7746-#b5cdd0-#2b526d
  */
-
+  body::-webkit-scrollbar {
+  width: 0.6em;
+  }
+  body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  
+  }
+  body::-webkit-scrollbar-thumb {
+  background-color: #25475e;
+  outline: 1px dotted white;
+  border-radius: 1px;
+  }
                         /* HEADER Y NAVBAR */
 .container-navbar{
-  height: 15vh;
+   height: 15vh;
   width: 100vw;
   background-color: beige;
   display:flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;  
+  
+   
 }
 .menu{
   display:flex;
@@ -40,10 +53,15 @@ font-family: 'Smooch Sans', sans-serif; */
 }
 .nav{
 background-color:#25475e;  
-border-bottom:0.1em solid white;
+
 position:fixed;
 z-index: 1;
 
+
+}
+.faceIcon{
+  width: 50vw;
+  height: 40vh;
 }
 .MuiButton{
   font-size: 1em;
@@ -55,41 +73,67 @@ z-index: 1;
   
 }
 .OpcionesMenu:hover{
-color:#3f7746;
+background-color:#b5cdd0;
+color:white;
 }
+.boton-menu{
+  margin:0.8em;
+  color:black;
+  background-color: #4e8cb8;
+  padding:0.2em 0.5em;
+  font-family: 'Concert One', cursive !important;
+  border:0.1em solid #25475e;
+  border-radius: 0.5em;
+}
+.boton-menu:hover{
+  color:#25475e;
+  background-color: #b5cdd0;
+  border-radius:0.1em;
+  transition: all 0.5s;
+}
+
 .logo{
   width: 8vw;
   height: 10vh;
 }
                      /* LANDING */
+
+.contenedorHome{
+  padding:2em;
+}
 .container-landing{
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 85vh;
+  height: 95vh;
   background-image: url(./img/trip.webp) ;
   background-repeat: no-repeat;
   object-fit: cover;
+ 
+  margin-bottom:2em;
 }
 
 .landing{
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  /* background-image: url(./img/trip.webp) ; */
- 
+  justify-content: space-between;
   width: 100%;
-  height: 90%;
+  height: 95%;
  
+}
+.carrouselCaja{
+height: 50vh;
+margin:2em auto 7em;
+
 }
 .titulo{
   color:#25475e ;
   white-space: nowrap;
   position: absolute;
-  transform:translate(0, -95%);
+  transform:translate(3%, -80%);
   font-size: 6rem;
   font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.1em;
@@ -114,20 +158,30 @@ color:#3f7746;
   justify-content: space-around;
   align-items: center;
 }
-.container-titulos h2, .TituloCarrousel{
+.container-titulos h2, .titulo-carrousel{
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
+  margin-top:2em;
+ 
+}
+.container-carrousel .titulo-carrousel{
+  padding:0.5em;
+  color:black;
+
 }
 .container-carrousel{
   display:flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 2rem;
-  margin:2rem;
+  justify-content: space-evenly;
+  padding: 3rem;
+  margin:3rem;
   width: 95vw;
-  height: 70vh;
+  height: 98vh;
+ 
 
 }
+
 .container-boton{
   display:flex;
   align-items: center;
@@ -145,23 +199,26 @@ color:#3f7746;
     margin-top:3rem;
     border:0.3em outset gray;
     box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
-    background-image: url(./img/gifVijeavion.gif); 
+    background-image: url(./img/GifViaje.gif); 
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: cover;
+    object-fit: contain;
     text-decoration:none;
-    font-family: 'Hubballi', cursive;
-    height: 10vh;
-    width: 6%;
+    font-family: 'Acme', sans-serif;
+    height: 9vh;
+    color:white;
+    
   }
-
+  .boton-transparente{
+   background-color: #ddd;
+  }
   .botonCall a{
-    font-size:1.5em;
+    font-size:1.6em;
     font-weight: bolder;
     text-align: center;
     text-decoration: none;
    
-   
-    
+  
   }
   .botonCall button:hover{
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
@@ -171,10 +228,12 @@ color:#3f7746;
   .sc-dnqmqq{
     display:flex;
     justify-content: center;
+  
   }
   .sc-dnqmqq img{
     width: 90%;
     object-fit:cover;
+    
   }
 
 
@@ -191,25 +250,140 @@ color:black;
 font-weight: bold;
 font-family: 'Concert One';
 }
-/* SEARCH */
-.container-search{
-  height: 80vh;
-  width: 100%;
-  background-image: url(./img/viajarImagen.jpg);
-  opacity:0.5;
+/* SEARCH PAGE CARDS */
+.cardsBox{
   display:flex;
-  justify-content: center;
+  flex-wrap:wrap;
+background-color: #cccccc;
+background-image: url('./img/imagendefondo.jpg');
+background-repeat: no-repeat;
+object-fit:contain;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
+  
+ }
+ .cards h2{
+  color:black;
+  font-family:'Cormorant Garamond', serif;
+ }
+.card{
+ margin-top:1em;
+   width:35vw;
+   height: 52vh;
+   margin:1em;
+   box-shadow: rgba(1, 1, 1, 2.4) 0px 30px 90px;
+
 
 }
-.searchtitulo{
+
+
+.card:hover{
+  transform: scale(1.1)translate(0%, -0.3%);
+  transition:all 1s;
+
+}
+.card-container{
+  font-family: 'Old Standard TT', serif;
+  
+}
+.card .caja-card{
+  
+  background-color: #b5cdd0;
+}
+.boton-card-container{
+  background-color: #b5cdd0;
+}
+.card .botonMore{
+  display: flex;
+  margin-left: 18em;
+  padding: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius:0.5em;
+  border:0.1em solid #ddd;
+  color:white;
+  background-color: #25475e;
+  text-decoration:none;
+}
+.card .img{
+  object-fit:contain;
+  height: 70%;
+
+}
+.totalCardsTitulo{
   color:black;
   font-family: 'Cormorant Garamond', serif;
   background-color: #808080;
   height: 10vh;
-  
 
 }
+
+.card .botonMore:hover {
+  background-color: #4e8cb8;
+  color:black;
+  border:0.2em outset gray;
+}
+
+ .cardDetail{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap:wrap;
+  background-color: green;
+} 
+/* DETALLES */
+.contenedor-detalles{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./img/imagendefondo.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+  object-fit: contain;
+}
+.detalles{
+  font-family: 'Old Standard TT', serif;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+text-align:center;
+height: 80vh;
+width: 75%;
+  box-shadow: rgba(60, 60, 93, 1.45) 0px 30px 60px -10px, rgba(0, 0, 0, 0.8) 0px 18px 36px -18px;
+background-color: white;
+padding:0.5em;
+font-weight: bold;
+}
+
+.detalles h3{
+  font-family: 'Cormorant Garamond', serif;
+ margin-top:2.3em;
+}
+.detalles .imagenDetail{
+  width: 90%;
+  height: 48vh;
+  object-fit: contain;
+}
+.card-contenido p{
+  padding-top: 0.5em;
+}
+
+.botonCard{
+  color:black;
+  background-color: #b5cdd0;
+  font-family: 'Old Standard TT', serif;
+  width: 15vw;
+  margin-top:0.8em;
+  font-weight: bold;
+}
+.botonCard:hover{
+  background-color: #4e8cb8;
+  color:black;
+}
+
    
                        /* FOOTER */
 .container-footer{
@@ -229,6 +403,7 @@ font-family: 'Concert One';
   width: 100%;
   
 }
+/*                       ERROR*/
 .error{
   width: 100%;
   height: 80vh;
@@ -253,13 +428,23 @@ border-radius: 3em;
 transition: transform 1s;
 transform: rotate3d(1, 1, 1, 360deg);
 }
- .cards{
- display:flex;
- flex-wrap:wrap;
- flex-grow:1;
- row-gap:5;
-
-} 
+ .containerInput input{
+  background-color: white;
+  color:black;
+  margin-top:5em;
+  width: 50%;
+  height: 5vh;
+  border:0.1em solid #808080;
+ }
+ .containerInput input:hover{
+  border: 0.2em solid #25475e;
+ }
+ .notFound{
+ background-image: url('./img/brujula.gif');
+ background-repeat: no-repeat;
+ background-color: white;
+ color:black;
+ }
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
 @media (min-width:576px){

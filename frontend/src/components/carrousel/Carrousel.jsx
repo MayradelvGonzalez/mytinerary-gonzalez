@@ -1,11 +1,14 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel'
- 
+import { connect } from 'react-redux'
+import cityActions from '../../redux/actions/cityActions'
+
 const Carrousel = (props) => {
   return (
    <div className="container-carrousel">
-    <Carousel col={2} rows={2} gap={10} autoplay={4000} className="carrousel"
-     loop
+    <h1 className='titulo-carrousel'>Popular Mytineraries</h1>
+    <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel"
+     
     mobileBreackpoint={300}
     responsiveLayout =
     {[
@@ -37,21 +40,26 @@ const Carrousel = (props) => {
     loop: true,
     autoplay: 4000,
   }
-]}>
-     
-     <h1 className='titulo-carrousel'>Popular MYtineraries</h1>
-       {props.dataApi && props.dataApi.map(item => 
-   
-
+]}>    
+    {props.dataApi && props.dataApi.map(item => 
       <Carousel.Item>
         <img width="100%" className="imgCarrousel" src={item.image} />
-       <h4 className="nombrePais">{item.name}</h4>
+         <h4 className="nombrePais">{item.name}</h4>
       </Carousel.Item>
-    
-       )}
+     )}
     </Carousel> 
-    </div>
-  )
+  </div>
+ )
 }
+const mapDispatchToProps = {
+  getCities: cityActions.getCities,
 
-export default Carrousel
+}
+const mapStateToProps = (state) => {
+  return {
+    cities:state.cityReducer.cities,
+    auxiliar:state.cityReducer.auxiliar
+  }
+  
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Carrousel)

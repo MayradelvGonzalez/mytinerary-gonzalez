@@ -21,7 +21,7 @@ const citiesControllers = {
             city = await Cities.findOne({_id:id})
         }catch(err){
        error = err
-       cosole.log(error)
+       console.log(error)
         }
         res.json({
             response: error ? 'error' : { city },

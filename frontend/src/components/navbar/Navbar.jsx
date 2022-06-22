@@ -12,15 +12,14 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import FaceIcon from '@mui/icons-material/Face';
 import { Link as LinkRouter } from 'react-router-dom';
-
-
 
  const pages = ['Home', 'Cities'];
  const settings = [{to:'/singin', name:'Sing In'},{to:'/logout', name:'Log Out'}];
-const opcionesNavBar = [{to:'/index', name:'Home'}, {to:'/cities', name:'Cities'}]
+ const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
 
-const Nav = () => {
+  const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -43,10 +42,8 @@ const Nav = () => {
     <AppBar position="static">
       <Container maxWidth="xl" className="nav">
         <Toolbar disableGutters className='caja-menu'>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}}>
-          <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"60px"}}/></Box>
-      
-
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}}>
+           <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"60px"}}/></Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -74,8 +71,7 @@ const Nav = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
-              }}
-            >
+              }} >
               {opcionesNavBar.map((cadaOpcion, index) => (
               <LinkRouter key={index} to={cadaOpcion.to} onClick={handleCloseNavMenu}>
                 <MenuItem>
@@ -85,32 +81,37 @@ const Nav = () => {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
-              <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
-          </Box>
-          
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
-            {pages.map((page, index) => (
-              <LinkRouter>
+        <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
+          <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
+        </Box>
+    
+           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
+           <LinkRouter to='/' className="botonMenu">
+              <button className="boton-menu">Home</button>
+            </LinkRouter>
+            <LinkRouter to='/Cities' className="botonMenu">
+              <button className="boton-menu">Cities</button>
+            </LinkRouter>
+        
+             {/* {pages.map((page, index) => (
+            <LinkRouter>
               <Button
-              className='OpcionesMenu'
+                className='OpcionesMenu'
                 key={index}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+                sx={{ my: 2, color: 'white', display: 'block' }}>{page}                
               </Button>
-              </LinkRouter>
-            ))}
-          </Box>
-
+            </LinkRouter>
+            ))}  */}
+          </Box> 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                {<FaceIcon className="faceIcon"/>}
               </IconButton>
             </Tooltip>
-            <Menu
+          <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -126,20 +127,21 @@ const Nav = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting,index) => (
-                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
-                <MenuItem>
+               {settings.map((setting,index) => (
+                <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
+                 <MenuItem>
                   <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
-                </MenuItem>
+                 </MenuItem>
                 </LinkRouter>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
-              }
+                )
+               )} 
+          </Menu>
+        </Box>
+      </Toolbar>
+    </Container>
+  </AppBar>
+);
+  }
 export default Nav;
 
     

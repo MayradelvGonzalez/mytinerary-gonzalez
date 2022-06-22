@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import SearchPage from '../searchPage/SearchPage'
-// import data from ''
+import SearchPage from '../searchPage/SearchPage';
 import NotFound from '../notFound/NotFound';
 
-function Cities(){
+
+function Cities({props}){
 
     const [inputValue, setInputValue] = useState("");
-    const [city, setCity] = useState
+    // const [city, setCity] = useState([]);
+   
 
-    let filterInput = data.filter((city) => city.name.toLowerCase().startsWith(inputValue.toLowerCase().trim()));
+    let filterInput = props.filter((city) => city.name.toLowerCase().startsWith(inputValue.toLowerCase().trim()));
 
     return (
       <>
+ 
         <div className="containerInput">
          <input onKeyUp={
-            (evento )=>{setInputValue(evento.target.value)}} type="text">
+            (evento )=>{setInputValue(evento.target.value)}} type="text" >
     
          </input>
         </div>
-        <div className="cards">
+        <div className="cardsBox">
             {filterInput.length > 0 ? (<SearchPage cardFilter={filterInput} />) : (<NotFound />) }
         </div>
       </>

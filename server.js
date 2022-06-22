@@ -7,10 +7,6 @@ const cors = require('cors')
 
 const PORT = 4000
 
-app.set('port',PORT)
-app.get('/',(req,res)=> {
-    res.send('SERVER CREATED!')
-})
 app.use(cors())
 app.use(express.json())
 app.use('/api', Router)
