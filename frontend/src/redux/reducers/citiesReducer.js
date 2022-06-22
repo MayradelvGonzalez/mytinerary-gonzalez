@@ -3,7 +3,7 @@ const initialState = {
     auxiliar:[]
 }
 
-const cityReducer = (state = initialState , action) => { 
+const citiesReducer = (state = initialState , action) => { 
  switch(action.type){  //en el switch tengo una condicion action.type...evalua por el tipo, sino va a default
     case "GETCITIES":
         return {
@@ -16,4 +16,4 @@ const cityReducer = (state = initialState , action) => {
         return state
    }
 }
-export default cityReducer
+export default citiesReducer

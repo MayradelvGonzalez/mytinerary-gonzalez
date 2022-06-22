@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchPage from '../searchPage/SearchPage';
 import NotFound from '../notFound/NotFound';
+import { connect } from 'react-redux'
+ import cityActions from '../../redux/actions/cityActions'
+//  import citiesReducer from '../../redux/reducers/citiesReducer'
 
-
-function Cities({props}){
+function Cities(props){
 
     const [inputValue, setInputValue] = useState("");
     // const [city, setCity] = useState([]);
    
 
-    let filterInput = props.filter((city) => city.name.toLowerCase().startsWith(inputValue.toLowerCase().trim()));
+    let filterInput = props.cities?.filter((city) => city.name.toLowerCase().startsWith(inputValue.toLowerCase().trim()));
 
     return (
       <>
@@ -25,8 +27,17 @@ function Cities({props}){
         </div>
       </>
         );}
+        const mapDispatchToProps = {
+          getCities : cityActions.getCities
+      };
+       const mapStateToProps = (state) => {
+        return {
+        getCities:state.citiesReducer.cities,
+        auxiliar:state.citiesReducer.auxiliar
+        }
+       }
 
-export default Cities;
+export default connect(mapDispatchToProps, mapStateToProps)(Cities);
 
 // target es el lugar donde se dispara el evento 
 // onkeyup es cunado el usuario ltoca una tecla y suelta

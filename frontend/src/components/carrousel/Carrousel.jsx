@@ -41,7 +41,7 @@ const Carrousel = (props) => {
     autoplay: 4000,
   }
 ]}>    
-    {props.dataApi && props.dataApi.map(item => 
+    {props.cities?.map(item => 
       <Carousel.Item>
         <img width="100%" className="imgCarrousel" src={item.image} />
          <h4 className="nombrePais">{item.name}</h4>
@@ -51,15 +51,12 @@ const Carrousel = (props) => {
   </div>
  )
 }
-const mapDispatchToProps = {
-  getCities: cityActions.getCities,
 
-}
 const mapStateToProps = (state) => {
   return {
-    cities:state.cityReducer.cities,
-    auxiliar:state.cityReducer.auxiliar
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar
   }
   
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Carrousel)
+export default connect(null, mapStateToProps)(Carrousel)
