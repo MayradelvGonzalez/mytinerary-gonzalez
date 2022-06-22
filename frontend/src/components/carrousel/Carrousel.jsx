@@ -1,9 +1,12 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel'
 import { connect } from 'react-redux'
-import citiesActions from '../../redux/actions/citiesActions'
+// import citiesActions from '../../redux/actions/citiesActions'
+// import citiesReducer from '../../redux/reducers/citiesReducer'
 
 const Carrousel = (props) => {
+ 
+
   return (
    <div className="container-carrousel">
     <h1 className='titulo-carrousel'>Popular Mytineraries</h1>
@@ -42,7 +45,7 @@ const Carrousel = (props) => {
   }
 ]}>    
     {props.cities?.map(item => 
-      <Carousel.Item>
+      <Carousel.Item key={item.id}>
         <img width="100%" className="imgCarrousel" src={item.image} />
          <h4 className="nombrePais">{item.name}</h4>
       </Carousel.Item>
@@ -51,7 +54,6 @@ const Carrousel = (props) => {
   </div>
  )
 }
-
 const mapStateToProps = (state) => {
   return {
     cities: state.citiesReducer.cities,
@@ -59,4 +61,4 @@ const mapStateToProps = (state) => {
   }
   
 }
-export default connect(null, mapStateToProps)(Carrousel)
+export default connect(mapStateToProps,null)(Carrousel)

@@ -1,10 +1,10 @@
 import React  from 'react';
 import {Link as LinkRouter} from 'react-router-dom'
 import Carrousel from '../carrousel/Carrousel'
-// import Cities from '../city/City';
+import Cities from '../city/City';
 
-function Home({props}){
-
+function Home(){
+ 
 return(
   <div>
     <div className="container-landing">
@@ -19,16 +19,16 @@ return(
 
     <div className="botonCall">    
      <LinkRouter to= '/cities' className="searchpage">
-    
+
       <button className="botonCall">Click here and let's travel!</button>
      </LinkRouter>
     </div>
 
       </div>
       </div>
-    <div className="carrouselCaja"> <Carrousel props={props} /></div>
+    <div className="carrouselCaja"> <Carrousel /></div>
    
- 
+
   </div>
 
     );

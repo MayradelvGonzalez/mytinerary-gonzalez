@@ -4,36 +4,35 @@ import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import Home from './components/landing/Home';
 // import Landing from './components/landing/Landing';
-import SearchPage from './components/searchPage/SearchPage';
+// import SearchPage from './components/searchPage/SearchPage';
 import Footer from './components/footer/Footer';
 import Nav from './components/navbar/Navbar';
 import Error from './components/error/Error';
-import axios from 'axios';
+// import axios from 'axios';
 import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
 import ScrollToTop from 'react-scroll-to-top';
 import Details from './components/details/Details';
 import Cities from './components/city/City';
 import SingIn from './components/singin/SingIn';
 import LogOut from './components/logout/LogOut';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch } from 'react-redux';
 
 function App()  {
   
     // const [dataApi, setDataApi] = useState()
-
+    const dispatch = useDispatch();
     useEffect(() => {
-        const dispatch = useDispatch();
+       
        dispatch(citiesActions.getCities()) 
-    //    props.getCities();
+    //  props.getCities();
        
         // axios.get(`http://localhost:4000/api/cities`)
         // .then(res => setDataApi(res.data.response.cities))
        },[])
-
-       console.log(props.cities)
-
+      
+     
     return (
         <div className="app">
             <Nav />
