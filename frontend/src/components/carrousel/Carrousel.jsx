@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel'
 import { connect } from 'react-redux'
-import cityActions from '../../redux/actions/cityActions'
+import citiesActions from '../../redux/actions/citiesActions'
 
 const Carrousel = (props) => {
   return (

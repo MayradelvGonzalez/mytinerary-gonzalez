@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchPage from '../searchPage/SearchPage';
 import NotFound from '../notFound/NotFound';
 import { connect } from 'react-redux'
- import cityActions from '../../redux/actions/cityActions'
+ import citiesActions from '../../redux/actions/citiesActions'
 //  import citiesReducer from '../../redux/reducers/citiesReducer'
 
 function Cities(props){
@@ -28,16 +28,16 @@ function Cities(props){
       </>
         );}
         const mapDispatchToProps = {
-          getCities : cityActions.getCities
-      };
+          getCities : citiesActions.getCities
+      }
        const mapStateToProps = (state) => {
         return {
         getCities:state.citiesReducer.cities,
         auxiliar:state.citiesReducer.auxiliar
         }
        }
-
-export default connect(mapDispatchToProps, mapStateToProps)(Cities);
+       
+export default connect(mapStateToProps,mapDispatchToProps)(Cities);
 
 // target es el lugar donde se dispara el evento 
 // onkeyup es cunado el usuario ltoca una tecla y suelta

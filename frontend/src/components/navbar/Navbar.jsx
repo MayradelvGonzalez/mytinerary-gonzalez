@@ -8,20 +8,14 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FaceIcon from '@mui/icons-material/Face';
 import { Link as LinkRouter } from 'react-router-dom';
 
- const pages = ['Home', 'Cities'];
+//  const pages = ['Home', 'Cities'];
  const settings = [{to:'/singin', name:'Sing In'},{to:'/logout', name:'Log Out'}];
-<<<<<<< HEAD
  const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
-=======
-const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
->>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
 
   const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -85,7 +79,6 @@ const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
               ))}
             </Menu>
           </Box>
-<<<<<<< HEAD
         <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
           <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
         </Box>
@@ -98,44 +91,14 @@ const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
               <button className="boton-menu">Cities</button>
             </LinkRouter>
         
-             {/* {pages.map((page, index) => (
-            <LinkRouter>
-              <Button
-                className='OpcionesMenu'
-                key={index}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}>{page}                
-              </Button>
-            </LinkRouter>
-            ))}  */}
+        
           </Box> 
-=======
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
-              <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
-          </Box>
-          
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
-            {/* {pages.map((page, index) => (
-              // <LinkRouter>
-              // <Button
-              // className='OpcionesMenu'
-              //   key={index}
-              //   onClick={handleCloseNavMenu}
-              //   sx={{ my: 2, color: 'white', display: 'block' }}
-              // >
-              //   {page}
-              // </Button>
-              // </LinkRouter>
-            ))} */}
-          </Box>
-
->>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
-                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-                {<FaceIcon className="faceIcon"/>}
-              </IconButton>
+              
+                 <FaceIcon className="faceIcon"/> 
+                 </IconButton>
             </Tooltip>
           <Menu
               sx={{ mt: '45px' }}
@@ -153,38 +116,20 @@ const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-<<<<<<< HEAD
                {settings.map((setting,index) => (
                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
                  <MenuItem>
-=======
-              {/* {settings.map((setting,index) => (
-                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
-                <MenuItem>
->>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
                   <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
                  </MenuItem>
                 </LinkRouter>
-<<<<<<< HEAD
+
                 )
                )} 
           </Menu>
         </Box>
       </Toolbar>
-    </Container>
-  </AppBar>
-);
-  }
-=======
-              ))} */}
-            </Menu>
-          </Box>
-        </Toolbar>
       </Container>
-    </AppBar>
-  );
-              }
->>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
-export default Nav;
+  </AppBar>
+) } 
 
-    
+export default Nav

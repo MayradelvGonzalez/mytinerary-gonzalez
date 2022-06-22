@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const cityActions={
+const citiesActions={
     getCities: () => {
         return async(dispatch, getState) => {
             const res = await axios.get("http://localhost:4000/api/cities")
@@ -9,4 +9,4 @@ const cityActions={
     }
 
 }
-export default cityActions
+export default citiesActions

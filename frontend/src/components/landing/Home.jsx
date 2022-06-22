@@ -1,10 +1,7 @@
 import React  from 'react';
 import {Link as LinkRouter} from 'react-router-dom'
 import Carrousel from '../carrousel/Carrousel'
-<<<<<<< HEAD:frontend/src/components/landing/Home.jsx
-import Cities from '../city/City';
-=======
->>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4:frontend/src/components/landing/Landing.jsx
+// import Cities from '../city/City';
 
 function Home({props}){
 
