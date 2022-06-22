@@ -2,7 +2,12 @@ import React from 'react';
 import  { useState, useEffect } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
+<<<<<<< HEAD
 import Home from './components/landing/Home';
+=======
+import Landing from './components/landing/Landing';
+import SearchPage from './components/searchPage/SearchPage';
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
 import Footer from './components/footer/Footer';
 import Nav from './components/navbar/Navbar';
 import Error from './components/error/Error';
@@ -18,6 +23,7 @@ import cityActions from '../src/redux/actions/cityActions'
 
 function App(props)  {
   
+<<<<<<< HEAD
     // const [dataApi, setDataApi] = useState()
 
     useEffect(() => {
@@ -28,10 +34,21 @@ function App(props)  {
        },[])
 
        console.log(props.cities)
+=======
+    const [dataApi, setDataApi] = useState()
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/api/cities`)
+        .then(res => setDataApi(res.data.response.cities))
+       },[])
+  
+console.log(dataApi)
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
 
     return (
         <div className="app">
             <Nav />
+<<<<<<< HEAD
              <Routes>
                  <Route path='/' element={<Home />} />
                  <Route path='/cities' element={<Cities/>} />
@@ -42,6 +59,15 @@ function App(props)  {
 
              </Routes>
 
+=======
+            <Routes>
+                 <Route path='/' element={<Landing dataApi={dataApi} />} />
+                 <Route path='/cities' element={<SearchPage cardFilter={dataApi}/>} />
+                 <Route path='*' element={<Error />} />
+                  <Route path='/cities/city/:id' element={<Details />} /> 
+            </Routes>
+        
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
             <Footer />
             <ScrollToTop 
             style={{backgroundColor:"#25475e", color:"white"}}

@@ -17,7 +17,11 @@ import { Link as LinkRouter } from 'react-router-dom';
 
  const pages = ['Home', 'Cities'];
  const settings = [{to:'/singin', name:'Sing In'},{to:'/logout', name:'Log Out'}];
+<<<<<<< HEAD
  const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
+=======
+const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
 
   const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -81,6 +85,7 @@ import { Link as LinkRouter } from 'react-router-dom';
               ))}
             </Menu>
           </Box>
+<<<<<<< HEAD
         <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
           <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
         </Box>
@@ -104,6 +109,27 @@ import { Link as LinkRouter } from 'react-router-dom';
             </LinkRouter>
             ))}  */}
           </Box> 
+=======
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width:"100%", justifyContent:"center"}}>
+              <img src={logoNuevo} alt="LogoMyTinerary" style={{width:"40px"}} />
+          </Box>
+          
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width:'100px', justifyContent:'center'} }}>
+            {/* {pages.map((page, index) => (
+              // <LinkRouter>
+              // <Button
+              // className='OpcionesMenu'
+              //   key={index}
+              //   onClick={handleCloseNavMenu}
+              //   sx={{ my: 2, color: 'white', display: 'block' }}
+              // >
+              //   {page}
+              // </Button>
+              // </LinkRouter>
+            ))} */}
+          </Box>
+
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
@@ -127,12 +153,19 @@ import { Link as LinkRouter } from 'react-router-dom';
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+<<<<<<< HEAD
                {settings.map((setting,index) => (
                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
                  <MenuItem>
+=======
+              {/* {settings.map((setting,index) => (
+                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
+                <MenuItem>
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
                   <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
                  </MenuItem>
                 </LinkRouter>
+<<<<<<< HEAD
                 )
                )} 
           </Menu>
@@ -142,6 +175,16 @@ import { Link as LinkRouter } from 'react-router-dom';
   </AppBar>
 );
   }
+=======
+              ))} */}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+              }
+>>>>>>> 83e1385d6189f53e3599af9315afcd988256b5e4
 export default Nav;
 
     
