@@ -22,7 +22,7 @@ const itinerariesReducer = (state = initialState, action) => {
                         getItinerariesByCity: action.payload
                     }
                     default:
-                        state
+                       return state
     }
 }
 

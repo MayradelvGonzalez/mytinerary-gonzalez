@@ -8,18 +8,18 @@ const itinerariesActions = {
         }
     },
 
-    getOneCity: (id) => {
+    getOneItinerary: (id) => {
         return async(dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/cities/${id}`)
+            const res = await axios.get(`http://localhost:4000/api/itineraries/${id}`)
             dispatch({type: "GETONEITINERARY", payload: res.data.response.city})
         }
     },
-    getItinerariesByCity: (id) => {
-        return async(dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/itinerariesbycity/${id}`)
-            dispatch({type: "GETITINERARIESBYCITY", payload: res.data.response})
-        }
-    },
+    // getItinerariesByCity: (id) => {
+    //     return async(dispatch, getState) => {
+    //         const res = await axios.get(`http://localhost:4000/api/itinerariesbycity/${id}`)
+    //         dispatch({type: "GETITINERARIESBYCITY", payload: res.data.response})
+    //     }
+    // },
     
 }
 

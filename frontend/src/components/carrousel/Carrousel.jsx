@@ -1,13 +1,16 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 // import citiesActions from '../../redux/actions/citiesActions'
 // import citiesReducer from '../../redux/reducers/citiesReducer'
 
-const Carrousel = (props) => {
+const Carrousel = () => {
  
+  const cities = useSelector(store => store.citiesReducer.cities)
+console.log(cities)
 
   return (
+  
    <div className="container-carrousel">
     <h1 className='titulo-carrousel'>Popular Mytineraries</h1>
     <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel"
@@ -44,8 +47,8 @@ const Carrousel = (props) => {
     autoplay: 4000,
   }
 ]}>    
-    {props.cities?.map(item => 
-      <Carousel.Item key={item.id}>
+    {cities?.map(item => 
+      <Carousel.Item key={item._id}>
         <img width="100%" className="imgCarrousel" src={item.image} />
          <h4 className="nombrePais">{item.name}</h4>
       </Carousel.Item>
@@ -54,11 +57,11 @@ const Carrousel = (props) => {
   </div>
  )
 }
-const mapStateToProps = (state) => {
-  return {
-    cities: state.citiesReducer.cities,
-    auxiliar: state.citiesReducer.auxiliar
-  }
+// const mapStateToProps = (state) => {
+//   return {
+//     cities: state.citiesReducer.cities,
+//     auxiliar: state.citiesReducer.auxiliar
+//   }
   
-}
-export default connect(mapStateToProps,null)(Carrousel)
+// }
+export default Carrousel

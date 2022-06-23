@@ -1,4 +1,4 @@
-const Itineraries = requiere('../models/itineraries')
+const Itineraries = require('../models/itineraries')
 
 const itinerariesControllers = {
     getItineraries : async (req,res) =>{

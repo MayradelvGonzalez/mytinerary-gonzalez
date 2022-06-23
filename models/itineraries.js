@@ -1,8 +1,8 @@
-const mongoose = requiere('mongoose')
+const mongoose = require('mongoose')
 
 
 const itinerariesSchema =  new mongoose.Schema({
-    city:{type: mongoose.Type.ObjectId, ref: "cities"},
+    city:{type: mongoose.Types.ObjectId, ref: "cities"},
     name:{type:String, required:true},
     nameUser: {type:String, required:true},
     image:{type:String, required:true},
