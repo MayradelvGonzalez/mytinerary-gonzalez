@@ -2,11 +2,16 @@ const mongoose = requiere('mongoose')
 
 
 const itinerariesSchema =  new mongoose.Schema({
-    name:{type:String, required:true},//?
-    activities:{type:Array, required:true},
-    description:{type: String, required:true}, //preguntas si puedo hacer un array de obj en actividad
+    city:{type: mongoose.Type.ObjectId, ref: "cities"},
+    name:{type:String, required:true},
+    nameUser: {type:String, required:true},
+    image:{type:String, required:true},
+    description:{type: String, required:true},
+    activities:{type: String, required:true},
     price:{type: String, required:true},
-    likes:{type: number, required:true}
+    duration:{type: String, required:true},
+    hashtags:{type: Array, requires:true},
+    likes:{type: Array, required:true}
 })
 const Itineraries = mongoose.model('itineraries', itinerariesSchema)
 
