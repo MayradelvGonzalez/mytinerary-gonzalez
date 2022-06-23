@@ -28,8 +28,8 @@ Router.route('/itineraries/:id')
 // Router.route("/multiplesItineraries")
 // .post(multiplesItineraries)
 
-// Router.route("/itinerarybycity/:id")
-// .get(getItinerariesByCity)
+Router.route("/itinerarybycity/:id")
+.get(getItinerariesByCity)
 
 
 

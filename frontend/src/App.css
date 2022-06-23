@@ -254,13 +254,14 @@ font-family: 'Concert One';
 .cardsBox{
   display:flex;
   flex-wrap:wrap;
-background-color: #cccccc;
+  background-color: #cccccc;
 /* background-image: url('./img/imagendefondo.jpg'); */
-background-repeat: no-repeat;
-object-fit:contain;
+ background-repeat: no-repeat;
+ object-fit:contain;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: 70vh;
   
  }
  .cards h2{
@@ -429,6 +430,11 @@ border-radius: 3em;
 transition: transform 1s;
 transform: rotate3d(1, 1, 1, 360deg);
 }
+.containerInput{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
  .containerInput input{
   background-color: white;
   color:black;
@@ -443,8 +449,16 @@ transform: rotate3d(1, 1, 1, 360deg);
   border: 0.2em solid #25475e;
   
  }
+ .buscadorTitulo{
+  color:black;
+  font-family: 'Old Standard TT', serif;
+
+ }
  .notFound{
  background-image: url('./img/brujula.gif');
+ background-color: white;
+ background-size: contain;
+ object-fit:contain;
 height: 70vh;
 width: 100%;
  background-repeat: no-repeat;

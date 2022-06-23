@@ -23,7 +23,7 @@ function Itinerary(){
             </Text>
             <Text h3 color="white">
               {itineraries.name}
-              {itineraries.activities}
+              {/* {itineraries.activities} */}
               {itineraries.description}
             </Text>
           </Col>
@@ -61,13 +61,13 @@ function Itinerary(){
                 </Col>
                 <Col>
                   <Text color="#d1d1d1" size={12}>
-                    {itineraries.duration}
-                    {itineraries.price}
+                   <div>⌛{itineraries.duration}</div>  
+                    <div>💲{itineraries.price}</div>
                    
                   </Text>
                   <Text color="#d1d1d1" size={12}>
-                    {itineraries.hashtags}
-                    {itineraries.likes}
+                    <div>💭{itineraries.hashtags}</div>
+                   <div>💖{itineraries.likes}</div> 
                   </Text>
                 </Col>
               </Row>

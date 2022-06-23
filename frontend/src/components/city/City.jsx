@@ -16,6 +16,7 @@ function Cities(props){
 
     return (
       <>
+      <h2 className="buscadorTitulo">Search your favorite City!</h2>
         <div className="containerInput">
          <input onKeyUp={
             (evento )=>{setInputValue(evento.target.value)}} type="text" >
