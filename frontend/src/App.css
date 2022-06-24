@@ -319,7 +319,7 @@ font-family: 'Concert One';
   justify-content: space-between;
   align-items: center;
   flex-wrap:wrap;
-  background-color: green;
+  
 } 
 /* DETALLES */
 .contenedor-detalles{
@@ -327,7 +327,7 @@ font-family: 'Concert One';
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-image: url('./img/imagendefondo.jpg'); */
+ 
   background-attachment: fixed;
 background-repeat: no-repeat;
 background-size: cover;
@@ -343,8 +343,8 @@ background-size: cover;
 text-align:center;
 
 width: 75%;
-  box-shadow: rgba(60, 60, 93, 1.45) 0px 30px 60px -10px, rgba(0, 0, 0, 0.8) 0px 18px 36px -18px;
-background-color: white;
+  box-shadow: rgba(70, 70, 93, 2.45) 0px 30px 60px -8px, rgba(0, 0, 0, 0.8) 0px 15px 28px -4px;
+background-color: #808080;
 padding:0.5em;
 font-weight: bold;
 }
@@ -435,7 +435,7 @@ transform: rotate3d(1, 1, 1, 360deg);
   background-color: white;
   color:black;
   width: 40%;
-font-size: 2em;
+  font-size: 2em;
   height: 5vh;
   border:0.1em solid #808080;
 
@@ -486,16 +486,17 @@ width: 100%;
  align-items: center;
 
 }
+.img:hover{
+  transition: all 2s ease-in-out;
+  transform: rotate(360deg)
+}
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
 @media (min-width:576px){
 .titulo{
   font-size:4.2em;
 }
-.nav{
-  
 
-}
 .landing{
   height: 60vh;
   background-size:cover;

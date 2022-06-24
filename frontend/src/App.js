@@ -54,16 +54,7 @@ function App()  {
         </div>
     )  
 }
-// const mapDispatchToProps = {
-//     getCities : cityActions.getCities
-// };
-// const mapStateToProps = (state) => {
-//     return
-//     {
-//     cities: state.cityReducer.cities,
-//     auxiliar: state.cityReducer.auxiliar
-//     }
-// }
+
 
 // export default connect(mapDispatchToProps, mapStateToProps)(App)
 export default App

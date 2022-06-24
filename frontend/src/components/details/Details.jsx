@@ -33,7 +33,7 @@ const detail = useSelector(store => store.citiesReducer.oneCity); //constante co
              </div>
             <div>
                 <LinkRouter to={"/cities"}>
-                    <button className="botonCard">Cities</button>
+                    <button className="botonCard">Back to Cities</button>
                 </LinkRouter>
                 <div className='itinerary'><Itinerary /></div>
 

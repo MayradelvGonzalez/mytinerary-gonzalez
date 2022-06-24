@@ -27,23 +27,17 @@ function Itinerary(){
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
           <Col>
             <Text size={12} weight="bold" transform="uppercase" className='textoItinerario'>
-              {itinerary.city}
+            {itinerary.name}
             </Text>
             <Text h3 color="black" className='textoIt'>
-              {itinerary.name}
+             <p>Description:</p>
               {/* {itineraries.activities} */}
               {itinerary.description}
             </Text>
           </Col>
         </Card.Header>
         <Card.Body css={{ p: 0 }} className="bodyItineraries">
-          {/* <Card.Image
-            src="" 
-            objectFit="cover"
-            width="100%"
-            height="100%"
-            alt="Itinerary Background"
-          /> */}
+          
         </Card.Body>
         <Card.Footer
           isBlurred
@@ -82,7 +76,7 @@ function Itinerary(){
                     height={50}
                     width={60}
                     alt="Name User"
-                    
+                    className='img'
                   />
                 </Col>
               </Row>
