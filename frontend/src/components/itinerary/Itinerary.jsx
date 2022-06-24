@@ -55,17 +55,17 @@ function Itinerary(){
                
                 <Col>
                   <Text color="black" size={14}>
-                   <div>⌛{itinerary.duration}</div>  
-                    <div>💲{itinerary.price}</div>
+                   <div><div className="icono">⌛</div>{itinerary.duration}</div>  
+                    <div><div className="icono">💲</div>{itinerary.price}</div>
                    
                   </Text>
                   <Text color="black" size={12}>
-                    <div>💭{itinerary.hashtags}</div>
+                    <div><div className='icono'>💭</div>{itinerary.hashtags}</div>
                     
                   </Text>
                   <Text color="black" size={12}>
                     
-                   <div>💖{itinerary.likes}</div> 
+                   <div><div className="icono">💖</div>{itinerary.likes}</div> 
                   </Text>
                 </Col>
                 <Col span={3}>

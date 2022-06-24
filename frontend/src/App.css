@@ -486,8 +486,14 @@ width: 100%;
  align-items: center;
 
 }
+.icono:hover{
+  
+  cursor: pointer;
+  transform: scale(1.1)translate(0%, -0.5%);
+  transition:all 1s;
+}
 .img:hover{
-  transition: all 2s ease-in-out;
+  transition: all 2s ease;
   transform: rotate(360deg)
 }
 
@@ -514,7 +520,10 @@ width: 100%;
     border-radius: 1em;
   }
 
-
+  .textoIt{
+    font-size: 0.5em;
+    font-weight: bold;
+  }
   .botonCall button{
    font-size: 0.5em;
    width: 20vw;
