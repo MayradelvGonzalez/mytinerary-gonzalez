@@ -5,22 +5,6 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Cinzel:wght@500&family=Concert+One&family=Cookie&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Hubballi&family=Kaushan+Script&family=Luxurious+Script&family=Old+Standard+TT&family=Permanent+Marker&family=Shalimar&family=Smooch+Sans:wght@200&family=Ubuntu+Mono&display=swap');
 
-/* font-family: 'Acme', sans-serif;
-font-family: 'Cinzel', serif;
-font-family: 'Concert One', cursive;
-font-family: 'Cookie', cursive;
-font-family: 'Cormorant Garamond', serif;
-font-family: 'Hubballi', cursive;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Luxurious Script', cursive;
-font-family: 'Old Standard TT', serif;
-font-family: 'Permanent Marker', cursive;
-font-family: 'Shalimar', cursive;
-font-family: 'Smooch Sans', sans-serif; */
-/* font-family: 'Ubuntu Mono', monospace; */
-/* #b1d9fc-
-#4e8cb8-#25475e-#3f7746-#b5cdd0-#2b526d
- */
   body::-webkit-scrollbar {
   width: 0.6em;
   }
@@ -254,38 +238,40 @@ font-family: 'Concert One';
 .cardsBox{
   display:flex;
   flex-wrap:wrap;
-  background-color: #cccccc;
-/* background-image: url('./img/imagendefondo.jpg'); */
- background-repeat: no-repeat;
- object-fit:contain;
+  background:linear-gradient(gray,#b5cdd0,#25475e,orange, white);
+ gap:20;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 70vh;
+  padding: 1em;
   
  }
  .cards h2{
   color:black;
   font-family:'Cormorant Garamond', serif;
+
  }
 .card{
- margin-top:1em;
+   margin:1em;
    width:35vw;
    height: 52vh;
    margin:1em;
-   box-shadow: rgba(1, 1, 1, 2.4) 0px 30px 90px;
-
-
+   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
+   
 }
+/* .MuiPaper-root{
+  padding:0.5em;
+} */
 
 
 .card:hover{
-  transform: scale(1.1)translate(0%, -0.3%);
+  transform: scale(1.1)translate(0%, -0.5%);
   transition:all 1s;
 
 }
 .card-container{
   font-family: 'Old Standard TT', serif;
+  
   
 }
 .card .caja-card{
@@ -293,7 +279,8 @@ font-family: 'Concert One';
   background-color: #b5cdd0;
 }
 .boton-card-container{
-  background-color: #b5cdd0;
+  background-color: white;
+  
 }
 .card .botonMore{
   display: flex;
@@ -306,6 +293,7 @@ font-family: 'Concert One';
   color:white;
   background-color: #25475e;
   text-decoration:none;
+  
 }
 .card .img{
   object-fit:contain;
@@ -344,6 +332,7 @@ font-family: 'Concert One';
 background-repeat: no-repeat;
 background-size: cover;
   object-fit: contain;
+ 
 }
 .detalles{
   font-family: 'Old Standard TT', serif;
@@ -352,7 +341,7 @@ background-size: cover;
   align-items: center;
   justify-content: center;
 text-align:center;
-height: 80vh;
+
 width: 75%;
   box-shadow: rgba(60, 60, 93, 1.45) 0px 30px 60px -10px, rgba(0, 0, 0, 0.8) 0px 18px 36px -18px;
 background-color: white;
@@ -380,6 +369,7 @@ font-weight: bold;
   width: 15vw;
   margin-top:0.8em;
   font-weight: bold;
+
 }
 .botonCard:hover{
   background-color: #4e8cb8;
@@ -432,18 +422,25 @@ transform: rotate3d(1, 1, 1, 360deg);
 }
 .containerInput{
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin-top:6em;
+  padding: 2em;
+  font-size: 0.5em;
+ 
+  height: 10vh;
+  margin-top: 8em;
 }
  .containerInput input{
   background-color: white;
   color:black;
-  margin-top:5em;
-  width: 50%;
+  width: 40%;
+font-size: 2em;
   height: 5vh;
   border:0.1em solid #808080;
-  justify-content: center;
-  align-items: center;
+
+
+
  }
  .containerInput input:hover{
   border: 0.2em solid #25475e;
@@ -452,7 +449,6 @@ transform: rotate3d(1, 1, 1, 360deg);
  .buscadorTitulo{
   color:black;
   font-family: 'Old Standard TT', serif;
-
  }
  .notFound{
  background-image: url('./img/brujula.gif');
@@ -469,6 +465,27 @@ width: 100%;
  align-items: center;
  justify-content: center;
  }
+.Itinerary{
+  border-color: #808080;
+}
+.itinerarios{
+  margin-top: 0.8em;
+  background-color: #ddd;
+  display:flex;
+  width: 30vw;
+
+  
+}
+.textoIt{
+  font-size: 1em;
+  font-weight: bold;
+}
+.contenidoItinerario{
+  display:flex;
+  justify-content: space-around;
+ align-items: center;
+
+}
 
 /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
 @media (min-width:576px){
@@ -476,14 +493,15 @@ width: 100%;
   font-size:4.2em;
 }
 .nav{
-width: 100%;
+  
+
 }
 .landing{
   height: 60vh;
   background-size:cover;
 }
 .container-titulos h2{
-  font-size:1.2em;
+  font-size:1.1em;
   text-align:center;
   padding:auto 0.3em;
 }

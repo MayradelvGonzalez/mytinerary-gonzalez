@@ -19,15 +19,14 @@ function Cities(props){
     return (
       <>
        
-      <h2 className="buscadorTitulo">Search your favorite City!</h2>
+     
         <div className="containerInput">
+        <h3 className="buscadorTitulo">Search your favorite City!</h3>
          <input onKeyUp={
-            (evento )=>{setInputValue(evento.target.value)}} type="text" >
+            (evento )=>{setInputValue(evento.target.value)}} type="text" placeholder='search city...'>
     
          </input>
-         <LinkRouter to={"/itinerary"}>
-        <button className="botonCard">Itinerary</button>
-    </LinkRouter>
+        
         </div>
         <div className="cardsBox">
             {filterInput?.length > 0 ? (<SearchPage cardFilter={filterInput} />) : (<NotFound />) }

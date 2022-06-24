@@ -15,7 +15,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 export default function SearchPage({ cardFilter }) {
   return (
     cardFilter?.map((data) =>
-      <Card sx={{ maxWidth: 345 }} className="container-search">
+      <Card sx={{ maxWidth: 345 }} className="card">
         <CardActionArea>
           <CardMedia
 

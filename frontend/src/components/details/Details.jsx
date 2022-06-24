@@ -4,6 +4,7 @@ import {Link as LinkRouter} from 'react-router-dom';
 // import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import citiesActions from '../../redux/actions/citiesActions';
+import Itinerary from '../itinerary/Itinerary';
 
 function Details(){
     // const[detailCity, setDetailCity] = useState([])
@@ -34,6 +35,8 @@ const detail = useSelector(store => store.citiesReducer.oneCity); //constante co
                 <LinkRouter to={"/cities"}>
                     <button className="botonCard">Cities</button>
                 </LinkRouter>
+                <div className='itinerary'><Itinerary /></div>
+
             </div>
            
         </div>

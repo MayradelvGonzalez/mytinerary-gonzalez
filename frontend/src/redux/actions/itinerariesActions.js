@@ -4,6 +4,7 @@ const itinerariesActions = {
     getItineraries: () => {
         return async (dispatch, getState) => {
             const res = await axios.get("http://localhost:4000/api/itineraries")
+            console.log(res)
             dispatch({type: "GETITINERARIES", payload: res.data.response.itineraries})
         }
     },
@@ -17,7 +18,7 @@ const itinerariesActions = {
     getItinerariesByCity: (id) => {
         return async(dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/itinerarybycity/${id}`)
-            dispatch({type: "GETITINERARIESBYCITY", payload: res.data.response})
+            dispatch({type: "GETITINERARIESBYCITY", payload: res.data.response.itineraries})
         }
     },
     

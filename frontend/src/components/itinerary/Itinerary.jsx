@@ -12,34 +12,38 @@ function Itinerary(){
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(itinerariesActions.getItinerariesByCity(id))
-    },[])
+        dispatch(itinerariesActions.getItineraries())
+    },[id])
     const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
+    const todos = useSelector(store => store.itinerariesReducer.itineraries)
+    console.log(todos)
+    console.log(itineraries)
     return (
 
       <>
-      {/* {itineraries.map((itinerary) =>  */}
-      {itineraries && 
-        <Card css={{ w: "100%", h: "400px" }}>
+       {itineraries.map((itinerary) =>  
+      <div key={itinerary._id} className="itinerarios">
+        <Card css={{ w: "100%", h: "400px" }} >
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
           <Col>
-            <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
-              {itineraries.city}
+            <Text size={12} weight="bold" transform="uppercase" className='textoItinerario'>
+              {itinerary.city}
             </Text>
-            <Text h3 color="white">
-              {itineraries.name}
+            <Text h3 color="black" className='textoIt'>
+              {itinerary.name}
               {/* {itineraries.activities} */}
-              {itineraries.description}
+              {itinerary.description}
             </Text>
           </Col>
         </Card.Header>
-        <Card.Body css={{ p: 0 }}>
-          <Card.Image
-            src="" //colocar imagen
+        <Card.Body css={{ p: 0 }} className="bodyItineraries">
+          {/* <Card.Image
+            src="" 
             objectFit="cover"
             width="100%"
             height="100%"
             alt="Itinerary Background"
-          />
+          /> */}
         </Card.Body>
         <Card.Footer
           isBlurred
@@ -54,51 +58,55 @@ function Itinerary(){
           <Row>
             <Col>
               <Row>
-                <Col span={3}>
-                  <Card.Image
-                    src= {itineraries.image}
-                    css={{ bg: "black", br: "50%" }}
-                    height={40}
-                    width={40}
-                    alt={itineraries.nameUser}
-                  />
-                </Col>
+               
                 <Col>
-                  <Text color="#d1d1d1" size={12}>
-                   <div>⌛{itineraries.duration}</div>  
-                    <div>💲{itineraries.price}</div>
+                  <Text color="black" size={14}>
+                   <div>⌛{itinerary.duration}</div>  
+                    <div>💲{itinerary.price}</div>
                    
                   </Text>
-                  <Text color="#d1d1d1" size={12}>
-                    <div>💭{itineraries.hashtags}</div>
-                   <div>💖{itineraries.likes}</div> 
+                  <Text color="black" size={12}>
+                    <div>💭{itinerary.hashtags}</div>
+                    
                   </Text>
+                  <Text color="black" size={12}>
+                    
+                   <div>💖{itinerary.likes}</div> 
+                  </Text>
+                </Col>
+                <Col span={3}>
+                  <Card.Image 
+               
+                    src= {itinerary.image}
+                    css={{ bg: "black", br: "50%" }}
+                    height={50}
+                    width={60}
+                    alt="Name User"
+                    
+                  />
                 </Col>
               </Row>
             </Col>
             <Col>
               <Row justify="flex-end">
-                <Button
-                  flat
-                  auto
-                  rounded
-                  css={{ color: "#94f9f0", bg: "#94f9f026" }}
-                >
+               
                   <Text
                     css={{ color: "inherit" }}
                     size={12}
                     weight="bold"
                     transform="uppercase"
+                    
                   >
-                    Get App
+                    <h6>User:</h6>
+             {itinerary.nameUser}
                   </Text>
-                </Button>
+               
               </Row>
             </Col>
           </Row>
         </Card.Footer>
-      </Card>
-      }
+      </Card></div>
+     ) }
       </>
     )
 }
