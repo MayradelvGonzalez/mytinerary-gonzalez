@@ -1,20 +1,24 @@
-import React from 'react'
-import { useSelector , useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import itinerariesActiones from '../redux/actions/itinerariesActions'
-import { Card } from '@nextui-org/react';
+import React from 'react';
+import { useSelector , useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import itinerariesActions from '../../redux/actions/itinerariesActions';
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
 
 function Itinerary(){
+
     const {id} = useParams()
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(itinerariesActiones.getItinerariesByCity(id))
+        dispatch(itinerariesActions.getItinerariesByCity(id))
     },[])
     const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
     return (
+
+      <>
+      {/* {itineraries.map((itinerary) =>  */}
+      {itineraries && 
         <Card css={{ w: "100%", h: "400px" }}>
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
           <Col>
@@ -94,6 +98,8 @@ function Itinerary(){
           </Row>
         </Card.Footer>
       </Card>
+      }
+      </>
     )
 }
 

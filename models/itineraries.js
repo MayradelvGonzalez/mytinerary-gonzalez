@@ -7,11 +7,11 @@ const itinerariesSchema =  new mongoose.Schema({
     nameUser: {type:String, required:true},
     image:{type:String, required:true},
     description:{type: String, required:true},
-    activities:{type: String, required:true},
+    activities:{type: String},
     price:{type: String, required:true},
     duration:{type: String, required:true},
     hashtags:{type: Array, requires:true},
-    likes:{type: Array, required:true}
+    likes:{type: String, required:true}
 })
 const Itineraries = mongoose.model('itineraries', itinerariesSchema)
 

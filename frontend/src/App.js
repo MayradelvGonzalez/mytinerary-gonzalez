@@ -18,7 +18,7 @@ import LogOut from './components/logout/LogOut';
 // import { connect } from 'react-redux'
 import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch } from 'react-redux';
-
+import Itinerary from '../src/components/itinerary/Itinerary'
 function App()  {
   
     // const [dataApi, setDataApi] = useState()
@@ -43,6 +43,7 @@ function App()  {
                  <Route path='/cities/city/:id' element={<Details />} /> 
                  <Route path='/singin' element={<SingIn />} />
                  <Route path='/logout' element = {<LogOut />} />
+                 <Route path='/itinerary' element = {<Itinerary />} />
              </Routes>
 
             <Footer />

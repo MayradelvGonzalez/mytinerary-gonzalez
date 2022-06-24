@@ -14,19 +14,21 @@ function Details(){
     dispatch(citiesActions.getOneCity(id))
     // axios.get(`http://localhost:4000/api/cities/${id}`)
     // .then(res => setDetailCity(res.data.response.city))
-   },[id])
+   },[])
 
-const detailCity = useSelector((store) => store.citiesReducer.oneCity); //constante con lo que imprimo
-
+const detail = useSelector(store => store.citiesReducer.oneCity); //constante con lo que imprimo
 
     return(
+     
+        <>
+        {detail &&  
         <div className="contenedor-detalles">
         <div className="detalles">
             <div className="card-contenido">
-              <h3>{detailCity?.name}</h3>
+              <h3>{detail.name}</h3>
              
-                <img src={detailCity?.image} alt='img' className="imagenDetail" />
-                  <p>{detailCity?.description}</p>
+                <img src={detail.image} alt='img' className="imagenDetail" />
+                  <p>{detail.description}</p>
              </div>
             <div>
                 <LinkRouter to={"/cities"}>
@@ -37,6 +39,8 @@ const detailCity = useSelector((store) => store.citiesReducer.oneCity); //consta
         </div>
         
         </div>
+        }
+        </>
     )
 
     

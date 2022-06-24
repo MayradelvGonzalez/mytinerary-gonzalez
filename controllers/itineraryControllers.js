@@ -30,7 +30,7 @@ const itinerariesControllers = {
         })
     },
     addItinerary : async(req,res) => {
-        const {city,name,nameUser,image,description,activities,price,duration,hashtags,likes} = req.body.data
+        const {city,name,nameUser,image,description,activities,price,duration,hashtags,likes} = req.body.dataItineraries
         let itinerary
         let error = null
         try{
@@ -90,7 +90,7 @@ const itinerariesControllers = {
     let itineraries
     let error= null
     try{
-        itineraries= await Itinerary.find({idCity}) //esto seria id? o idCity
+        itineraries= await Itineraries.find({idCity}) //esto seria id? o idCity
     }catch (err) {
         error = err
     }
@@ -99,7 +99,22 @@ const itinerariesControllers = {
         success: error ? false : true,
         error: error
 })
-   }
+   },
+   getItineraryByCity : async(req, res)=>{
+    const id= req.params.id
+    let itineraries
+    let error =null
+    try {
+        itineraries= await Itineraries.find({city:id})
+    } catch (err) {error=err}
+    res.json({
+        response:error ? 'ERROR':{itineraries},
+        success:error ? false: true,
+        error: error
+    })
+}
+
+
 }
 
 

@@ -1,6 +1,6 @@
 const initialState = {
     cities: [],
-    oneCity:{},
+    oneCity:[],
     auxiliar:[]
 }
 

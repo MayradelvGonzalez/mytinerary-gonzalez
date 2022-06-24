@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import SearchPage from '../searchPage/SearchPage';
 import NotFound from '../notFound/NotFound';
 import { connect } from 'react-redux'
- import citiesActions from '../../redux/actions/citiesActions'
-//  import citiesReducer from '../../redux/reducers/citiesReducer'
+import citiesActions from '../../redux/actions/citiesActions'
+import Itinerary from '../itinerary/Itinerary';
+import {Link as LinkRouter} from 'react-router-dom';
+// import citiesReducer from '../../redux/reducers/citiesReducer'
 
 function Cities(props){
 
@@ -16,18 +18,23 @@ function Cities(props){
 
     return (
       <>
+       
       <h2 className="buscadorTitulo">Search your favorite City!</h2>
         <div className="containerInput">
          <input onKeyUp={
             (evento )=>{setInputValue(evento.target.value)}} type="text" >
     
          </input>
+         <LinkRouter to={"/itinerary"}>
+        <button className="botonCard">Itinerary</button>
+    </LinkRouter>
         </div>
         <div className="cardsBox">
             {filterInput?.length > 0 ? (<SearchPage cardFilter={filterInput} />) : (<NotFound />) }
         </div>
       </>
         );}
+       
        
        const mapStateToProps = (state) => {
         return {
