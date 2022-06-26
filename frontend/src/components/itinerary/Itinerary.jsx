@@ -68,7 +68,7 @@ function Itinerary(){
                    <div><div className="icono">💖</div>{itinerary.likes}</div> 
                   </Text>
                 </Col>
-                <Col span={3}>
+                <Col>
                   <Card.Image 
                
                     src= {itinerary.image}

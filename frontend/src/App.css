@@ -91,7 +91,7 @@ color:white;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 95vh;
+  height: 98vh;
   background-image: url(./img/trip.webp) ;
   background-repeat: no-repeat;
   object-fit: cover;
@@ -180,7 +180,7 @@ margin:2em auto 7em;
     align-items:center;
     justify-content: center;
     border-radius: 1em;
-    margin-top:3rem;
+    margin-top:13rem;
     border:0.3em outset gray;
     box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
     background-image: url(./img/GifViaje.gif); 
@@ -193,9 +193,7 @@ margin:2em auto 7em;
     color:white;
     
   }
-  .boton-transparente{
-   background-color: #ddd;
-  }
+
   .botonCall a{
     font-size:1.6em;
     font-weight: bolder;
@@ -212,12 +210,13 @@ margin:2em auto 7em;
   .sc-dnqmqq{
     display:flex;
     justify-content: center;
-  
+   
   }
   .sc-dnqmqq img{
     width: 90%;
     object-fit:cover;
-    
+    height: 80vh;
+    background-color: red;
   }
 
 
@@ -238,13 +237,16 @@ font-family: 'Concert One';
 .cardsBox{
   display:flex;
   flex-wrap:wrap;
-  background:linear-gradient(gray,#b5cdd0,#25475e,orange, white);
- gap:20;
+  background:linear-gradient(orange,#b5cdd0,orange, white);
+ 
   justify-content: space-around;
   align-items: center;
   width: 100%;
   padding: 1em;
   
+ }
+ .nextui-c-iVzbCs{
+  width: 30vw;
  }
  .cards h2{
   color:black;
@@ -252,20 +254,21 @@ font-family: 'Concert One';
 
  }
 .card{
-   margin:1em;
-   width:35vw;
-   height: 52vh;
-   margin:1em;
+   margin:1em !important;
+   width:30vw;
+   height: 50vh;
+ 
    box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
    
 }
+
 /* .MuiPaper-root{
   padding:0.5em;
 } */
 
 
 .card:hover{
-  transform: scale(1.1)translate(0%, -0.5%);
+  transform: scale(1.1)translate(0%, -0.3%);
   transition:all 1s;
 
 }
@@ -497,6 +500,7 @@ width: 100%;
   transform: rotate(360deg)
 }
 
+
 /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
 @media (min-width:576px){
 .titulo{
@@ -520,10 +524,7 @@ width: 100%;
     border-radius: 1em;
   }
 
-  .textoIt{
-    font-size: 0.5em;
-    font-weight: bold;
-  }
+ 
   .botonCall button{
    font-size: 0.5em;
    width: 20vw;
