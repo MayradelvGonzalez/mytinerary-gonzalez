@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from 'react-grid-carousel'
-import { useSelector } from 'react-redux'
+import Carousel from 'react-grid-carousel';
+import { useSelector } from 'react-redux';
 
 const Carrousel = () => {
  

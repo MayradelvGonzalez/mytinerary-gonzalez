@@ -26,7 +26,7 @@ function Itinerary() {
           <Card  css={{ w: "100%", h: "400px" }} >
             <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
               <Col>
-                <Text size={12} color="black" weight="bold" transform="uppercase" className='textoItinerario' >
+                <Text size={12} weight="bold" transform="uppercase" className='textoItinerario' >
                   {itinerary.name}
                 </Text>
                 <Text h3 color="black" className='textoIt'>

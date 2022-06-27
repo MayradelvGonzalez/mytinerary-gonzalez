@@ -13,10 +13,12 @@ function Cities(props){
       <> 
       <div className="containerInput">
        <h3 className="buscadorTitulo">Search your favorite City!</h3>
-        <input onKeyUp={
+       
+      <input onKeyUp={
             (evento )=>{setInputValue(evento.target.value)}} type="text" placeholder='search city...' >
          </input>  
-      </div>
+         </div>
+   
         <div className="cardsBox">
             {filterInput?.length > 0 ? (<SearchPage cardFilter={filterInput} />) : (<NotFound />) }
         </div>
