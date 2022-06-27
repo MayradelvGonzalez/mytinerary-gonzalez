@@ -1,52 +1,46 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import {Link as LinkRouter} from 'react-router-dom';
-// import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import citiesActions from '../../redux/actions/citiesActions';
 import Itinerary from '../itinerary/Itinerary';
+import {Animated} from "react-animated-css";
 
 function Details(){
-    // const[detailCity, setDetailCity] = useState([])
-    const { id } = useParams()
-    const dispatch = useDispatch()
+   
+const { id } = useParams()
+const dispatch = useDispatch()
 
-   useEffect(() => {
-    dispatch(citiesActions.getOneCity(id))
-    // axios.get(`http://localhost:4000/api/cities/${id}`)
-    // .then(res => setDetailCity(res.data.response.city))
+  useEffect(() => {
+  dispatch(citiesActions.getOneCity(id))
+   
    },[])
 
-const detail = useSelector(store => store.citiesReducer.oneCity); //constante con lo que imprimo
+   const detail = useSelector(store => store.citiesReducer.oneCity); 
 
     return(
-     
-        <>
-        {detail &&  
-        <div className="contenedor-detalles">
-        <div className="detalles">
-            <div className="card-contenido">
-              <h3>{detail.name}</h3>
-             
-                <img src={detail.image} alt='img' className="imagenDetail" />
+     <>
+      {detail &&  
+      <div className="contenedor-detalles">
+         <div className="detalles">
+         
+        <div className="card-contenido">
+        <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}><h3>{detail.name}</h3></Animated>
+        <Animated animationIn="fadeInRight" animationOut="fadeOut" isVisible={true}><img src={detail.image} alt='img' className="imagenDetail" /></Animated>
                   <p>{detail.description}</p>
-             </div>
-            <div>
-                <LinkRouter to={"/cities"}>
-                    <button className="botonCard">Back to Cities</button>
-                </LinkRouter>
-                <div className='itinerary'><Itinerary /></div>
-
             </div>
-           
-        </div>
+         {/* <div>
         
+         <div className='itinerary'><Itinerary /></div>
+            </div> */}
+           <LinkRouter to={"/cities"}>
+            <button className="botonCard">Back to Cities</button>
+           </LinkRouter>
+          </div>
         </div>
         }
-        </>
-    )
-
-    
-}
+     </>
+    )   
+  }
 
 export default Details

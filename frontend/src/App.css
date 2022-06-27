@@ -172,7 +172,7 @@ margin:2em auto 7em;
   justify-content: center;
   width: 70%;
   height: 20%;
-
+ 
 }
 
 .searchpage button{
@@ -192,6 +192,7 @@ margin:2em auto 7em;
     height: 9vh;
     color:white;
     
+    
   }
 
   .botonCall a{
@@ -210,13 +211,13 @@ margin:2em auto 7em;
   .sc-dnqmqq{
     display:flex;
     justify-content: center;
-   
+    
   }
   .sc-dnqmqq img{
     width: 90%;
     object-fit:cover;
     height: 80vh;
-    background-color: red;
+   
   }
 
 
@@ -330,11 +331,12 @@ font-family: 'Concert One';
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
+ background-image: url('./img/viajarImagen.jpg');
   background-attachment: fixed;
 background-repeat: no-repeat;
 background-size: cover;
   object-fit: contain;
+
  
 }
 .detalles{
@@ -343,12 +345,12 @@ background-size: cover;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-text-align:center;
-
-width: 75%;
-  box-shadow: rgba(70, 70, 93, 2.45) 0px 30px 60px -8px, rgba(0, 0, 0, 0.8) 0px 15px 28px -4px;
-background-color: #808080;
-padding:0.5em;
+ text-align:center;
+margin-top:1em;
+ width: 75%;
+  box-shadow: rgba(60, 60, 83, 2.45) 0px 30px 60px -8px, rgba(0, 0, 0, 0.8) 0px 10px 25px -8px;
+  background-color:#b5cdd0;
+padding:1em;
 font-weight: bold;
 }
 
@@ -372,7 +374,7 @@ font-weight: bold;
   width: 15vw;
   margin-top:0.8em;
   font-weight: bold;
-
+ 
 }
 .botonCard:hover{
   background-color: #4e8cb8;
@@ -425,23 +427,24 @@ transform: rotate3d(1, 1, 1, 360deg);
 }
 .containerInput{
   display:flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin-top:6em;
-  padding: 2em;
-  font-size: 0.5em;
- 
-  height: 10vh;
+  padding: 1em;
+  font-size:0.5em;
+  font-weight: bold;
+  height: 14vh;
   margin-top: 8em;
+  background-color: #4e8cb8;
 }
  .containerInput input{
   background-color: white;
   color:black;
-  width: 40%;
-  font-size: 2em;
-  height: 5vh;
+  width: 35%;
+  font-size:2em;
+  height: 4vh;
   border:0.1em solid #808080;
-
+  margin-left:0.5em;
 
 
  }
@@ -452,14 +455,15 @@ transform: rotate3d(1, 1, 1, 360deg);
  .buscadorTitulo{
   color:black;
   font-family: 'Old Standard TT', serif;
+  font-size: 2.5em;
  }
  .notFound{
  background-image: url('./img/brujula.gif');
  background-color: white;
  background-size: contain;
  object-fit:contain;
-height: 70vh;
-width: 100%;
+ height: 70vh;
+ width: 100%;
  background-repeat: no-repeat;
  background-color: white;
  color:black;

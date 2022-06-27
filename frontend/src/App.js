@@ -27,7 +27,7 @@ function App()  {
       <div className="app">
         <Nav />
            <Routes>
-               <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home />} />
                 <Route path='/cities' element={<Cities/>} />
                 <Route path='/*' element={<Error />} />
                 <Route path='/cities/city/:id' element={<Details />} /> 
