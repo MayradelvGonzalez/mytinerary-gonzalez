@@ -33,12 +33,19 @@ const Carrousel = () => {
      },
      {
        breakpoint: 576,
+       cols: 2,
+       rows: 2,
+       gap: 10,
+       loop: true,
+       autoplay: 4000,
+     },
+     {breakpoint: 375,
        cols: 1,
        rows: 4,
        gap: 10,
        loop: true,
        autoplay: 4000,
-     }
+    }
  ]}>    
     {cities?.map(item => 
       <Carousel.Item key={item._id}>
