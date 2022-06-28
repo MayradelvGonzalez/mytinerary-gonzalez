@@ -85,6 +85,7 @@ color:white;
 
 .contenedorHome{
   padding:2em;
+  
 }
 .container-landing{
   display:flex;
@@ -93,12 +94,15 @@ color:white;
   justify-content: flex-start;
   width: 100%;
   height: 98vh;
-  background-image: url(./img/trip.webp) ;
+  background-image: url(./img/trip.webp);
   background-repeat: no-repeat;
   object-fit: cover;
- 
   margin-bottom:2em;
+  clip-path:polygon(0 0%,100% 0,100% 86%,0% 100%);
 }
+
+  
+
 
 .landing{
   display:flex;
@@ -106,12 +110,14 @@ color:white;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 95%;
+  height: 98%;
+  
  
 }
 .carrouselCaja{
-height: 50vh;
+height: 55vh;
 margin:2em auto 7em;
+
 
 }
 .titulo{
@@ -150,7 +156,7 @@ margin:2em auto 7em;
  
 }
 .container-carrousel .titulo-carrousel{
-  padding:0.5em;
+  padding:1em;
   color:black;
 
 }
@@ -159,21 +165,20 @@ margin:2em auto 7em;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 3rem;
+  padding: 4rem;
   margin:3rem;
   width: 95vw;
   height: 98vh;
  
 
 }
-
+ 
 .container-boton{
   display:flex;
   align-items: center;
   justify-content: center;
-  width: 70%;
-  height: 20%;
- 
+
+
 }
 
 .searchpage button{
@@ -183,29 +188,29 @@ margin:2em auto 7em;
     border-radius: 1em;
     margin-top:13rem;
     border:0.3em outset gray;
-    box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
+    box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
     background-image: url(./img/GifViaje.gif); 
+
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;
     text-decoration:none;
     font-family: 'Acme', sans-serif;
-    height: 9vh;
-    color:white;
+    height:10%;
+
+    background-color: rgba(255,255,255,0.5);
+  
     
     
   }
-
   .botonCall a{
-    font-size:1.6em;
+    font-size:1.5em;
     font-weight: bolder;
-    text-align: center;
     text-decoration: none;
    
-  
   }
   .botonCall button:hover{
-    box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
+    box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
     border:0.3em inset gray;
     
   }
@@ -226,6 +231,7 @@ margin:2em auto 7em;
   text-align:center;
   color:white;
   font-family:'Cormorant Garamond', serif;
+  padding-top:0.5em;
  
 }
 .nombrePais{
@@ -352,12 +358,12 @@ font-weight: bold;
  margin-top:2.3em;
 }
 .detalles .imagenDetail{
-  width: 90%;
-  height: 48vh;
+  width: 95%;
+  height: 50vh;
   object-fit: contain;
 }
 .card-contenido p{
-  padding-top: 0.5em;
+  padding:1em;
 }
 
 .botonCard{
@@ -478,18 +484,21 @@ transform: rotate3d(1, 1, 1, 360deg);
  }
 .Itinerary{
   border-color: #808080;
+  flex-direction:row !important;
+  box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
 }
 .itinerarios{
   margin-top: 0.8em;
   background-color: #ddd;
   display:flex;
-  width: 30vw;
-
+  width: 45vw;
+  
   
 }
 .textoIt{
   font-size: 1em;
   font-weight: bold;
+  font-family: 'Old Standard TT', serif;
 }
 .contenidoItinerario{
   display:flex;
@@ -497,11 +506,25 @@ transform: rotate3d(1, 1, 1, 360deg);
  align-items: center;
 
 }
+.itinerarioTItulo{
+  font-family:'Cormorant Garamond', serif;
+  }
+.contenedorIconos{
+  
+  width: 18vw;
+}
+.icono{
+  padding:0.5em !important;
+}
 .icono:hover{
   
   cursor: pointer;
   transform: scale(1.1)translate(0%, -0.5%);
   transition:all 1s;
+}
+.img, .user{
+  padding-top:0.5em;
+  height:10vh !important;
 }
 .img:hover{
   transition: all 2s ease;

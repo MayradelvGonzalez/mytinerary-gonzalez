@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel';
 import { useSelector } from 'react-redux';
+import {Animated} from "react-animated-css";
 
 const Carrousel = () => {
  
@@ -8,7 +9,7 @@ const Carrousel = () => {
 
   return (
    <div className="container-carrousel">
-    <h1 className='titulo-carrousel'>Popular Mytineraries</h1>
+    <Animated animationIn="fadeIn" isVisible={true}><h1 className='titulo-carrousel'>Popular Mytineraries</h1></Animated>
      <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel" 
       mobileBreackpoint={300}
       responsiveLayout =

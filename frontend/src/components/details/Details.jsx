@@ -25,15 +25,16 @@ const dispatch = useDispatch()
          <div className="detalles">
          
         <div className="card-contenido">
-        <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}><h3>{detail.name}</h3></Animated>
-        <Animated animationIn="fadeInRight" animationOut="fadeOut" isVisible={true}><img src={detail.image} alt='img' className="imagenDetail" /></Animated>
-                  <p>{detail.description}</p>
+        <h3>{detail.name}</h3>
+        <img src={detail.image} alt='img' className="imagenDetail" />
+        <Animated animationIn="fadeInUp" isVisible={true}> <p>{detail.description}</p></Animated>
             </div>
-         {/* <div>
+         <div>
         
          <div className='itinerary'><Itinerary /></div>
-            </div> */}
-           <LinkRouter to={"/cities"}>
+            </div>
+            
+              <LinkRouter to={"/cities"}>
             <button className="botonCard">Back to Cities</button>
            </LinkRouter>
           </div>

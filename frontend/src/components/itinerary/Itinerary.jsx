@@ -21,12 +21,12 @@ function Itinerary() {
 
     return (
      <>
-      {itineraries.map((itinerary) =>
-         <div key={itinerary._id} className="itinerarios">
-          <Card  css={{ w: "100%", h: "400px" }} >
-            <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+      {itineraries?.map(itinerary => 
+         <div key={itinerary._id} className="itinerarios" >
+          <Card  css={{ w: "100%", h: "400px" ,paddingBottom:"0.5em"}} >
+            <Card.Header css={{ position: "absolute", zIndex: 1, top: 3 }}>
               <Col>
-                <Text size={12} weight="bold" transform="uppercase" className='textoItinerario' >
+                <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
                   {itinerary.name}
                 </Text>
                 <Text h3 color="black" className='textoIt'>
@@ -46,6 +46,7 @@ function Itinerary() {
                 borderTop: "$borderWeights$light solid $gray800",
                 bottom: 0,
                 zIndex: 1,
+                paddingTop: "0.8em",
               }}
             >
             <Row>
@@ -53,34 +54,42 @@ function Itinerary() {
               <Row>
                 <Col>
                   <Text color="black" size={14}>
-                    <div><div className="icono">⌛</div>{itinerary.duration}</div>
-                    <div><div className="icono">💲</div>{itinerary.price}</div>
+                    <div className="contenedorIconos">
+                      <div className="icono">Duration⌛:{itinerary.duration}</div>
+                      <div className="icono">Price💲:{itinerary.price}</div>
+                    </div>
                   </Text>
-                  <Text color="black" size={12}>
-                    <div><div className='icono'>💭</div>{itinerary.hashtags}</div>
-                    </Text>
-                  <Text color="black" size={12}>
-                    <div><div className="icono">💖</div>{itinerary.likes}</div>
+                  <Text color="black" size={14}>
+                   <div className="contenedorIconos"><div className='icono'>Hashtags💭:{itinerary.hashtags}</div></div>
+                  </Text>
+                  <Text color="black" size={14}>
+                  <div className="contenedorIconos"><div className="icono">Likes💖:{itinerary.likes}</div></div>
                   </Text>
                 </Col>
-              <Col>
+              
+             </Row>
+            </Col>
+            <Col>
                   <Card.Image
                         src={itinerary.image}
                         css={{ bg: "black", br: "50%" }}
                         height={50}
-                        width={60}
+                        width={70}
                         alt="Name User"
                         className='img'
                       />
               </Col>
-             </Row>
-            </Col>
               <Col>
+            
                 <Row justify="flex-end">
+               
                   <Text
+                      
                       css={{ color: "inherit" }}
                       size={12}
                       weight="bold"
+                      className="user"
+                     
                       transform="uppercase">
                       <h6>User:</h6>
                       {itinerary.nameUser}
@@ -91,9 +100,10 @@ function Itinerary() {
           </Card.Footer>
         </Card>
       </div>
-      )}
+      )
+            }
     </>
-  )
+  );
 }
 
 export default Itinerary
