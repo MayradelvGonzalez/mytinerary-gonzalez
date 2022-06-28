@@ -10,8 +10,8 @@ import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
 import ScrollToTop from 'react-scroll-to-top';
 import Details from './components/details/Details';
 import Cities from './components/city/City';
-import SingIn from './components/singin/SingIn';
-import LogOut from './components/logout/LogOut';
+// import SingIn from './components/singin/SingIn';
+import SignUp from './components/login/SignUp';
 import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
@@ -31,8 +31,8 @@ function App()  {
                 <Route path='/cities' element={<Cities/>} />
                 <Route path='/*' element={<Error />} />
                 <Route path='/cities/city/:id' element={<Details />} /> 
-                <Route path='/singin' element={<SingIn />} />
-                <Route path='/logout' element = {<LogOut />} />
+                {/* <Route path='/singin' element={<SingIn />} /> */}
+                <Route path='/signup' element = {<SignUp />} />
                 <Route path='/itinerary' element = {<Itinerary />} />
             </Routes>
         <Footer />
