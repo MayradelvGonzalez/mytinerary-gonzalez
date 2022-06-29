@@ -23,7 +23,7 @@ const userData = {
   country:event.target[4].value,
   from:"form-Singup"
 };
-dispatch(usersActions.singUp(userData))
+dispatch(usersActions.signUp(userData))
 }
   return (
     <div className="container-form">
