@@ -3,8 +3,8 @@ const bcryptjs = require('bcryptjs');
 
 
 const usersControllers = {
-    signUpUsers : async (req,res) => {
-        let { fullName , email, password, from } = req.body.userData
+    signUp : async (req,res) => {
+        let { fullName , email, photo, password, country, from } = req.body.userData
         try{
             const usuarioExiste = await User.findOne({ email })
             if (usuarioExiste)    {
@@ -57,7 +57,7 @@ const usersControllers = {
         } catch (error) {
             res.json ({success: false, messege: "error,please try again later"})
     } 
-    
+
     } 
 }
 
