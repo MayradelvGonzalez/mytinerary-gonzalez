@@ -556,8 +556,8 @@ form{
   color: white;
   font-family: 'Old Standard TT', serif;
   height: 64vh;
-  width: 65%;
-  font-size:1.2em;
+  width: 67%;
+  font-size:1em;
   border-radius:1em;
   padding:0.8em;
   margin-top:2em;
@@ -576,10 +576,10 @@ form label{
   border-radius:1em;
   border:0.1em solid white;
 font-weight:bold;
-width: 15vw;
+width: 7vw;
 align-self: flex-end;
-margin-top:0.8em;
-margin-left:1em;
+margin-bottom:0.2em;
+margin-left:7em;
 }
 .boton-form-reiniciar{
   color:white;
@@ -587,12 +587,21 @@ margin-left:1em;
   border-radius:1em;
   border:0.1em solid black;
 font-weight:bold;
-width: 15vw;
+width: 7vw;
 align-self: flex-end;
-margin-top:0.8em;
-margin-left:1em;
+margin-bottom:0.2em;
+margin-left:28em;
 }
 
+.redes-sociales{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 8vw;
+  height: 5vh;
+  
+
+}
 
   /* MEDIA QUERIES --------------------------------------------------------------------------------------*/
 @media (min-width:375px){
