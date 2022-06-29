@@ -28,8 +28,8 @@ Router.route("/itinerarybycity/:id")
 .get(getItineraryByCity)
 
 // Loguin
-// Router.route('/auth/signIn')
-// .post(signIn)
+Router.route('/auth/signin')
+.post(signIn)
 Router.route('/auth/signup')
 .post(signUp)
 

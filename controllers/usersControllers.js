@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 
 const usersControllers = {
     signUp : async (req,res) => {
-        let { fullName , email, photo, password, country, from } = req.body.userData
+        const { fullName , email, password, photo,country, from } = req.body.userData
         try{
             const usuarioExiste = await User.findOne({ email })
             if (usuarioExiste)    {
@@ -19,7 +19,7 @@ const usersControllers = {
                     const contraseñaHasheada = bcryptjs.hashSync(password, 10)
                     usuarioExiste.from.push(from)
                     usuarioExiste.password.push(contraseñaHasheada)
-                    re.json({
+                    res.json({
                         success:true,
                         from:"signup",
                         message: "Add " + from + " to your ways to singIn"
@@ -31,7 +31,9 @@ const usersControllers = {
                     fullName,
                     email,
                     password: [contraseñaHasheada],
-                    uniqueString: crypto.randomBytes(15).toString('hex'),
+                    photo,
+                    country,
+                    // uniqueString: crypto.randomBytes(15).toString('hex'),
                     emailVerificado: false,
                     from:[from],
                     
@@ -55,11 +57,85 @@ const usersControllers = {
             }
         
         } catch (error) {
-            res.json ({success: false, messege: "error,please try again later"})
+            res.json ({success: false, messagge: "error,please try again later"})
     } 
 
-    } 
+    },
+    signIn: async (req, res) =>{
+        const {email, password, from} = req.body.data
+        try{
+            const userExist = await User.findOne({email})
+            const indexPass = userExist.from.indexOf(from)
+            if(!userExist){
+                res.json({success: false, message: "Your user has not been registred,"})
+            }
+            else
+            {
+                if(from !== "form-SignIn" ){
+                let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
+                if (passwordMatch.length > 0){
+                    const userData = {
+                        id: userExist._id,
+                        fullName: userExist.fullName,
+                        email: userExist.email,
+                        // password: userExist.password,
+                        photo:userExist.imageUser,
+                        country: userExist.country,
+                        from: from,
+                    }
+                    await userExist.save()
+                    res.json({
+                        success: true,
+                        from: from,
+                        response: {userData},
+                        message: "Welcome " + userLoged.firstName + userLoged.lastName,
+
+                    })
+                } 
+                else {
+                    res.json({
+                        success: false,
+                        from: from,
+                        message: "You did not register with " + "if you want to enter with this method please Sign Up with " + from
+                    })
+                
+            } }  
+            else{
+                let passwordMatch = userExist.password.filter(pass=> bcryptjs.compareSync(password, pass))
+                if(passwordMatch.length > 0){
+                    const userLoged = {
+                        id: userExist._id,
+                        fullName: userExist.fullName,
+                        email: userExist.email,
+                        // password: userExist.password,
+                        photo:userExist.imageUser,
+                        country: userExist.country,
+                        from: from,
+                    }
+                    await userExist.save()
+                    res.json({
+                        success: true,
+                        from: from,
+                        response: {userLoged},
+                        message: "Welcome " + userLoged.firstName + userLoged.lastName,
+                    
+                })
+                } else{
+                    res.json({
+                        success: false,
+                        from: from,
+                        message: "the username or password does not match"
+                    })
+                }
+            }
+        }
+    } catch (error) {
+        res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console:console.log(error)})
+
+    }
+},
 }
+
 
 
 module.exports = usersControllers

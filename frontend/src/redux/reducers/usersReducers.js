@@ -28,7 +28,7 @@ const initialState = {
     }
 }
 
-const userReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'USER':
             return {

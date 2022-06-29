@@ -15,11 +15,11 @@ const usersActions = {
 // },
 // }
 
-signUp: (userLogin) => {
+signUp: (userData) => {
     return async(dispatch,getState) => {
         try {
-            const res = await axios.post(`http://localhost:4000/api/login`, {userLogin})
-            //console.log(res)
+            const res = await axios.post('http://localhost:4000/api/auth/signup',{userData})
+            console.log(res)
             dispatch({type: 'MESSAGE',
                 payload: {
                     view: true,
@@ -34,11 +34,11 @@ signUp: (userLogin) => {
     }
 },
 
-signIn: (userData) => {
-    console.log(userData)
+signIn: (userLoged) => {
+    console.log(userLoged)
     return async(dispatch, getState) => {
         try {
-            const res = await axios.post(`http://localhost:4000/api/signup`,{userData})
+            const res = await axios.post('http://localhost:4000/api/auth/signin',{userLoged})
             //console.log(res)
             if (res.data.success) {
                 dispatch({type: 'USER', payload: res.data.response})

@@ -536,7 +536,7 @@ transform: rotate3d(1, 1, 1, 360deg);
 }
 /* LOGUIN-------------------------------- */
 .container-form{
-  height: 80vh;
+  height: 95vh;
   width: 100%;
   background-image: url('./img/viaj.jpg');
   background-repeat: no-repeat;
@@ -555,12 +555,12 @@ form{
   background: rgba(0, 0, 0, 0.75);
   color: white;
   font-family: 'Old Standard TT', serif;
-  height: 65vh;
-  width: 65%;
+  height: 75vh;
+  width: 68%;
   font-size:1em;
   border-radius:1em;
   padding:0.8em;
-  margin-top:2.5em;
+  margin-top:2.7em;
   
 }
 form label{
@@ -578,19 +578,20 @@ form label{
 font-weight:bold;
 width: 7vw;
 align-self: flex-end;
-margin-bottom:0.2em;
-margin-left:6em;
+margin-bottom:0.6em;
+margin-left:5em;
 }
+
 .boton-form-reiniciar{
   color:white;
   background-color: #25475e;
   border-radius:1em;
   border:0.1em solid black;
 font-weight:bold;
-width: 7vw;
+width: 5vw;
 align-self: flex-end;
-margin-bottom:0.2em;
-margin-left:29em;
+margin-bottom:0.6em;
+margin-left:30em;
 }
 
 .redes-sociales{
