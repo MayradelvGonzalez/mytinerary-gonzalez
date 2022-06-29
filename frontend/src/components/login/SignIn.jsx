@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link as LinkRouter } from 'react-router-dom';
+import SignUp from './SignUp';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
@@ -6,6 +8,7 @@ import usersActions from '../../redux/actions/usersActions';
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
+
 
 
 function SignIn (){
@@ -37,6 +40,7 @@ return (
          <Button variant="primary" type="submit" className="boton-form">
         Submit
       </Button>
+      <Form.Text>Do not have an account?<LinkRouter to={<SignUp />}>Sign up!</LinkRouter></Form.Text>
         </Form>
     </div>
 );
