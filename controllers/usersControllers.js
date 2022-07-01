@@ -1,12 +1,15 @@
 const User = require('../models/users');
 const bcryptjs = require('bcryptjs');
-
+const jwt = require('./jsonwebtoken');
+const sendVerification = require('./sendVerification');
 
 const usersControllers = {
     signUp : async (req,res) => {
         const { fullName , email, password, photo,country, from } = req.body.userData
         try{
             const usuarioExiste = await User.findOne({ email })
+            const verification= false
+            const uniqueString = crypto.randomBytes(15).toString('hex')
             if (usuarioExiste)    {
                 if(usuarioExiste.from.indexOf(from) !== -1) {
                     res.json({
@@ -33,21 +36,23 @@ const usersControllers = {
                     password: [contraseñaHasheada],
                     photo,
                     country,
-                    // uniqueString: crypto.randomBytes(15).toString('hex'),
                     emailVerificado: false,
                     from:[from],
                     
                 }) 
                 if (from !== "form-SignUp"){
                     await nuevoUsuario.save()
+                    await sendVerification(email, uniqueString)
                     res.json({
                         success:true,
                         from:"signup",
-                        message:"Congratulations,  user created!" + from,
+                        message:`Check ${email} to finish your Sign Up`
     
                     })
                 }else {
+                    nuevoUsuario.verification = true;
                     await nuevoUsuario.save()
+                    // await sendVerification(mail, uniqueString)
                     res.json({
                         success: true,
                         from:"signup",
@@ -65,7 +70,7 @@ const usersControllers = {
         const {email, password, from} = req.body.data
         try{
             const userExist = await User.findOne({email})
-            const indexPass = userExist.from.indexOf(from)
+            // const indexPass = userExist.from.indexOf(from)
             if(!userExist){
                 res.json({success: false, message: "Your user has not been registred,"})
             }
@@ -74,21 +79,21 @@ const usersControllers = {
                 if(from !== "form-SignIn" ){
                 let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                 if (passwordMatch.length > 0){
-                    const userData = {
+                    const userLoged = {
                         id: userExist._id,
                         fullName: userExist.fullName,
                         email: userExist.email,
-                        // password: userExist.password,
-                        photo:userExist.imageUser,
+                        photo:userExist.photo,
                         country: userExist.country,
-                        from: from,
+                        from: userExist.from,
                     }
                     await userExist.save()
+                    const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
                     res.json({
                         success: true,
                         from: from,
-                        response: {userData},
-                        message: "Welcome " + userLoged.firstName + userLoged.lastName,
+                        response: {token,userLoged},
+                        message:`Welcome back ${userLoged.fullName}`,
 
                     })
                 } 
@@ -107,17 +112,17 @@ const usersControllers = {
                         id: userExist._id,
                         fullName: userExist.fullName,
                         email: userExist.email,
-                        // password: userExist.password,
                         photo:userExist.imageUser,
                         country: userExist.country,
                         from: from,
                     }
                     await userExist.save()
+                    const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
                     res.json({
                         success: true,
                         from: from,
-                        response: {userLoged},
-                        message: "Welcome " + userLoged.firstName + userLoged.lastName,
+                        response: {token,userLoged},
+                        message: `Welcome back ${userLoged.fullName}!`,
                     
                 })
                 } else{
@@ -134,6 +139,52 @@ const usersControllers = {
 
     }
 },
+veriifyMail: async(req, res) => {
+    const {string} = req.params
+    const user = await User.findOne({uniqueString: string})
+    if(user) {
+        user.verification = true
+
+        await user.save()
+        res.redirect("http://localhost:3000/signIn")
+    }
+    else { res.json({
+        success: false,
+        message: "email has not account yet!" 
+    }
+    
+    )
+}
+},
+signUp: async (req, res) => {
+const {email} = req.body
+const user = await  User.findOne({email})
+await user.save()
+res.json({
+    success:  true,
+    message: email  + "sign out!"
+})
+},
+verifyToken: (reeq, res) => {
+    if(!res.err) {
+        res.json({
+            success: true,
+            response: {
+                id: req.user.id,
+                fullName: req.user.fullName,
+                email: req.user.email,
+                photo: req.user.photo,
+                from: "tokenn"
+            },
+            message: "Hi! Welcome back  " + req.user.fullName
+        })
+    } else {
+        res.json({
+            success:false,
+            message:"sign in please"
+        })
+    }
+}
 }
 
 

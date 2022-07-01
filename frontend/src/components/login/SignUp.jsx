@@ -6,7 +6,7 @@ import usersActions from '../../redux/actions/usersActions';
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
-import { useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
 
 function SignUp() {
   
@@ -29,6 +29,7 @@ function SignUp() {
 const dispatch = useDispatch();
 
 const handleSubmit = (event) => {
+
 event.preventDefault()
 console.log(event)
 
