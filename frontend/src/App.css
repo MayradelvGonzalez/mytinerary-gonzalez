@@ -93,11 +93,12 @@ color:white;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 98vh;
+  height: 99vh;
   background-image: url(./img/trip.webp);
   background-repeat: no-repeat;
   object-fit: cover;
   margin-bottom:2em;
+  background-color: #25475e;
   /* clip-path:polygon(0 0%,100% 0,100% 86%,0% 100%); */
 }
 
@@ -115,7 +116,7 @@ color:white;
  
 }
 .carrouselCaja{
-height: 55vh;
+height: 57vh;
 margin:2em auto 7em;
 padding-top:0.5em;
 
@@ -143,12 +144,17 @@ padding-top:0.5em;
     5px 13px 15px black;
 }
 .container-titulos{
-  height: 70vh;
+  height: 75vh;
   margin-top:2em;
   display:flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.container-titulos h2{
+  font-size:1.5em;
+
+
 }
 .container-titulos h2, .titulo-carrousel{
   font-family: 'Cormorant Garamond', serif;
@@ -172,7 +178,6 @@ padding-top:0.5em;
   height: 98vh;
 
 
-
 }
  
 .container-boton{
@@ -188,39 +193,56 @@ padding-top:0.5em;
     align-items:center;
     justify-content: center;
     border-radius: 1em;
-    margin-top:13rem;
+    margin-top:15rem;
     border:0.3em outset gray;
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
-    background-image: url(./img/GifViaje.gif); 
+    /* background-image: url(./img/GifViaje.gif); 
 
     background-repeat: no-repeat;
     background-size: cover;
-    object-fit: contain;
+    object-fit: contain; */
     text-decoration:none;
     font-family: 'Acme', sans-serif;
     height:10%;
-width: 10vw;
-    background-color: rgba(255,255,255,0.5);
+width: 7vw;
+   background-color: #25475e;
+   color:wheat;
+   animation: animate 3s  infinite linear;
   
-    
-    
+     
   }
+ 
   .botonCall a{
-    font-size:1.5em;
+    font-size:1.8em;
     font-weight: bolder;
     text-decoration: none;
-   width: 5vw;
-   height: 10vh;
+   width: 4vw;
+   height: 7vh;
   }
   .botonCall button:hover{
     box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
     border:0.3em inset gray;
-    
+    color: #25475e;
+   
+ 
+  }
+  @keyframes animate {
+    0%,
+    100%{
+      background:gradient(orange, white);
+    }
+   
+    50%{
+      background:gradient(white, orange);
+    }
+    75%{
+      background:gradient( green, yellow);
+    }
   }
   .sc-dnqmqq{
     display:flex;
     justify-content: center;
-    
+
   }
   .sc-dnqmqq img{
     width: 90%;
@@ -234,9 +256,13 @@ width: 10vw;
   text-align:center;
   color:white;
   font-family:'Cormorant Garamond', serif;
-  padding-top:0.5em;
+  padding-top:0.6em;
   
  
+}
+.carrouselCaja{
+
+  padding:1em;
 }
 .nombrePais{
 z-index:1;
@@ -401,8 +427,9 @@ font-weight: bold;
   background-color:#25475e ;
   height: 100%;
   width: 100%;
-  
+ 
 }
+
 /*                       ERROR*/
 .error{
   width: 100%;

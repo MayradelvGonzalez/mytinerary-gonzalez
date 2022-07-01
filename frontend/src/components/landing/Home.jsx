@@ -16,7 +16,7 @@ return(
      </div>
    <div className='container-boton'>
   <div className="botonCall">    
-  <Animated animationIn="jello" isVisible={true}><LinkRouter to= '/cities' className="searchpage">
+  <Animated animationIn="fadeIn" isVisible={true}><LinkRouter to= '/cities' className="searchpage">
       <button className="botonCall">Click here and let's travel!</button>
      </LinkRouter></Animated>
     </div>
