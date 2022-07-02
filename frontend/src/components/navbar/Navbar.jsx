@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FaceIcon from '@mui/icons-material/Face';
 import { Link as LinkRouter } from 'react-router-dom';
 
-//  const pages = ['Home', 'Cities'];
+
  const settings = [{to:'/signup', name:'Sign Up'},{to:'/signin', name:'Sign In'}];
  const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
 

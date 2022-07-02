@@ -47,7 +47,7 @@ dispatch(usersActions.signUp(userData))
 
   return (
     <div className="container-form">
-     
+     <h2 className="tituloSignIn">Create your account</h2>
     <Form onSubmit={handleSubmit}> 
       <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label className="#">Full Name:</Form.Label>
@@ -58,7 +58,7 @@ dispatch(usersActions.signUp(userData))
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-<Form.Group> <label>Choose a country</label> <select
+<Form.Group > <label>Choose a country</label> <select
             
           >
             {paises.map((country, index) => (
@@ -74,7 +74,7 @@ dispatch(usersActions.signUp(userData))
       </Form.Text>
       <Form.Group>
        <Form.Label className="#">Photo:</Form.Label>
-      <Form.Control type="text" classNmae="formInput" placeholder="URL image" /></Form.Group>
+      <Form.Control type="text" className="formInput" placeholder="URL image" /></Form.Group>
       
        
       </Form.Group>

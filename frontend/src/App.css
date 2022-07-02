@@ -409,7 +409,11 @@ font-weight: bold;
   background-color: #4e8cb8;
   color:black;
 }
-
+.tituloSignIn{
+  font-family:'Cormorant Garamond', serif;
+  color:black;
+  background-color:#808080;
+}
    
                        /* FOOTER */
 .container-footer{
@@ -563,13 +567,14 @@ transform: rotate3d(1, 1, 1, 360deg);
 }
 /* LOGUIN-------------------------------- */
 .container-form{
-  height: 95vh;
+  height: 99vh;
   width: 100%;
   background-image: url('./img/viaj.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   object-fit:contain;
- 
+ display:flex;
+ flex-direction: column;
  
   box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
     display:flex;
@@ -589,6 +594,10 @@ form{
   padding:0.8em;
   margin-top:2.7em;
   
+}
+
+.formInput:hover{
+ box-shadow:0 1px 2px 0 #25475e,0 2px 10px #25475e, 0 2px 10px orange, 0 2px 10px 0 orange;
 }
 form label{
   padding-top:0.5em;
