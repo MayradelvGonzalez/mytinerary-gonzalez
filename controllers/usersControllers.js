@@ -6,10 +6,10 @@ const crypto = require('crypto');
 
 const usersControllers = {
     signUp : async (req,res) => {
-        const { fullName , email, password, photo,country} = req.body.userData
+        const { fullName , email, password, photo,country, from} = req.body.userData
         try{
             const usuarioExiste = await User.findOne({ email })//buscamos por mail
-           const hashWord = bcryptjs.hashSync(password,10) //hasheo la contraseña
+            const hashWord = bcryptjs.hashSync(password,10) //hasheo la contraseña
 
             const verification= false
             const uniqueString = crypto.randomBytes(15).toString('hex')//utilizando los metodos de crypto
@@ -17,7 +17,7 @@ const usersControllers = {
                 if(usuarioExiste.from.indexOf(from) !== -1) {
                     res.json({
                         success: false,
-                        from:"signup",
+                        from:from,
                         message:"You are already signUp from this email, please signIn",
     
                     })
@@ -28,12 +28,12 @@ const usersControllers = {
                     usuarioExiste.password.push(contraseñaHasheada)
                     res.json({
                         success:true,
-                        from:"signup",
+                        from: from,
                         message: "Add " + from + " to your ways to singIn"
                     })
                 }
             } else {
-                const contraseñaHasheada = bcryptjs.hashSync(password, 10)
+                const contraseñaHasheada = bcryptjs.hashSync(password, 10)//si no exite el usuario entra aqui
                 const nuevoUsuario = await new User({
                     fullName,
                     email,
@@ -46,29 +46,32 @@ const usersControllers = {
                     from:[from],
                     
                 }) 
+                console.log(nuevoUsuario)
                 if (from !== "form-SignUp"){
+                    await nuevoUsuario.save()
+                    nuevoUsuario.verification = true;
+                    
+                    res.json({
+                        success:true,
+                        from: from,
+                        message:`You just signed up by ${from}`
+    
+                    })
+                    console.log(nuevoUsuario)
+                }else {
+                    //  nuevoUsuario.verification = true;
                     await nuevoUsuario.save()
                     await sendVerification(email, uniqueString)
                     res.json({
-                        success:true,
-                        from:"signup",
-                        message:`Check ${email} to finish your Sign Up`
-    
-                    })
-                }else {
-                    nuevoUsuario.verification = true;
-                    await nuevoUsuario.save()
-                    // await sendVerification(mail, uniqueString)
-                    res.json({
                         success: true,
-                        from:"signup",
+                        from: from,
                         messagge:"We send you an email to verify",
                     })
                 }
             }
         
         } catch (error) {
-            res.json ({success: false, messagge: "error,please try again later"})
+            res.json ({success: false, from: from, message: "error,please try again later"})
     } 
 
     },
@@ -162,7 +165,7 @@ veriifyMail: async(req, res) => {
     )
 }
 },
-signUp: async (req, res) => {
+signOut: async (req, res) => {
 const {email} = req.body
 const user = await  User.findOne({email})
 await user.save()
@@ -171,7 +174,7 @@ res.json({
     message: email  + "sign out!"
 })
 },
-verifyToken: (reeq, res) => {
+verifyToken: (req, res) => {
     if(!res.err) {
         res.json({
             success: true,
@@ -180,7 +183,7 @@ verifyToken: (reeq, res) => {
                 fullName: req.user.fullName,
                 email: req.user.email,
                 photo: req.user.photo,
-                from: "tokenn"
+                from: "token"
             },
             message: "Hi! Welcome back  " + req.user.fullName
         })

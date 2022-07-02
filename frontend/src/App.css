@@ -200,21 +200,22 @@ padding-top:0.5em;
     text-decoration:none;
     font-family: 'Acme', sans-serif;
     height:10%;
-    width: 7vw;
+    width: 5vw;
    background-color: #25475e;
 
-  color: animate 2s infinite linear;
+  animation: animate 2s infinite linear;
   
      
   }
  
   .botonCall a{
-    font-size:1.8em;
+    font-size:1.5em;
     font-weight: bolder;
     text-decoration: none;
    width: 4vw;
    height: 7vh;
-   color: animate 2s infinite linear;
+   animation: animate 2s infinite linear;
+   color:white;
   }
   .botonCall button:hover{
     box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
@@ -226,14 +227,14 @@ padding-top:0.5em;
   @keyframes animate {
     0%,
     100%{
-      color:gradient(orange, white);
+      background-color:gradient(orange, white);
     }
    
     50%{
-      color:gradient(white, orange);
+      background-color:gradient(white, orange);
     }
     75%{
-      color:gradient( #25475e, yellow);
+      background-color:gradient( #25475e, yellow);
     }
   }
   .sc-dnqmqq{

@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import GoogleIcon from '@mui/icons-material/Google';
-import usersActions from '../redux/actions/usersActinons';
+import usersActions from '../../redux/actions/usersActions';
 
 function GoogleSignIn(){
     const dispatch = useDispatch();
@@ -10,16 +10,14 @@ function GoogleSignIn(){
     async function handleCallbackResponse(response){
         let userObject = jwt_decode(response.credential)
         dispatch(usersActions.signIn({
-            fullName: userObject.fullName,
-            email: userObject.email,
-            country: userObject.country,
-            password:userObject.password,
-            photo:userObject.photo,
+            email: userObject.email,           
+            password:userObject.sub,          
             from:'google'
         }))
     }
     useEffect(()=> {
-        google.accounts.is.initialize({
+        /*global google*/
+        google.accounts.id.initialize({
             client_id: '556028616922-59ljqe7i7ug24kbcf3uji06mvpju3tl5.apps.googleusercontent.com',
             callback: handleCallbackResponse
         });

@@ -8,8 +8,8 @@ import usersActions from '../../redux/actions/usersActions';
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
-
-
+import GoogleSignIn from '../googleLogin/GoogleSignIn';
+import SnackBar from '../snackbar/Snackbar';
 
 function SignIn (){
 const dispatch = useDispatch();
@@ -37,9 +37,11 @@ return (
          <Form.Group className="mb-3" controlId="formBasicPassword">
          <Form.Label>Password</Form.Label>
          <Form.Control type="password" className="formInput" placeholder="Enter password" /></Form.Group>
+         <GoogleSignIn />
          <Button variant="primary" type="submit" className="boton-form">
         Submit
       </Button>
+      <SnackBar />
       <Form.Text>Do not have an account?<LinkRouter to={<SignUp />}>Sign up!</LinkRouter></Form.Text>
         </Form>
     </div>

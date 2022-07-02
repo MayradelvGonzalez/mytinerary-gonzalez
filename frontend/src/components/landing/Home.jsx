@@ -17,7 +17,7 @@ return(
    <div className='container-boton'>
   <div className="botonCall">    
   <Animated animationIn="fadeIn" isVisible={true}><LinkRouter to= '/cities' className="searchpage">
-      <button className="botonCall">Click here and let's travel!</button>
+      <button className="botonCall">Click here!</button>
      </LinkRouter></Animated>
     </div>
    </div>

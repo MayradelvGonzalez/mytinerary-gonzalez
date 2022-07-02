@@ -6,7 +6,8 @@ import usersActions from '../../redux/actions/usersActions';
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
-import jwt_decode from 'jwt-decode';
+import GoogleSignUp from '../googleLogin/GoogleSignUp';
+
 
 function SignUp() {
   
@@ -51,9 +52,9 @@ dispatch(usersActions.signUp(userData))
     <Form onSubmit={handleSubmit}> 
       <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label className="#">Full Name:</Form.Label>
-      <Form.Control type="name" className="formInput" placeholder="Enter name" />
+      <Form.Control type="name" className="formInput" placeholder="Enter name" required/>
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" className="formInput" placeholder="email@web.com" />
+        <Form.Control type="email" className="formInput" placeholder="email@web.com" required/>
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -62,29 +63,31 @@ dispatch(usersActions.signUp(userData))
             
           >
             {paises.map((country, index) => (
-              <option key={index}>{country}</option>
+              <option key={index} required>{country}</option>
             ))}
           </select></Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" className="formInput" placeholder="Enter password" />
+        <Form.Control type="password" className="formInput" placeholder="Enter password" required />
         <Form.Text id="passwordHelpBlock" muted>
         Your password must be 8-20 characters long, contain letters and numbers,
         and must not contain spaces, special characters, or emoji.
       </Form.Text>
       <Form.Group>
        <Form.Label className="#">Photo:</Form.Label>
-      <Form.Control type="text" className="formInput" placeholder="URL image" /></Form.Group>
+      <Form.Control type="text" className="formInput" placeholder="URL image" required/></Form.Group>
       
        
       </Form.Group>
       <Form.Group className="redes-sociales">
+        <GoogleSignUp />
     <FacebookIcon /><InstagramIcon /><GoogleIcon />
     </Form.Group>
       <Form.Text className="pregForm">Have an account?<a href="#">Log In</a></Form.Text>
       <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario"  >
        Reset
       </Button>
+  
       <Button variant="primary" type="submit" className="boton-form">
         Submit
       </Button>
