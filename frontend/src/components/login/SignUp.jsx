@@ -81,7 +81,7 @@ dispatch(usersActions.signUp(userData))
       <Form.Group className="redes-sociales">
     <FacebookIcon /><InstagramIcon /><GoogleIcon />
     </Form.Group>
-      <Form.Text>Have an account?<a href="#">Log In</a></Form.Text>
+      <Form.Text className="pregForm">Have an account?<a href="#">Log In</a></Form.Text>
       <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario"  >
        Reset
       </Button>

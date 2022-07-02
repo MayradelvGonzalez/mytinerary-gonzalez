@@ -619,7 +619,7 @@ font-weight:bold;
 width: 7vw;
 align-self: flex-end;
 margin-bottom:0.6em;
-margin-left:5em;
+margin-left:8em;
 }
 
 .boton-form-reiniciar{
@@ -633,13 +633,15 @@ align-self: flex-end;
 margin-bottom:0.6em;
 margin-left:30em;
 }
-
+.pregForm, .pregForm a{
+  font-size:1em;
+}
 .redes-sociales{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  width: 10vw;
-  height: 5vh;
+  width: 12vw;
+  height: 7vh;
   
 
 }
