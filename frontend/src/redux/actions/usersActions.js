@@ -1,19 +1,6 @@
 import axios from 'axios';
 
 const usersActions = {
-//     signUp : (userData) => {
-//         return async (dispatch, getState) => {
-//             const res = await axios.post(`http://localhost:4000/api/signup`,{userData})
-//             console.log(res)
-//         }
-
-//     },
-//     signIn: (userLogin) => {
-//     return async(dispatch, getState) => {
-//         const res = await axios.post(`http://localhost:4000/api/login`, {userLogin})
-//     }
-// },
-// }
 
 signUp: (userData) => {
     return async(dispatch,getState) => {
@@ -56,8 +43,41 @@ signIn: (userLoged) => {
             console.log(error)
         }
     }
+},
+signOut: (mail) => {
+    return async (dispatch, getState) => {
+        await axios.post('http://localhost:4000/api/auth/signin',{mail})
+        localStorage.removeItem('token')
+        dispatch({
+            type: 'user',
+            payload: null
+        })
+    }
+},
+verifyToken: (token) => {
+    return async (dispatch, getState) => {
+        const user = await axios.get('http://localhost:4000/api/auth/signin', {headers: {'Authorization': 'Bearer ' + token}})
+        if(user.data.success){
+            dispatch({
+                type:'USER',
+                payload: user.data.response
+            })
+            dispatch({
+                type:'MESSAGE',
+               payload: {
+                view: true,
+                message: user.data.message,
+                success: user.data.success
+               }
+            }
+          
+        )
+    } else {
+        localStorage.removeItem('token')
+    }
 }
 
+}
 }
 
 

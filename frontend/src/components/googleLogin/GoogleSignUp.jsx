@@ -6,8 +6,10 @@ import userActions from '../redux/actions/usersActions';
 function GoogleSignUp() {
     const dispatch = useDispatch();
     async function handleCallbackResponse(response){
+        
         console.log(response.credential);
-    let  userObject = jwt_decode(reponse.credential);
+
+    let  userObject = jwt_decode(response.credential);
     console.log(userObject)
     dispatch(userActions.signUp({
        fullName: userObject.name,
@@ -36,6 +38,6 @@ return(
         <div id='buttonDiv'></div>
     </div>
 )
-s}
+}
 
 export default GoogleSignUp

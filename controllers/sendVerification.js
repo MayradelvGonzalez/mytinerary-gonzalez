@@ -31,7 +31,7 @@ const sendVerification = async (email, string) => {
         from: process.env.USER,
         to: email,
         subject: "verify account",
-        html: ` <a href=http://localhost:3000/api/verify/${string}>CLICK!</a>
+        html: `<a href=http://localhost:3000/api/verify/${string} style>CLICK HERE!</a>
         <h3>to confirm!</h3>`
     }
     await transporter.sendMail(mailOptions, function (error, response){

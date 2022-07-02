@@ -1,15 +1,18 @@
 const User = require('../models/users');
 const bcryptjs = require('bcryptjs');
-const jwt = require('./jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const sendVerification = require('./sendVerification');
+const crypto = require('crypto');
 
 const usersControllers = {
     signUp : async (req,res) => {
-        const { fullName , email, password, photo,country, from } = req.body.userData
+        const { fullName , email, password, photo,country} = req.body.userData
         try{
-            const usuarioExiste = await User.findOne({ email })
+            const usuarioExiste = await User.findOne({ email })//buscamos por mail
+           const hashWord = bcryptjs.hashSync(password,10) //hasheo la contraseña
+
             const verification= false
-            const uniqueString = crypto.randomBytes(15).toString('hex')
+            const uniqueString = crypto.randomBytes(15).toString('hex')//utilizando los metodos de crypto
             if (usuarioExiste)    {
                 if(usuarioExiste.from.indexOf(from) !== -1) {
                     res.json({
@@ -19,8 +22,9 @@ const usersControllers = {
     
                     })
                 } else {
-                    const contraseñaHasheada = bcryptjs.hashSync(password, 10)
-                    usuarioExiste.from.push(from)
+                    const contraseñaHasheada = bcryptjs.hashSync(password, 10);
+                    usuarioExiste.from.push(from); //agregamos datos
+                    usuarioExiste.verification = true;
                     usuarioExiste.password.push(contraseñaHasheada)
                     res.json({
                         success:true,
@@ -36,7 +40,9 @@ const usersControllers = {
                     password: [contraseñaHasheada],
                     photo,
                     country,
-                    emailVerificado: false,
+                    verification,
+                    uniqueString: uniqueString,
+                    password: [hashWord],
                     from:[from],
                     
                 }) 
