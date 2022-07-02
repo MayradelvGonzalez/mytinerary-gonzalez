@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import logoNuevo from '../../img/logoNuevo.jpg';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,6 +12,7 @@ import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FaceIcon from '@mui/icons-material/Face';
+import Avatar from '@mui/material/Avatar';
 import { Link as LinkRouter } from 'react-router-dom';
 
 
@@ -20,6 +22,7 @@ import { Link as LinkRouter } from 'react-router-dom';
   const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const users = useSelector(store => store.usersReducer.users)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -96,8 +99,10 @@ import { Link as LinkRouter } from 'react-router-dom';
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
-              
-                 <FaceIcon className="faceIcon"/> 
+
+           
+              <Avatar alt="nombre" src="/static/images/avatar/1.jpg"/>
+             
                  </IconButton>
             </Tooltip>
           <Menu

@@ -409,11 +409,7 @@ font-weight: bold;
   background-color: #4e8cb8;
   color:black;
 }
-.tituloSignIn{
-  font-family:'Cormorant Garamond', serif;
-  color:black;
-  background-color:#808080;
-}
+
    
                        /* FOOTER */
 .container-footer{
@@ -582,17 +578,25 @@ transform: rotate3d(1, 1, 1, 360deg);
   justify-content: center;
  
 }
+.tituloSignIn{
+  font-family:'Cormorant Garamond', serif;
+  color:white;
+  font-weight: bolder;
+  /* background-color:#808080; */
+  margin-top:0.8em;
+  
+}
 form{
   box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
   background: rgba(0, 0, 0, 0.75);
   color: white;
   font-family: 'Old Standard TT', serif;
-  height: 75vh;
+  height: 73vh;
   width: 68%;
-  font-size:1em;
+  font-size:0.9em;
   border-radius:1em;
   padding:0.8em;
-  margin-top:2.7em;
+  margin-top:1.5em;
   
 }
 
@@ -792,6 +796,41 @@ margin:0.3em auto 0.5em;
     display:flex;
     justify-content: space-around;
   }
+ 
+  .form{
+    font-size:1px;
+   
+  }
+ .form label{
+  padding: 0.1em;
+ }
+  .boton-form{
+   
+    font-weight:lighter;
+  width: 12.5vw;
+  align-self: center;
+  margin-bottom:0.2em;
+  margin-left:1em;
+  }
+  
+  .boton-form-reiniciar{
+    font-weight:lighter;
+  width: 11vw;
+  align-self: center;
+  margin-bottom:0.2em;
+  margin-left:5em;
+  }
+  
+  .redes-sociales{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10vw;
+    height: 5vh;
+  }
+  
+ 
+  
 }
 @media (min-width:768px){
   .container-titulos{
