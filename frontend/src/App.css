@@ -196,18 +196,14 @@ padding-top:0.5em;
     margin-top:15rem;
     border:0.3em outset gray;
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
-    /* background-image: url(./img/GifViaje.gif); 
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: contain; */
+   
     text-decoration:none;
     font-family: 'Acme', sans-serif;
     height:10%;
-width: 7vw;
+    width: 7vw;
    background-color: #25475e;
-   color:wheat;
-   animation: animate 3s  infinite linear;
+
+  color: animate 2s infinite linear;
   
      
   }
@@ -218,25 +214,26 @@ width: 7vw;
     text-decoration: none;
    width: 4vw;
    height: 7vh;
+   color: animate 2s infinite linear;
   }
   .botonCall button:hover{
     box-shadow:0 4px 8px 0 #25475e,0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
     border:0.3em inset gray;
-    color: #25475e;
+    
    
  
   }
   @keyframes animate {
     0%,
     100%{
-      background:gradient(orange, white);
+      color:gradient(orange, white);
     }
    
     50%{
-      background:gradient(white, orange);
+      color:gradient(white, orange);
     }
     75%{
-      background:gradient( green, yellow);
+      color:gradient( #25475e, yellow);
     }
   }
   .sc-dnqmqq{
