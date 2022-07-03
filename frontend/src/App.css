@@ -619,6 +619,17 @@ align-self: flex-end;
 margin-bottom:0.6em;
 margin-left:8em;
 }
+.botonSignIn{
+  color:white;
+  background-color: #25475e;
+  border-radius:1em;
+  border:0.1em solid white;
+font-weight:bold;
+width: 7vw;
+align-self: flex-end;
+margin-bottom:0.6em;
+justify-content: flex-end;
+}
 
 .boton-form-reiniciar{
   color:white;

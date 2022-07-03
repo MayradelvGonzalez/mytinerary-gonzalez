@@ -9,14 +9,16 @@ function GoogleSignIn(){
 
     async function handleCallbackResponse(response){
         let userObject = jwt_decode(response.credential)
-        dispatch(usersActions.signIn({
+        const data = {
             email: userObject.email,           
             password:userObject.sub,          
             from:'google'
-        }))
+        }
+        dispatch(usersActions.signIn(data))
     }
     useEffect(()=> {
         /*global google*/
+        window.onload = function () {
         google.accounts.id.initialize({
             client_id: '556028616922-59ljqe7i7ug24kbcf3uji06mvpju3tl5.apps.googleusercontent.com',
             callback: handleCallbackResponse
@@ -25,7 +27,7 @@ function GoogleSignIn(){
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
             { theme: "outline" , size:"medium"} 
-        )
+        )}
     })
       return(
         <div>

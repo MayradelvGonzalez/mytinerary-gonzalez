@@ -44,19 +44,19 @@ signIn: (userLoged) => {
         }
     }
 },
-signOut: (mail) => {
-    return async (dispatch, getState) => {
-        await axios.post('http://localhost:4000/api/auth/signin',{mail})
-        localStorage.removeItem('token')
-        dispatch({
-            type: 'user',
-            payload: null
-        })
-    }
-},
+// signOut: (mail) => {
+//     return async (dispatch, getState) => {
+//         await axios.post('http://localhost:4000/api/auth/signOut',{mail})
+//         localStorage.removeItem('token')
+//         dispatch({
+//             type: 'user',
+//             payload: null
+//         })
+//     }
+// },
 verifyToken: (token) => {
     return async (dispatch, getState) => {
-        const user = await axios.get('http://localhost:4000/api/auth/signin', {headers: {'Authorization': 'Bearer ' + token}})
+        const user = await axios.get('http://localhost:4000/api/auth/verifyToken', {headers: {'Authorization': 'Bearer ' + token}})
         if(user.data.success){
             dispatch({
                 type:'USER',

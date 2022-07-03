@@ -24,13 +24,13 @@ const userLoged = {
     from:"form-Signin"
 };
 dispatch(usersActions.signIn(userLoged))
-
+console.log(userLoged)
 }
 return (
-    <div className='"container-form'>
+    <div className='container-form'>
         <Form onSubmit={handleSubmit}>
         <Form.Group className="redes-sociales">
-    <FacebookIcon /><InstagramIcon /><GoogleIcon />
+   
     </Form.Group>
          <Form.Group> <Form.Label>Email address</Form.Label>
          <Form.Control type="email" className="formInput" placeholder="email@web.com" /></Form.Group>
@@ -38,7 +38,7 @@ return (
          <Form.Label>Password</Form.Label>
          <Form.Control type="password" className="formInput" placeholder="Enter password" /></Form.Group>
          <GoogleSignIn />
-         <Button variant="primary" type="submit" className="boton-form">
+         <Button variant="primary" type="submit" className="botonSignIn">
         Submit
       </Button>
       <SnackBar />

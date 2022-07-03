@@ -9,8 +9,6 @@ const usersControllers = {
         const { fullName , email, password, photo,country, from} = req.body.userData
         try{
             const usuarioExiste = await User.findOne({ email })//buscamos por mail
-            const hashWord = bcryptjs.hashSync(password,10) //hasheo la contraseña
-
             const verification= false
             const uniqueString = crypto.randomBytes(15).toString('hex')//utilizando los metodos de crypto
             if (usuarioExiste)    {
@@ -42,14 +40,14 @@ const usersControllers = {
                     country,
                     verification,
                     uniqueString: uniqueString,
-                    password: [hashWord],
-                    from:[from],
+                    from:[from]
                     
                 }) 
                 console.log(nuevoUsuario)
                 if (from !== "form-SignUp"){
-                    await nuevoUsuario.save()
                     nuevoUsuario.verification = true;
+                    await nuevoUsuario.save()
+                   
                     
                     res.json({
                         success:true,
@@ -71,12 +69,12 @@ const usersControllers = {
             }
         
         } catch (error) {
-            res.json ({success: false, from: from, message: "error,please try again later"})
+            res.json ({success: false, from: from, message: "error,please try again later",console:console.log(error)})
     } 
 
     },
     signIn: async (req, res) =>{
-        const {email, password, from} = req.body.data
+        const {email, password, from} = req.body.userLoged
         try{
             const userExist = await User.findOne({email})
             // const indexPass = userExist.from.indexOf(from)
@@ -148,14 +146,14 @@ const usersControllers = {
 
     }
 },
-veriifyMail: async(req, res) => {
+verifyMail: async(req, res) => {
     const {string} = req.params
     const user = await User.findOne({uniqueString: string})
     if(user) {
         user.verification = true
 
         await user.save()
-        res.redirect("http://localhost:3000/signIn")
+        res.redirect("http://localhost:3000")
     }
     else { res.json({
         success: false,

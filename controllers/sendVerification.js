@@ -13,14 +13,14 @@ const sendVerification = async (email, string) => {
     refresh_token:  process.env.GOOGLE_REFRESHTOKEN
     })
     const accessToken =  myOAuth2Client.getAccessToken()
-    const transporter = nodemailer.getAccessTransport({
+    const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: process.env.USER,
+            user: "maygonzalez19901909@gmail.com",
             type: "OAuth2",
             clientId: process.env.GOOGLE_CLIENTID,
             clientSecret: process.env.GOOGLE_CLIENTSECRET,
-            refrechToken: process.env.GOOGLE_REFRESHTOKEN,
+            refreshToken: process.env.GOOGLE_REFRESHTOKEN,
             accessToken: accessToken
         },
         tls: {
@@ -28,10 +28,10 @@ const sendVerification = async (email, string) => {
         }
     })
     let mailOptions = {
-        from: process.env.USER,
+        from: 'maygonzalez19901909@gmail.com',
         to: email,
         subject: "verify account",
-        html: `<a href=http://localhost:3000/api/verify/${string} style>CLICK HERE!</a>
+        html: `<a href=http://localhost:4000/api/verify/${string}>CLICK HERE!</a>
         <h3>to confirm!</h3>`
     }
     await transporter.sendMail(mailOptions, function (error, response){
@@ -45,3 +45,4 @@ const sendVerification = async (email, string) => {
 }
 
 module.exports = sendVerification
+

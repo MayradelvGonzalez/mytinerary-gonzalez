@@ -45,7 +45,7 @@ const userData = {
   photo:event.target[4].value,
   from:"form-Singup"
 }
- dispatch(usersActions.signIn(userData))
+ dispatch(usersActions.signUp(userData))
 }
 
   return (
@@ -84,7 +84,7 @@ const userData = {
       </Form.Group>
       <Form.Group className="redes-sociales">
         <GoogleSignUp />
-    <FacebookIcon /><InstagramIcon /><GoogleIcon />
+   
     </Form.Group>
       <Form.Text className="pregForm">Have an account?<LinkRouter to={<SignIn />}>Log In</LinkRouter></Form.Text>
       <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario"  >
