@@ -16,6 +16,7 @@ import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
 
+  
 function App()  {
 
 
@@ -36,6 +37,7 @@ function App()  {
                 <Route path='/signin' element={<SignIn />} /> 
                 <Route path='/signup' element = {<SignUp />} />
                 <Route path='/itinerary' element = {<Itinerary />} />
+              
             </Routes>
         <Footer />
             <ScrollToTop 

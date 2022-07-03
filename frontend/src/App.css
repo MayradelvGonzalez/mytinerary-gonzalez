@@ -184,10 +184,22 @@ padding-top:0.5em;
   display:flex;
   align-items: center;
   justify-content: center;
-
+  animation: animate 2s infinite linear;
 
 }
-
+@keyframes animate {
+  0%,
+  100%{
+    background:gradient(orange, white);
+  }
+ 
+  50%{
+    background:gradient(white, orange);
+  }
+  75%{
+    background:gradient( #25475e, yellow);
+  }
+}
 .searchpage button{
     display:flex;
     align-items:center;
@@ -196,14 +208,14 @@ padding-top:0.5em;
     margin-top:15rem;
     border:0.3em outset gray;
     box-shadow:0 4px 8px 0 #25475e,0 10px 25px #25475e, 0 10px 30px 0 #1b3d20,0 10px 30px 0 #25475e;
-   
+   animation: animate 2s infinite linear;
     text-decoration:none;
     font-family: 'Acme', sans-serif;
     height:10%;
     width: 5vw;
    background-color: #25475e;
 
-  animation: animate 2s infinite linear;
+ 
   
      
   }
@@ -214,7 +226,7 @@ padding-top:0.5em;
     text-decoration: none;
    width: 4vw;
    height: 7vh;
-   animation: animate 2s infinite linear;
+   
    color:white;
   }
   .botonCall button:hover{
@@ -224,19 +236,7 @@ padding-top:0.5em;
    
  
   }
-  @keyframes animate {
-    0%,
-    100%{
-      background-color:gradient(orange, white);
-    }
-   
-    50%{
-      background-color:gradient(white, orange);
-    }
-    75%{
-      background-color:gradient( #25475e, yellow);
-    }
-  }
+ 
   .sc-dnqmqq{
     display:flex;
     justify-content: center;

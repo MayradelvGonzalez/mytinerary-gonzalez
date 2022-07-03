@@ -3,15 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch} from 'react-redux';
 import { Link as LinkRouter } from 'react-router-dom';
+import SignIn from '../login/SignIn';
 import usersActions from '../../redux/actions/usersActions';
 import FacebookIcon from '@mui/icons-material/Facebook'; 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
 import GoogleSignUp from '../googleLogin/GoogleSignUp';
-import SignIn from '../login/SignIn';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-  
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import SnackBar from '../snackbar/Snackbar';
 
 function SignUp() {
   
@@ -29,8 +29,11 @@ function SignUp() {
     "Peru",
     "Puerto Rico",
   ];
+
+
 const dispatch = useDispatch();
-const handleSubmit = async (event) => {
+
+const handleSubmit = (event) => {
 
 event.preventDefault()
 
@@ -41,21 +44,15 @@ const userData = {
   password:event.target[3].value,
   photo:event.target[4].value,
   from:"form-Singup"
-};
-
-const respuesta = await dispatch(usersActions.signUp(userData));
-
-if(respuesta.data.success) {
-  toast.success(respuesta.data.message);
-}else
-{
-  toast.error(respuesta.data.message);
 }
+ dispatch(usersActions.signIn(userData))
 }
+
   return (
     <div className="container-form">
      <h2 className="tituloSignIn">Create your account</h2>
     <Form onSubmit={handleSubmit}> 
+   
       <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label className="#">Full Name:</Form.Label>
       <Form.Control type="name" className="formInput" placeholder="Enter name" required/>
@@ -93,12 +90,11 @@ if(respuesta.data.success) {
       <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario"  >
        Reset
       </Button>
-      
   
       <Button variant="primary" type="submit" className="boton-form">
         Submit
       </Button>
-      <ToastContainer />
+      <SnackBar />
     </Form>
     </div>
   );
