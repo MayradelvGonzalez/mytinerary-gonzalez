@@ -15,17 +15,22 @@ import SignUp from './components/login/SignUp';
 import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
-
+import usersActions from './redux/actions/usersActions';
   
 function App()  {
-
-
-
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(citiesActions.getCities()) 
        },[])
       
+       useEffect(() => {
+        if(localStorage.getItem('token')!== null) {
+            const token = localStorage.getItem("token")
+            //console.log(token)
+            dispatch(usersActions.verifyToken(token))
+        }
+    },[])
+
     return (
       <div className="app">
         <Nav />

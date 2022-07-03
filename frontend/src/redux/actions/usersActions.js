@@ -28,7 +28,12 @@ signIn: (userLoged) => {
             const res = await axios.post('http://localhost:4000/api/auth/signin',{userLoged})
             //console.log(res)
             if (res.data.success) {
-                dispatch({type: 'USER', payload: res.data.response})
+                localStorage.setItem('token',res.data.response.token)// TOMA EL TOKEN Y LO MANDA AL LOCALSTORE
+                    console.log(localStorage.getItem('token'))
+                    dispatch({
+                        type: "USER",
+                        payload:res.data.response
+                    })
             } else {
                 dispatch({type: 'MESSAGE',
                     payload: {

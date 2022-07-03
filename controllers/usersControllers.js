@@ -73,79 +73,175 @@ const usersControllers = {
     } 
 
     },
-    signIn: async (req, res) =>{
-        const {email, password, from} = req.body.userLoged
-        try{
-            const userExist = await User.findOne({email})
-            // const indexPass = userExist.from.indexOf(from)
-            if(!userExist){
-                res.json({success: false, message: "Your user has not been registred,"})
-            }
-            else
-            {
-                if(from !== "form-SignIn" ){
-                let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
-                if (passwordMatch.length > 0){
-                    const userLoged = {
-                        id: userExist._id,
-                        fullName: userExist.fullName,
-                        email: userExist.email,
-                        photo:userExist.photo,
-                        country: userExist.country,
-                        from: userExist.from,
-                    }
-                    await userExist.save()
-                    const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
-                    res.json({
-                        success: true,
-                        from: from,
-                        response: {token,userLoged},
-                        message:`Welcome back ${userLoged.fullName}`,
+//     signIn: async (req, res) =>{
+//         const {email, password, from} = req.body.userLoged
+//         try{
+//             const userExist = await User.findOne({email})
+//             // const indexPass = userExist.from.indexOf(from)
+//             if(!userExist){
+//                 res.json({success: false, message: "Your user has not been registered,"})
+//             }
+//             else
+//             {
+//                 if(from !== "form-SignIn" ){
+//                 let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
+//                 if (passwordMatch.length > 0){
+//                     const userLoged = {
+//                         id: userExist._id,
+//                         fullName: userExist.fullName,
+//                         email: userExist.email,
+//                         photo:userExist.photo,
+//                         country: userExist.country,
+//                         from: userExist.from,
+//                     }
+//                     await userExist.save()
+//                     const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
+//                     res.json({
+//                         success: true,
+//                         from: from,
+//                         response: {token,userLoged},
+//                         message:`Welcome back ${userLoged.fullName}`,
 
-                    })
-                } 
-                else {
-                    res.json({
-                        success: false,
-                        from: from,
-                        message: "You did not register with " + "if you want to enter with this method please Sign Up with " + from
-                    })
+//                     })
+//                 } 
+//                 else {
+//                     res.json({
+//                         success: false,
+//                         from: from,
+//                         message: "You did not register with " + "if you want to enter with this method please Sign Up with " + from
+//                     })
                 
-            } }  
-            else{
-                let passwordMatch = userExist.password.filter(pass=> bcryptjs.compareSync(password, pass))
-                if(passwordMatch.length > 0){
-                    const userLoged = {
-                        id: userExist._id,
-                        fullName: userExist.fullName,
-                        email: userExist.email,
-                        photo:userExist.imageUser,
-                        country: userExist.country,
-                        from: from,
-                    }
-                    await userExist.save()
-                    const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
-                    res.json({
-                        success: true,
-                        from: from,
-                        response: {token,userLoged},
-                        message: `Welcome back ${userLoged.fullName}!`,
+//             } }  
+//             else{
+//                 let passwordMatch = userExist.password.filter(pass=> bcryptjs.compareSync(password, pass))
+//                 if(passwordMatch.length > 0){
+//                     const userLoged = {
+//                         id: userExist._id,
+//                         fullName: userExist.fullName,
+//                         email: userExist.email,
+//                         photo:userExist.imageUser,
+//                         country: userExist.country,
+//                         from: from,
+//                     }
+//                     await userExist.save()
+//                     const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
+//                     res.json({
+//                         success: true,
+//                         from: from,
+//                         response: {token,userLoged},
+//                         message: `Welcome back ${userLoged.fullName}!`,
                     
-                })
-                } else{
-                    res.json({
-                        success: false,
-                        from: from,
-                        message: "the username or password does not match"
-                    })
-                }
-            }
-        }
-    } catch (error) {
-        res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console:console.log(error)})
+//                 })
+//                 } else{
+//                     res.json({
+//                         success: false,
+//                         from: from,
+//                         message: "the username or password does not match"
+//                     })
+//                 }
+//             }
+//         }
+//     } catch (error) {
+//         res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console:console.log(error)})
 
+//     }
+// },
+signIn: async (req, res) => {
+    const { email, password, from } = req.body.logedUser;
+    try {
+      const userExist = await User.findOne({ email }); //buscamos por email
+      //const indexPass = userExist.from.indexOf(from);
+      if (!userExist) {
+        res.json({//si no existe el usuario
+          success: false,
+          from: "no from",
+          message: "user does not exist, please signup",
+        });
+      } else if (userExist.verification) { //si existe la verificacion del usuario
+        let passwordMatch = userExist.password.filter((pass) =>
+            bcryptjs.compareSync(password, pass)
+          );
+          //filtramos en el array de contraseñas hasheadas si coincide la contraseña
+          if (from === "form-Signup") {
+            if(passwordMatch.length > 0){
+              const userData = {
+                id: userExist._id,
+                fullName: userExist.fullName,
+                email: userExist.email,
+                photo: userExist.photo,
+                country: userExist.country,
+                from: userExist.from,
+            };
+            await userExist.save(); //sing es un metodo:firma una secuencia de comandos almacenada en una cadena
+            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
+              expiresIn: 1000 * 60 * 60 * 24,
+            });
+            //console.log(token)
+            res.json({
+              response: { token, userData },//llega a userAction
+              success: true,
+              from: from,
+              message: "Welcome " + userData.fullName,
+            });
+          }else {
+          //si no hay coincidencias
+            res.json({
+              success: false,
+              from: from,
+              message:`verify your password!`,
+            });
+          }
+        }else {
+          //si fue registrado por redes sociales
+          
+          if (passwordMatch.length > 0) {//*borre el >= //hay coincidencias
+            const userData = {
+              id: userExist._id,
+              fullName: userExist.fullName,
+              email: userExist.email,
+              // password: userExist.password,
+              photo: userExist.photo,
+              country: userExist.country,
+              from: userExist.from,
+            };
+            await userExist.save();
+            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
+              expiresIn: 1000 * 60 * 60 * 24,
+            });
+            res.json({
+              response: { token, userData },//llega a userAction
+              success: true,
+              from: from,
+              message: "Welcome back" + userData.fullName,
+            });
+          } else {
+            //si no hay coincidencias
+            res.json({
+              success: false,
+              from: from,
+              message: 'verify your mail or password!'
+            });
+          }
+        }
+      }else { 
+         //si está registrado PERO el usuario NO FUE VALIDADO
+        res.json({
+          success: false,
+          from: from,
+          message: `validate your account`,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({
+        success: false,
+        from:from,
+        message: "Something went wrong. Try again in a few seconds",
+        
+      });
     }
-},
+  },
+
 verifyMail: async(req, res) => {
     const {string} = req.params
     const user = await User.findOne({uniqueString: string})
