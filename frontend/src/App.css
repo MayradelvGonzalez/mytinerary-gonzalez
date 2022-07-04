@@ -576,6 +576,21 @@ transform: rotate3d(1, 1, 1, 360deg);
   justify-content: center;
  
 }
+.container-formSignIn{
+  height: 80vh;
+  width: 100%;
+  background-image: url('./img/viaj.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit:contain;
+ display:flex;
+ flex-direction: column;
+ 
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+    display:flex;
+  align-items: center;
+  justify-content: center;
+}
 .tituloSignIn{
   font-family:'Cormorant Garamond', serif;
   color:white;
@@ -590,12 +605,24 @@ form{
   color: white;
   font-family: 'Old Standard TT', serif;
   height: 73vh;
-  width: 68%;
+  width: 60%;
   font-size:0.9em;
   border-radius:1em;
   padding:0.8em;
   margin-top:1.5em;
   
+}
+.formSignIn{
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-family: 'Old Standard TT', serif;
+  height: 50vh;
+  width: 47%;
+  font-size:1em;
+  border-radius:1em;
+  padding:0.6em;
+  margin-top:2em;
 }
 
 .formInput:hover{
@@ -614,10 +641,10 @@ form label{
   border-radius:1em;
   border:0.1em solid white;
 font-weight:bold;
-width: 7vw;
-align-self: flex-end;
+width: 5vw;
+
 margin-bottom:0.6em;
-margin-left:8em;
+margin-left:90%; 
 }
 .botonSignIn{
   color:white;
@@ -625,10 +652,11 @@ margin-left:8em;
   border-radius:1em;
   border:0.1em solid white;
 font-weight:bold;
-width: 7vw;
+width: 5vw;
 align-self: flex-end;
-margin-bottom:0.6em;
+margin-bottom:0.2em;
 justify-content: flex-end;
+margin-left: 80%;
 }
 
 .boton-form-reiniciar{

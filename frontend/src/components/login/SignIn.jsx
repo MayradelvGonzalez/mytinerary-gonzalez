@@ -5,15 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import usersActions from '../../redux/actions/usersActions';
-import FacebookIcon from '@mui/icons-material/Facebook'; 
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GoogleIcon from '@mui/icons-material/Google';
 import GoogleSignIn from '../googleLogin/GoogleSignIn';
+import { useNavigate } from 'react-router-dom';
 import SnackBar from '../snackbar/Snackbar';
 
 function SignIn (){
 const dispatch = useDispatch();
-
+const navigate = useNavigate();
 const handleSubmit = (event) => {
 
 event.preventDefault()
@@ -31,8 +29,9 @@ if(res.success){
 console.log(userLoged)
 }
 return (
-    <div className='container-form'>
-        <Form onSubmit={handleSubmit}>
+    <div className='container-formSignIn'>
+         <h2 className="tituloSignIn">Welcome back!</h2>
+        <Form onSubmit={handleSubmit} className="formSignIn">
         <Form.Group className="redes-sociales">
     </Form.Group>
          <Form.Group> <Form.Label>Email address</Form.Label>
@@ -45,7 +44,7 @@ return (
         Submit
       </Button>
       <SnackBar />
-      <Form.Text>Do not have an account?<LinkRouter to={<SignUp />}>Sign up!</LinkRouter></Form.Text>
+      <Form.Text>Do not have an account?<LinkRouter to='/signup'>Sign up!</LinkRouter></Form.Text>
         </Form>
     </div>
 );

@@ -86,7 +86,7 @@ const userData = {
         <GoogleSignUp />
    
     </Form.Group>
-      <Form.Text className="pregForm">Have an account?<LinkRouter to={<SignIn />}>Log In</LinkRouter></Form.Text>
+      <Form.Text className="pregForm">Have an account?<LinkRouter to='/signin'>Sign In</LinkRouter></Form.Text>
       <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario"  >
        Reset
       </Button>
