@@ -82,21 +82,7 @@ function SnackBar() {
           {typeof snackbar.message === "string" ? (
            <p> {snackbar.message} </p>
              ) : (
-            //     <>
-            //     <CheckIcon />
-            //   <p style={{textAlign: "center", margin:'.5rem'}}>{snackbar.message}</p>
-            //   </>
-            //   ) :
-            //   (<>
-            //   {!snackbar.success?(snackbar.map(e => {
-            //     <>
-            //  <ErrorIcon/>
-            //   <p style={{textAlign: "center", margin:'.5rem'}}>{e.message}</p>
-            //   </>
-            //   })):(null)
-               
-            // }</>)
-            // }
+            
             <ul>
                 {snackbar.message.map((message) => (
                   <li>{message.message}</li>

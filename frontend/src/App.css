@@ -875,6 +875,28 @@ margin:0.3em auto 0.5em;
   .container-titulos{
    padding-top:2em;
   }
+  Form{
+  height: 90vh;
+  margin-bottom: 0.5em;
+  }
+  .boton-form{
+    font-weight:lighter;
+  width: 10vw;
+  align-self: center;
+  margin-bottom:0.2em;
+  margin-left:1em;
+  }
+  .botonSignIn{
+    width: 5em;
+    margin-left: 70%;
+  }
+  .boton-form-reiniciar{
+    font-weight:lighter;
+  width: 5em;
+  align-self: center;
+  margin-bottom:0.2em;
+  margin-left:5em;
+  }
   .container-landing{
     width: 100%;
     height: 95vh;
