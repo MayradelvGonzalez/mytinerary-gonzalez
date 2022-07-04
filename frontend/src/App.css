@@ -688,8 +688,39 @@ margin-left:30em;
   .titulo{
     font-size:3.5em;
   }
-
-
+  .formSignIn{
+    width: 72%;
+    height: 65%;
+  }
+  Form{
+    height: 95vh;
+    width: 90%;
+    margin: 4em;
+    font-size: 0.7em;
+    }
+    .boton-form{
+      font-weight:lighter;
+    width: 23%;
+    align-self: center;
+    margin-bottom:0.2em;
+    margin-left:64%;
+    }
+    .botonSignIn{
+      width: 5em;
+      height: 10.5%;
+     
+      margin-bottom: 0.3em;
+      margin-left: 70%;
+    }
+    .boton-form-reiniciar{
+      font-weight:lighter;
+    width: 5em;
+    align-self: center;
+    margin-bottom:0.2em;
+    margin-left:5em;
+    }
+ 
+  
   
   .landing{
     height: 60%;
@@ -817,7 +848,9 @@ margin:0.3em auto 0.5em;
     height: 13vh;
     border-radius: 1em;
   }
-
+  .formSignIn{
+    width: 50%;
+  }
  
   .botonCall button{
    font-size: 0.5em;
@@ -843,31 +876,33 @@ margin:0.3em auto 0.5em;
  .form label{
   padding: 0.1em;
  }
-  .boton-form{
-   
-    font-weight:lighter;
-  width: 12.5vw;
-  align-self: center;
-  margin-bottom:0.2em;
-  margin-left:1em;
-  }
-  
-  .boton-form-reiniciar{
-    font-weight:lighter;
-  width: 11vw;
-  align-self: center;
-  margin-bottom:0.2em;
-  margin-left:5em;
-  }
-  
-  .redes-sociales{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 10vw;
-    height: 5vh;
-  }
-  
+
+  Form{
+    height: 95vh;
+    width: 86%;
+    margin-bottom: 0.1em;
+    }
+    .boton-form{
+      font-weight:lighter;
+    width: 13vw;
+    align-self: center;
+    margin-bottom:0.2em;
+    margin-left:1em;
+    }
+    .botonSignIn{
+      width: 5em;
+      height: 10.5%;
+     
+      margin-bottom: 0.3em;
+      margin-left: 70%;
+    }
+    .boton-form-reiniciar{
+      font-weight:lighter;
+    width: 5em;
+    align-self: center;
+    margin-bottom:0.2em;
+    margin-left:5em;
+    }
  
   
 }
