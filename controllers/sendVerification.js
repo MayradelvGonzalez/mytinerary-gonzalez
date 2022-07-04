@@ -28,11 +28,10 @@ const sendVerification = async (email, string) => {
         }
     })
     let mailOptions = {
-        from: 'maygonzalez19901909@gmail.com',
+        from: process.env.USER,
         to: email,
         subject: "verify account",
-        html: `<a href=http://localhost:4000/api/verify/${string}>CLICK HERE!</a>
-        <h3>to confirm!</h3>`
+        html: `<a href=http://localhost:4000/api/verify/${string}>CLICK HERE!</a><h3>to confirm!</h3>`
     }
     await transporter.sendMail(mailOptions, function (error, response){
         if(error){

@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FaceIcon from '@mui/icons-material/Face';
 import Avatar from '@mui/material/Avatar';
-import { Link as LinkRouter } from 'react-router-dom';
-
+import { Link as LinkRouter, useNavigate } from 'react-router-dom';
+import usersActions from '../../redux/actions/usersActions';
+import { useDispatch } from 'react-redux';
 
  const settings = [{to:'/signup', name:'Sign Up'},{to:'/signin', name:'Sign In'}];
  const opcionesNavBar = [{to:'/', name:'Home'}, {to:'/cities', name:'Cities'}]
@@ -22,7 +23,9 @@ import { Link as LinkRouter } from 'react-router-dom';
   const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const users = useSelector(store => store.usersReducer.users)
+  const users = useSelector(store => store.usersReducer.users);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -38,6 +41,10 @@ import { Link as LinkRouter } from 'react-router-dom';
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  async function signOut() {
+    await dispatch(usersActions.signOut(users.user.email))
+      .then(navigate("/",{replace:true}))//me lleva de nuevo al home al hacer sign out
+  }
 
   return (
     <AppBar position="static">

@@ -43,7 +43,7 @@ const userData = {
   country:event.target[2].value,
   password:event.target[3].value,
   photo:event.target[4].value,
-  from:"form-Singup"
+  from:"form-SignUp"
 }
  dispatch(usersActions.signUp(userData))
 }
@@ -53,7 +53,7 @@ const userData = {
      <h2 className="tituloSignIn">Create your account</h2>
     <Form onSubmit={handleSubmit}> 
    
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
       <Form.Label className="#">Full Name:</Form.Label>
       <Form.Control type="name" className="formInput" placeholder="Enter name" required/>
         <Form.Label>Email address</Form.Label>
@@ -69,7 +69,7 @@ const userData = {
               <option key={index} required>{country}</option>
             ))}
           </select></Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" className="formInput" placeholder="Enter password" required />
         <Form.Text id="passwordHelpBlock" muted>
@@ -83,7 +83,7 @@ const userData = {
        
       </Form.Group>
       <Form.Group className="redes-sociales">
-        <GoogleSignUp />
+        {/* <GoogleSignUp /> */}
    
     </Form.Group>
       <Form.Text className="pregForm">Have an account?<LinkRouter to={<SignIn />}>Log In</LinkRouter></Form.Text>

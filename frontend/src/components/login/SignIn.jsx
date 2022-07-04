@@ -21,7 +21,7 @@ event.preventDefault()
 const userLoged = {
     email: event.target[0].value,
     password: event.target[1].value,
-    from:"form-Signin"
+    from:"form-SignIn"
 };
 dispatch(usersActions.signIn(userLoged))
 console.log(userLoged)

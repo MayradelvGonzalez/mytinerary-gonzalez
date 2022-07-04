@@ -1,25 +1,42 @@
 import axios from 'axios';
 
 const usersActions = {
-
-signUp: (userData) => {
-    return async(dispatch,getState) => {
-        try {
-            const res = await axios.post('http://localhost:4000/api/auth/signup',{userData})
-            console.log(res)
-            dispatch({type: 'MESSAGE',
-                payload: {
-                    view: true,
-                    message: res.data.message,
-                    success: res.data.success
-                }
-            })
-            return res
-        } catch(error) {
-            console.log(error)
+    signUp: (userData) => {
+        return async(dispatch,getState) => {
+            try {
+                const res = await axios.post('http://localhost:4000/api/auth/signup', {userData})
+                console.log(res)
+                dispatch({type: 'MESSAGE',
+                    payload: {
+                        view: true,
+                        message: res.data.message,
+                        success: res.data.success
+                    }
+                })
+                return res
+            } catch(error) {
+                console.log(error)
+            }
         }
-    }
-},
+    },
+// signUp: (userData) => {
+//     return async(dispatch,getState) => {
+//         try {
+//             const res = await axios.post('http://localhost:4000/api/auth/signup',{userData})
+//             console.log(res)
+//             dispatch({type: 'MESSAGE',
+//                 payload: {
+//                     view: true,
+//                     message: res.data.message,
+//                     success: res.data.success
+//                 }
+//             })
+//             return res
+//         } catch(error) {
+//             console.log(error)
+//         }
+//     }
+// },
 
 signIn: (userLoged) => {
     console.log(userLoged)
@@ -49,16 +66,16 @@ signIn: (userLoged) => {
         }
     }
 },
-// signOut: (mail) => {
-//     return async (dispatch, getState) => {
-//         await axios.post('http://localhost:4000/api/auth/signOut',{mail})
-//         localStorage.removeItem('token')
-//         dispatch({
-//             type: 'user',
-//             payload: null
-//         })
-//     }
-// },
+signOut: (mail) => {
+    return async (dispatch, getState) => {
+        await axios.post('http://localhost:4000/api/auth/signOut',{mail})
+        localStorage.removeItem('token')
+        dispatch({
+            type: 'user',
+            payload: null
+        })
+    }
+},
 verifyToken: (token) => {
     return async (dispatch, getState) => {
         const user = await axios.get('http://localhost:4000/api/auth/verifyToken', {headers: {'Authorization': 'Bearer ' + token}})
