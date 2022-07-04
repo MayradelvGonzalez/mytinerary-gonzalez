@@ -23,7 +23,11 @@ const userLoged = {
     password: event.target[1].value,
     from:"form-SignIn"
 };
-dispatch(usersActions.signIn(userLoged))
+
+const res = dispatch(usersActions.signIn(userLoged))
+if(res.success){
+    navigate('/')
+}
 console.log(userLoged)
 }
 return (

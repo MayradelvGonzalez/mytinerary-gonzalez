@@ -106,7 +106,7 @@ import { useDispatch } from 'react-redux';
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                {users? <Box sx={{display: 'flex', WebkitJustifyContent: 'center',alignItems: 'center',}}>
-            <Avatar alt="imageUser" src={users.user?.photo} sx={{ width: 80, height: 80 }} /></Box>
+            <Avatar alt="imageUser" src={users.user?.photo} sx={{ width: 70, height: 70 }} /></Box>
              :
              <Avatar alt="nombre" src="/static/images/avatar/1.jpg"/> }
                </IconButton>
