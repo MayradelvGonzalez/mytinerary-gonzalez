@@ -344,7 +344,7 @@ const usersControllers = {
         })
     },
     verifyToken: (req, res) => {
-        if (!res.err) {
+        if (req.user) {
             res.json({
                 success: true,
                 response: {

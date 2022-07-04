@@ -19,24 +19,7 @@ const usersActions = {
             }
         }
     },
-// signUp: (userData) => {
-//     return async(dispatch,getState) => {
-//         try {
-//             const res = await axios.post('http://localhost:4000/api/auth/signup',{userData})
-//             console.log(res)
-//             dispatch({type: 'MESSAGE',
-//                 payload: {
-//                     view: true,
-//                     message: res.data.message,
-//                     success: res.data.success
-//                 }
-//             })
-//             return res
-//         } catch(error) {
-//             console.log(error)
-//         }
-//     }
-// },
+
 
 signIn: (userLoged) => {
     console.log(userLoged)
@@ -66,40 +49,50 @@ signIn: (userLoged) => {
         }
     }
 },
-signOut: (mail) => {
-    return async (dispatch, getState) => {
-        await axios.post('http://localhost:4000/api/auth/signOut',{mail})
+signOut: () => {
+    return (dispatch, getState) => {
+        // await axios.post('http://localhost:4000/api/auth/signOut',{email})
         localStorage.removeItem('token')
         dispatch({
-            type: 'user',
+            type: 'USER',
             payload: null
         })
     }
 },
 verifyToken: (token) => {
     return async (dispatch, getState) => {
-        const user = await axios.get('http://localhost:4000/api/auth/verifyToken', {headers: {'Authorization': 'Bearer ' + token}})
-        if(user.data.success){
-            dispatch({
-                type:'USER',
-                payload: user.data.response
-            })
-            dispatch({
-                type:'MESSAGE',
-               payload: {
-                view: true,
-                message: user.data.message,
-                success: user.data.success
-               }
+         await axios.get('http://localhost:4000/api/auth/verifyToken', {headers: {'Authorization': 'Bearer ' + token}})
+        .then(user => 
+            {
+              if(user.data.success){
+                    dispatch({
+                        type:'USER',
+                        payload: user.data.response
+                    })
+                    dispatch({
+                        type:'MESSAGE',
+                       payload: {
+                        view: true,
+                        message: user.data.message,
+                        success: user.data.success
+                       }
+                    }
+                   )
+            } else {
+                localStorage.removeItem('token')
             }
-          
-        )
-    } else {
-        localStorage.removeItem('token')
+            }
+            ) .catch (error => {
+                if(error.response.status === 401){
+                    dispatch({
+                        type: 'USER',
+                        payload: null
+                    })
+                    localStorage.removeItem('token')
+                }
+            })
+        }
     }
-}
-
-}
 }
 
 

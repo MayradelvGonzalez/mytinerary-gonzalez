@@ -11,7 +11,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import FaceIcon from '@mui/icons-material/Face';
 import Avatar from '@mui/material/Avatar';
 import { Link as LinkRouter, useNavigate } from 'react-router-dom';
 import usersActions from '../../redux/actions/usersActions';
@@ -23,7 +22,7 @@ import { useDispatch } from 'react-redux';
   const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const users = useSelector(store => store.usersReducer.users);
+  const users = useSelector(store => store.usersReducer.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -41,8 +40,8 @@ import { useDispatch } from 'react-redux';
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  async function signOut() {
-    await dispatch(usersActions.signOut(users.user.email))
+  function signOut() {
+    dispatch(usersActions.signOut())
       .then(navigate("/",{replace:true}))//me lleva de nuevo al home al hacer sign out
   }
 
@@ -107,7 +106,7 @@ import { useDispatch } from 'react-redux';
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                {users? <Box sx={{display: 'flex', WebkitJustifyContent: 'center',alignItems: 'center',}}>
-            <Avatar alt="imageUser" src={users.user?.imageUser} sx={{ width: 80, height: 80 }} /></Box>
+            <Avatar alt="imageUser" src={users.user?.photo} sx={{ width: 80, height: 80 }} /></Box>
              :
              <Avatar alt="nombre" src="/static/images/avatar/1.jpg"/> }
                </IconButton>
@@ -131,7 +130,7 @@ import { useDispatch } from 'react-redux';
 
                {users ? (
                  <Box>
-                   <MenuItem>
+                   <MenuItem
                    sx={{'&:hover': {bgcolor: 'rgb(224,224,224)'}}} onClick={handleCloseUserMenu}>
                     <Typography sx={{padding: '2px', paddingLeft: '6px', paddingRight: '6px', color: 'rgb(2,0,3)'}} onClick={signOut}>Sign Out</Typography>
                    </MenuItem>

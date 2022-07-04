@@ -8,20 +8,25 @@ module.exports = passport.use(
     new jwtStrategy(
         {jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
         secretOrKey: process.env.SECRET_KEY},
-        async (jwt_payload,done) => {
-            //console.log(jwt_payload)
-            try {
-                const user = await User.findOne({_id:jwt_payload.id})
+         (jwt_payload,done) => {
+           User.findOne({_id:jwt_payload.id})
+            .then ( user => {
                 if (user) {
                     return done(null, user)
-                } else {
+                } else if(err) {
+                  return done(err, false)
+                }
+                else {
                     return done(null, false)
                 }
             }
-            catch(error) {
+                
+               
+            )
+            .catch(error => {
                 console.log(error)
-                return done(error,false)
-            }
-        }
-))
+                return done(error,false)   
+            })
+         }
+) )
 

@@ -30,7 +30,6 @@ return (
     <div className='container-form'>
         <Form onSubmit={handleSubmit}>
         <Form.Group className="redes-sociales">
-   
     </Form.Group>
          <Form.Group> <Form.Label>Email address</Form.Label>
          <Form.Control type="email" className="formInput" placeholder="email@web.com" /></Form.Group>

@@ -83,7 +83,7 @@ const userData = {
        
       </Form.Group>
       <Form.Group className="redes-sociales">
-        {/* <GoogleSignUp /> */}
+        <GoogleSignUp />
    
     </Form.Group>
       <Form.Text className="pregForm">Have an account?<LinkRouter to={<SignIn />}>Log In</LinkRouter></Form.Text>
