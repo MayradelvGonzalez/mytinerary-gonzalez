@@ -106,11 +106,11 @@ import { useDispatch } from 'react-redux';
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
-
-           
-              <Avatar alt="nombre" src="/static/images/avatar/1.jpg"/>
-             
-                 </IconButton>
+               {users? <Box sx={{display: 'flex', WebkitJustifyContent: 'center',alignItems: 'center',}}>
+            <Avatar alt="imageUser" src={users.user?.imageUser} sx={{ width: 80, height: 80 }} /></Box>
+             :
+             <Avatar alt="nombre" src="/static/images/avatar/1.jpg"/> }
+               </IconButton>
             </Tooltip>
           <Menu
               sx={{ mt: '45px' }}
@@ -128,7 +128,17 @@ import { useDispatch } from 'react-redux';
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-               {settings.map((setting,index) => (
+
+               {users ? (
+                 <Box>
+                   <MenuItem>
+                   sx={{'&:hover': {bgcolor: 'rgb(224,224,224)'}}} onClick={handleCloseUserMenu}>
+                    <Typography sx={{padding: '2px', paddingLeft: '6px', paddingRight: '6px', color: 'rgb(2,0,3)'}} onClick={signOut}>Sign Out</Typography>
+                   </MenuItem>
+                 </Box>
+               )
+
+              : settings.map((setting,index) => (
                 <LinkRouter key={index} to={setting.to} onClick={handleCloseNavMenu}>
                  <MenuItem>
                   <Typography className='OpcionesMenu' textAlign="center">{setting.name}</Typography>
@@ -136,7 +146,7 @@ import { useDispatch } from 'react-redux';
                 </LinkRouter>
 
                 )
-               )} 
+               )}
           </Menu>
         </Box>
       </Toolbar>
