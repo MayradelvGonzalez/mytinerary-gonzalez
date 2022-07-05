@@ -207,7 +207,7 @@ body::-webkit-scrollbar-thumb {
 
 .botonCall {
   color: white !important;
-  text-shadow: 1px 1px 3px white;
+  text-shadow: 1px 1px 3px #3f7746;
 }
 
 .searchpage button {
