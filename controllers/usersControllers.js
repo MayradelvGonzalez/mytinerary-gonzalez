@@ -217,7 +217,13 @@ const usersControllers = {
                 message: "Sign In please"  
             })
         }
-    }
+    },
+
+   likeDislike: async (req, res) =>{
+    const id = req.params.id //por parametro desde axios
+    const user = req.user.id //por respuesta de passport
+
+   }
 }
 
 

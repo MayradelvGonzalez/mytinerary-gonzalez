@@ -40,4 +40,13 @@ Router.route('/verify/:string')
 Router.route('/auth/verifyToken')
 .get(passport.authenticate('jwt', {session:false}), verifyToken)
 
+// Router.route('/like/:id')
+// .put(passport.authenticate('jwt', {session: false}),likeDislike) //porque el usuario requiere validarse
+
+// Router.route('/comment/:id')
+// .post(passport.authenticate('jwt', { session: false }), addComment)
+// .put(passport.authenticate('jwt',{ session:false }),modifiComment)
+
+// Router.route('/upload')
+// .post(passport.authenticate('jwt',{ session:false }), upload) va auth?
 module.exports = Router
