@@ -3,18 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { Link as LinkRouter } from 'react-router-dom';
-import SignIn from '../login/SignIn';
 import usersActions from '../../redux/actions/usersActions';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GoogleIcon from '@mui/icons-material/Google';
 import GoogleSignUp from '../googleLogin/GoogleSignUp';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import SnackBar from '../snackbar/Snackbar';
-
+import { useNavigate } from 'react-router-dom';
 function SignUp() {
-
   const paises = [
     "unselected",
     "Argentina",
@@ -30,10 +23,9 @@ function SignUp() {
     "Puerto Rico",
   ];
 
-
   const dispatch = useDispatch();
-
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (event) => {
 
     event.preventDefault()
 
@@ -45,14 +37,16 @@ function SignUp() {
       photo: event.target[4].value,
       from: "form-SignUp"
     }
-    dispatch(usersActions.signUp(userData))
+    const res = await dispatch(usersActions.signUp(userData))
+    if (res.data.success) {
+      navigate('/')
+    }
+    console.log(userData)
   }
-
   return (
     <div className="container-form">
       <h2 className="tituloSignIn">Create your account</h2>
       <Form onSubmit={handleSubmit}>
-
         <Form.Group className="mb-3">
           <Form.Label className="#">Full Name:</Form.Label>
           <Form.Control type="name" className="formInput" placeholder="Enter name" required />
@@ -62,9 +56,7 @@ function SignUp() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        <Form.Group > <label>Choose a country</label> <select
-
-        >
+        <Form.Group > <label>Choose a country</label><select>
           {paises.map((country, index) => (
             <option key={index} required>{country}</option>
           ))}
@@ -79,22 +71,17 @@ function SignUp() {
           <Form.Group>
             <Form.Label className="#">Photo:</Form.Label>
             <Form.Control type="text" className="formInput" placeholder="URL image" required /></Form.Group>
-
-
         </Form.Group>
         <Form.Group className="redes-sociales">
           <GoogleSignUp />
-
         </Form.Group>
         <Form.Text className="pregForm">Have an account?<LinkRouter to='/signin'>Sign In</LinkRouter></Form.Text>
         <Form.Group className="botones">
-
           <Button type="reset" className="boton-form-reiniciar" id="limpiar" value="Reiniciar Formulario" >
             Reset
           </Button>
           <Button variant="primary" type="submit" className="boton-form">
             Submit
-
           </Button> </Form.Group>
         <SnackBar />
       </Form>

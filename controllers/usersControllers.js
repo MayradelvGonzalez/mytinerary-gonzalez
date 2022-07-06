@@ -18,7 +18,7 @@ const usersControllers = {
                     res.json({
                         success: false,
                         from: from,
-                        message: `${email} has been registered yet, please LOG IN!`,
+                        message: `${email} has been registered yet, please Sign In!`,
                     });
                 } else {
                     //si es -1 significa que el usuario NO SE REGISTRO DE ESTA FORMA (nuevo registro con google) pero ya tiene AL MENOS UN registro (facebook y form)
@@ -30,7 +30,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: `you are ready to SIGN UP!`,
+                        message: `you are not registered with this account, please Sign Up!`,
                     });
                 }
             } else {
@@ -76,150 +76,6 @@ const usersControllers = {
             });
         }
     },
-
-
-    // signUp : async (req,res) => {
-    //     const { fullName , email, password, photo,country, from} = req.body.userData
-    //     try{
-    //         const usuarioExiste = await User.findOne({ email })//buscamos por mail
-    //         const verification= false;
-    //         const uniqueString = crypto.randomBytes(15).toString('hex')//utilizando los metodos de crypto
-    //         if (usuarioExiste)    {
-    //             if(usuarioExiste.from.indexOf(from) !== -1) {
-    //                 res.json({
-    //                     success: false,
-    //                     from:from,
-    //                     message:"You are already signUp from this email, please signIn",
-
-    //                 })
-    //             } else {
-    //                 const contraseñaHasheada = bcryptjs.hashSync(password, 10);
-    //                 usuarioExiste.from.push(from); //agregamos datos
-    //                 usuarioExiste.verification = true;
-    //                 usuarioExiste.password.push(contraseñaHasheada)
-    //                 await usuarioNuevo.save();
-    //                 res.json({
-    //                     success:true,
-    //                     from: from,
-    //                     message: "Add " + from + " to your ways to singIn"
-    //                 })
-    //             }
-    //         } else {
-    //             const contraseñaHasheada = bcryptjs.hashSync(password, 10)//si no exite el usuario entra aqui
-    //             const nuevoUsuario = await new User({
-    //                 fullName,
-    //                 email,
-    //                 password: [contraseñaHasheada],
-    //                 photo,
-    //                 country,
-    //                 verification,
-    //                 uniqueString: uniqueString,
-    //                 from:[from]
-
-    //             });
-    //             console.log(nuevoUsuario)
-    //             if (from !== "form-SignUp"){
-    //                 nuevoUsuario.verification = true;
-    //                 await nuevoUsuario.save()
-
-
-    //                 res.json({
-    //                     success:true,
-    //                     from: from,
-    //                     message:`You just signed up by ${from}`
-
-    //                 })
-    //                 console.log(nuevoUsuario)
-    //             }else {
-
-    //                 await nuevoUsuario.save()
-    //                 await sendVerification(email, uniqueString)
-    //                 res.json({
-    //                     success: true,
-    //                     from: from,
-    //                     messagge:"We send you an email to verify",
-    //                 })
-    //             }
-    //         }
-
-    //     } catch (error) {
-    //         res.json ({success: false, from: from, message: "error,please try again later",console:console.log(error)})
-    // } 
-
-    // },
-    //     signIn: async (req, res) =>{
-    //         const {email, password, from} = req.body.userLoged
-    //         try{
-    //             const userExist = await User.findOne({email})
-    //             // const indexPass = userExist.from.indexOf(from)
-    //             if(!userExist){
-    //                 res.json({success: false, message: "Your user has not been registered,"})
-    //             }
-    //             else
-    //             {
-    //                 if(from !== "form-SignIn" ){
-    //                 let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
-    //                 if (passwordMatch.length > 0){
-    //                     const userLoged = {
-    //                         id: userExist._id,
-    //                         fullName: userExist.fullName,
-    //                         email: userExist.email,
-    //                         photo:userExist.photo,
-    //                         country: userExist.country,
-    //                         from: userExist.from,
-    //                     }
-    //                     await userExist.save()
-    //                     const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
-    //                     res.json({
-    //                         success: true,
-    //                         from: from,
-    //                         response: {token,userLoged},
-    //                         message:`Welcome back ${userLoged.fullName}`,
-
-    //                     })
-    //                 } 
-    //                 else {
-    //                     res.json({
-    //                         success: false,
-    //                         from: from,
-    //                         message: "You did not register with " + "if you want to enter with this method please Sign Up with " + from
-    //                     })
-
-    //             } }  
-    //             else{
-    //                 let passwordMatch = userExist.password.filter(pass=> bcryptjs.compareSync(password, pass))
-    //                 if(passwordMatch.length > 0){
-    //                     const userLoged = {
-    //                         id: userExist._id,
-    //                         fullName: userExist.fullName,
-    //                         email: userExist.email,
-    //                         photo:userExist.imageUser,
-    //                         country: userExist.country,
-    //                         from: from,
-    //                     }
-    //                     await userExist.save()
-    //                     const token = jwt.sign({...userLoged}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
-    //                     res.json({
-    //                         success: true,
-    //                         from: from,
-    //                         response: {token,userLoged},
-    //                         message: `Welcome back ${userLoged.fullName}!`,
-
-    //                 })
-    //                 } else{
-    //                     res.json({
-    //                         success: false,
-    //                         from: from,
-    //                         message: "the username or password does not match"
-    //                     })
-    //                 }
-    //             }
-    //         }
-    //     } catch (error) {
-    //         res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console:console.log(error)})
-
-    //     }
-    // },
     signIn: async (req, res) => {
         const { email, password, from } = req.body.userLoged;
         try {
@@ -255,7 +111,7 @@ const usersControllers = {
                             response: { token, userData },//llega a userAction
                             success: true,
                             from: from,
-                            message: "Welcome " + userData.fullName,
+                            message: "Welcome " + userData.fullName + "!",
                         });
                     } else {
                         //si no hay coincidencias
@@ -268,12 +124,11 @@ const usersControllers = {
                 } else {
                     //si fue registrado por redes sociales
 
-                    if (passwordMatch.length > 0) {//*borre el >= //hay coincidencias
+                    if (passwordMatch.length > 0) {//hay coincidencia
                         const userData = {
                             id: userExist._id,
                             fullName: userExist.fullName,
                             email: userExist.email,
-                            // password: userExist.password,
                             photo: userExist.photo,
                             country: userExist.country,
                             from: userExist.from,
@@ -286,14 +141,14 @@ const usersControllers = {
                             response: { token, userData },//llega a userAction
                             success: true,
                             from: from,
-                            message: "Welcome back" + userData.fullName,
+                            message: "Welcome back" + userData.fullName + "🤗",
                         });
                     } else {
                         //si no hay coincidencias
                         res.json({
                             success: false,
                             from: from,
-                            message: 'verify your mail or password!'
+                            message: 'you have not yet registered with this account'
                         });
                     }
                 }
@@ -310,7 +165,7 @@ const usersControllers = {
             res.json({
                 success: false,
                 from: from,
-                message: "Something went wrong. Try again in a few seconds",
+                message: "Something went wrong. Try again in a few seconds please",
 
             });
         }
@@ -354,12 +209,12 @@ const usersControllers = {
                     photo: req.user.photo,
                     from: "token"
                 },
-                message: "Hi! Welcome back  " + req.user.fullName
+                message: "Hi! Welcome back  " + " " + req.user.fullName  
             })
         } else {
             res.json({
                 success: false,
-                message: "sign in please"
+                message: "Sign In please"  
             })
         }
     }

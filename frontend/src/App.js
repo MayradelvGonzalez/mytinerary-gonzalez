@@ -1,6 +1,6 @@
 import React from 'react';
 import  { useEffect } from 'react';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import './App.css';
 import Home from './components/landing/Home';
 import Footer from './components/footer/Footer';
@@ -30,7 +30,7 @@ function App()  {
             dispatch(usersActions.verifyToken(token))
         }
     },[])
-
+  const user = useSelector(store => store.usersActions.user);
     return (
       <div className="app">
         <Nav />
@@ -39,10 +39,13 @@ function App()  {
                 <Route path='/cities' element={<Cities/>} />
                 <Route path='/*' element={<Error />} />
                 <Route path='/cities/city/:id' element={<Details />} /> 
-                <Route path='/signin' element={<SignIn />} /> 
-                <Route path='/signup' element = {<SignUp />} />
+                {/* <Route path='/signin' element={<SignIn />} /> 
+                <Route path='/signup' element = {<SignUp />} /> */}
                 <Route path='/itinerary' element = {<Itinerary />} />
-              
+                <Route path="/login/signUp" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
+                <Route path="/login" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <Login/>} />
+               {!user &&  <Route path='/signin' element= {<SigIn />} /> } 
+               {!user &&  <Route path='/signup' element= {<SigUp />} /> } 
             </Routes>
         <Footer />
             <ScrollToTop 

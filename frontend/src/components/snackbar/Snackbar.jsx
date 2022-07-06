@@ -19,17 +19,17 @@ function SnackBar() {
     icon: {
       marginTop: '.1rem',
       color: snackbar.success ? '#4c8a4c' : '#c62b27',
-      width: '1rem',
-      height: '1rem',
-      fontSize: '1rem',
+      width: '2rem',
+      height: '2rem',
+      fontSize: '1.5rem',
       alignSelf: 'flex-start'
     },
     iconHover: {
       marginTop: '.1rem',
       color: snackbar.success ? '#4c8a4c' : '#c62b27',
-      width: '2rem',
-      height: '2rem',
-      fontSize: '1rem',
+      width: '3rem',
+      height: '3rem',
+      fontSize: '1.5rem',
       alignSelf: 'flex-start'
     }
   }));
@@ -71,7 +71,7 @@ function SnackBar() {
       {snackbar.view === true && (
         <MySnackbar
           anchorOrigin={{
-            vertical: 'bottom',
+            vertical: 'top',
             horizontal: 'center',
           }}
           open={snackbar.view}

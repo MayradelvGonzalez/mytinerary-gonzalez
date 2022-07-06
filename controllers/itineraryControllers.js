@@ -90,7 +90,7 @@ const itinerariesControllers = {
     let itineraries
     let error= null
     try{
-        itineraries= await Itineraries.find({idCity}) //esto seria id? o idCity
+        itineraries= await Itineraries.find({idCity}).populate("activities")//permite hacer referencia a documentos de otras colecciones
     }catch (err) {
         error = err
     }

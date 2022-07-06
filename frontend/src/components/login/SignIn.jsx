@@ -11,7 +11,7 @@ import SnackBar from '../snackbar/Snackbar';
 function SignIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
 
         event.preventDefault()
 
@@ -21,8 +21,8 @@ function SignIn() {
             from: "form-SignIn"
         };
 
-        const res = dispatch(usersActions.signIn(userLoged))
-        if (res.success) {
+        const res = await dispatch(usersActions.signIn(userLoged))
+        if (res.data.success) {
             navigate('/')
         }
         console.log(userLoged)
