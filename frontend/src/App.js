@@ -13,7 +13,7 @@ import Cities from './components/city/City';
 import SignIn from './components/login/SignIn';
 import SignUp from './components/login/SignUp';
 import citiesActions from '../src/redux/actions/citiesActions'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
 import usersActions from './redux/actions/usersActions';
   
@@ -30,7 +30,8 @@ function App()  {
             dispatch(usersActions.verifyToken(token))
         }
     },[])
-  const user = useSelector(store => store.usersActions.user);
+    const Navigate = useNavigate(); 
+    const user = useSelector(store =>store.usersReducer.user);
     return (
       <div className="app">
         <Nav />
@@ -42,10 +43,10 @@ function App()  {
                 {/* <Route path='/signin' element={<SignIn />} /> 
                 <Route path='/signup' element = {<SignUp />} /> */}
                 <Route path='/itinerary' element = {<Itinerary />} />
-                <Route path="/login/signUp" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
-                <Route path="/login" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <Login/>} />
-               {!user &&  <Route path='/signin' element= {<SigIn />} /> } 
-               {!user &&  <Route path='/signup' element= {<SigUp />} /> } 
+                <Route path="/signup" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
+                <Route path="/signin" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignIn/>} />
+               {!user &&  <Route path='/signin' element= {<SignIn />} /> } 
+               {!user &&  <Route path='/signup' element= {<SignUp />} /> } 
             </Routes>
         <Footer />
             <ScrollToTop 
