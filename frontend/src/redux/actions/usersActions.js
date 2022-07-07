@@ -59,6 +59,23 @@ signOut: () => {
         })
     }
 },
+likeDislike: (id) => {
+    const token = localStorage.getItem('token')
+    return async () => {
+        try {
+            let response = await axios.put(´http://localhost:4000/api/itineraries/like/${id}´, {},
+            {headers: {
+                Authorization: "Bearer "+token
+                }
+            })
+            console.log(response)
+            return response
+
+        }catch (error) {
+            console.log(error)
+        }
+    }
+},
 verifyToken: (token) => {
     return async (dispatch, getState) => {
          await axios.get('http://localhost:4000/api/auth/verifyToken', {headers: {'Authorization': 'Bearer ' + token}}) //el token viene por header

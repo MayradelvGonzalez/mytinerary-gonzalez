@@ -219,69 +219,53 @@ const usersControllers = {
         }
     },
 
-   likeDislike: async (req, res) =>{
-    const id = req.params.id //por parametro desde axios
-    const user = req.user.id //por respuesta de passport
-    await itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
-    .then((itinerary) => {
-        if(itinerary.likes.includes(user)){
-            itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
-            .then((response) => res.json({ success: true, response: response.likes}))
-            .catch((error) => console.log(error))
-        } else {
-            Itineraries.findOneAndUpdate({ _id: id}, {$push: {likes:user}}, { new:true})
-            .then((response) => res.json({ success: true, response: response.likes}))
-            .catch((error) => console.log(error))
-        }
-    })//si place.like incluye user (si loincluye es true), va a actualizar el itinerario y hara un pull, extraera el id del usuario del array de likes, y new true me trae el cambio actualizado y luego me da una respuetsa
-    .catch((error) => res.json({ success: false, response: error }))
-   },
-   upload: async (req,res) => {
-    const { file } = req.files
-    const name = req.body.name
-    const city = req.body.city
-    const description = req.body.description
-    const nameUser = req.user._id
-    try {
-        const itineraryExist = await Itineraries.findOne({ name })
-        if(itineraryExist){
-            res.json({
-                success: false,
-                message: "This itinerary has been added"
-            })
-        } else {
-            const filename =  crypto.randomBytes(10).string('hex')+ '.' + file.name.split(".")[file.name.split("").length - 1];
-            const ruta = `` //agregar direccion del filename del itinerary del front
-            file.mv(ruta, err => {
-                if(err) {
-                    console.log(err)
-                }
-                else {
-                    console.log("file charged")
-                }
-            })
-            const newItinerary = await new Itineraries({
-                name: name,
-                photo: photo,
-                city: city,
-                description: description,
-                nameUser: nameUser
-            }
+  
+//    upload: async (req,res) => {
+//     const { file } = req.files
+//     const name = req.body.name
+//     const city = req.body.city
+//     const description = req.body.description
+//     const nameUser = req.user._id
+//     try {
+//         const itineraryExist = await Itineraries.findOne({ name })
+//         if(itineraryExist){
+//             res.json({
+//                 success: false,
+//                 message: "This itinerary has been added"
+//             })
+//         } else {
+//             const filename =  crypto.randomBytes(10).string('hex')+ '.' + file.name.split(".")[file.name.split("").length - 1];
+//             const ruta = `` //agregar direccion del filename del itinerary del front
+//             file.mv(ruta, err => {
+//                 if(err) {
+//                     console.log(err)
+//                 }
+//                 else {
+//                     console.log("file charged")
+//                 }
+//             })
+//             const newItinerary = await new Itineraries({
+//                 name: name,
+//                 photo: photo,
+//                 city: city,
+//                 description: description,
+//                 nameUser: nameUser
+//             }
 
-            )
-            await newItinerary.save()
-            res.json({
-                success : true,
-                message: "Thanks for adding a value to our place!"
-            })
+//             )
+//             await newItinerary.save()
+//             res.json({
+//                 success : true,
+//                 message: "Thanks for adding a value to our place!"
+//             })
             
-    } }catch(error){
-        console.log(error)
-        res.json({ success: false, message: "something goes wrong, try again in a few minutes"}) //caputura del error
-    }
+//     } }catch(error){
+//         console.log(error)
+//         res.json({ success: false, message: "something goes wrong, try again in a few minutes"}) //caputura del error
+//     }
 
 
-   }
+//    }
 }
 
 

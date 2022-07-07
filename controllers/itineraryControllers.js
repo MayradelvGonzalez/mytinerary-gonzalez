@@ -63,12 +63,13 @@ const itinerariesControllers = {
     let itinerarydb
     let error = null
     try{
-        itinerarydb = await Itineraries.findIneAndUpdate({_id:id}, itinerary,{ new : true})
+        itinerarydb = await Itineraries.findOneAndUpdate({_id:id}, itinerary,{ new : true})
     }catch(err){ error = err }
-    re.json({
+    res.json({
         response: error ? 'error' : { itinerarydb },
         success: error ? false : true,
-        error : error
+        error : error,
+        console: console.log(error)
     })
    },
    removeItinerary:async (req,res) =>{
@@ -85,34 +86,71 @@ const itinerariesControllers = {
     })
    },
 
-   readItineraries: async (req,res)=>{
-    const id = req.params.id
-    let itineraries
-    let error= null
-    try{
-        itineraries= await Itineraries.find({idCity}).populate("activities")//permite hacer referencia a documentos de otras colecciones
-    }catch (err) {
-        error = err
-    }
-    res.json({
-        response: error ? 'ERROR' : (itinerary),
-        success: error ? false : true,
-        error: error
-})
-   },
+//    readItineraries: async (req,res)=>{
+//     const id = req.params.id
+//     let itineraries
+//     let error= null
+//     try{
+//         itineraries = await Itineraries.find({idCity}).populate("activities")//permite hacer referencia a documentos de otras colecciones
+//     }catch (err) {
+//         error = err
+//     }
+//     res.json({
+//         response: error ? 'ERROR' : (itinerary),
+//         success: error ? false : true,
+//         error: error
+// })
+//    },
    getItineraryByCity : async(req, res)=>{
     const id= req.params.id
     let itineraries
     let error =null
     try {
-        itineraries= await Itineraries.find({city:id})
+        itineraries= await Itineraries.find({city:id}).populate('activities')
     } catch (err) {error=err}
     res.json({
         response:error ? 'ERROR':{itineraries},
         success:error ? false: true,
         error: error
     })
-}
+},
+// likeDislike: async (req, res) => {
+//     const id = req.params.id //LLEGA POR PARAMETRO DESDE AXIOS
+//     const user = req.user.id //LLEGA POR RESPUESTA DE PASSPORT
+
+//     await Itinerary.findOne({ _id: id })
+
+//         .then((itinerary) => {
+
+//             if (itinerary.likes.includes(user)) {
+//                 Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user } }, { new: true })//PULL QUITA, SACA
+//                     .then((response) => res.json({ success: true, response: response.likes }))
+//                     .catch((error) => console.log(error))
+//             } else {
+//                 Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })//PUSH AGREGA
+//                     .then((response) => res.json({ success: true, response: response.likes }))
+//                     .catch((error) => console.log(error))
+//             }
+//         })
+//         .catch((error) => res.json({ success: false, response: error }))
+// },
+likeDislike: async (req, res) =>{
+    const id = req.params.id //por parametro desde axios
+    const user = req.user.id //por respuesta de passport
+    await itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
+    .then((itinerary) => {
+        if(itinerary.likes.includes(user)){
+            itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
+            .then((response) => res.json({ success: true, response: response.likes}))
+            .catch((error) => console.log(error))
+        } else {
+            Itineraries.findOneAndUpdate({ _id: id}, {$push: {likes:user}}, { new:true})
+            .then((response) => res.json({ success: true, response: response.likes}))
+            .catch((error) => console.log(error))
+        }
+    })//si place.like incluye user (si loincluye es true), va a actualizar el itinerario y hara un pull, extraera el id del usuario del array de likes, y new true me trae el cambio actualizado y luego me da una respuetsa
+    .catch((error) => res.json({ success: false, response: error }))
+   },
 
 
 }

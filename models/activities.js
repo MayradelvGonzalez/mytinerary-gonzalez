@@ -2,8 +2,8 @@ const mongoose = require('mongoose') //construnctor que crea el modelo de pedido
 
 const activitiesSchema = new mongoose.Schema({
     imageActivity : {type: String, required:true},
-    activities: {type: String, required:true},
-    description:{type: String, required:true}
+    names: {type: String, required:true}
+    // description:{type: String, required:true}
 }
 )
 

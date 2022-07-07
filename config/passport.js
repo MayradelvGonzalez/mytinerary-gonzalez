@@ -13,9 +13,10 @@ module.exports = passport.use(
             .then ( user => {
                 if (user) {
                     return done(null, user)
-                } else if(err) {
-                  return done(err, false)
-                }
+                } 
+                // else if(null) {
+                //   return done(null, false)
+                // }
                 else {
                     return done(null, false)
                 }

@@ -2,10 +2,12 @@ const Router = require('express').Router()
 const passport = require('../config/passport');
 const cityControllers = require('../controllers/citiesControllers')
 const usersControllers= require('../controllers/usersControllers')
+const activitiesControllers = require('../controllers/activitiesControllers')
 const validator = require('../config/validator')
 const itineraryControllers = require('../controllers/itineraryControllers')
+const {getActivities, getOneActivity, removeActivity, addActivities, modifyActivity,getActivityByItinerary } = activitiesControllers;
 const {getCities , getOneCity , removeCity, addCity, modifyCity} = cityControllers;
-const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getItineraryByCity} = itineraryControllers;
+const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getItineraryByCity, likeDislike} = itineraryControllers;
 const {signIn, signUp, verifyMail, verifyToken } = usersControllers;
 
 Router.route('/cities')
@@ -40,8 +42,20 @@ Router.route('/verify/:string')
 Router.route('/auth/verifyToken')
 .get(passport.authenticate('jwt', {session:false}), verifyToken)
 
-// Router.route('/like/:id')
-// .put(passport.authenticate('jwt', {session: false}),likeDislike) //porque el usuario requiere validarse
+Router.route('/like/:id')
+.put(passport.authenticate('jwt', {session: false}),likeDislike) //porque el usuario requiere validarse
+
+Router.route('/itineraries/activities')
+.get(getActivities)
+.post(addActivities)
+
+Router.route('/itineraries/activities/:id')
+.delete(removeActivity)
+.put(modifyActivity)
+.get(getOneActivity)
+
+Router.route("/activitybyitinerary/activities/:id")
+.get(getActivityByItinerary)
 
 // Router.route('/comment/:id')
 // .post(passport.authenticate('jwt', { session: false }), addComment)

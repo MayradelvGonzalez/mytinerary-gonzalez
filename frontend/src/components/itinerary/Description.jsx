@@ -1,31 +1,20 @@
-import { Collapse, Text } from "@nextui-org/react";
+// async function likesOrDislikes(props) {
+//     await dispatch(itinerariesAction.likeDislike(props))
+//     setReload(!reload)
+//   }
+// [5:13 AM]
+// const [reload, setReload] = useState(false)
+//   const user = useSelector((store) => store.userReducer.user)
+// [5:14 AM]
+// {user?
 
-export default function Description() {
-    return (
-        <Collapse.Group>
-            <Collapse title="Option A" subtitle="More description about Option A">
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </Text>
-            </Collapse>
-            <Collapse
-                title="Option B"
-                subtitle={
-                    <>
-                        More description about <Text b>Option B</Text>
-                    </>
-                }
-            >
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </Text>
-            </Collapse>
-        </Collapse.Group>
-    );
-}
+//                       (<div onClick={() => likesOrDislikes(itinerary._id)}>
+//                         {itinerary.likes?.includes(user.userData.id) ?
+//                           <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon/></span>
+//                           :
+//                           <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon/></span>}
+//                       </div>)
+//                       :
+//                       (<div onClick={loginPlease} style={{" fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon/></div>)
+
+//                     }
