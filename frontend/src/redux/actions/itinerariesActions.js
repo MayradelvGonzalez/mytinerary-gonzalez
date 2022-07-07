@@ -22,11 +22,11 @@ const itinerariesActions = {
         }
     },
 
-    likeDislike: (id) => {
+    likeDislike: (itineraryId) => {
         const token = localStorage.getItem('token');
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/itineraries/like/${id}`, {},
+                let response = await axios.put(`http://localhost:4000/api/itineraries/like/${itineraryId}`, {},
                 {headers: {
                     Authorization: "Bearer "+token
                     }

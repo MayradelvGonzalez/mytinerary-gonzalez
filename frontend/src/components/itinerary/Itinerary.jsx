@@ -8,28 +8,25 @@ import { Animated } from "react-animated-css";
 import likeDislike from '../../redux/actions/usersActions';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
-
-const user = useSelector((store) => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
-
+import SignIn from '../login/SignIn';
 
 function Itinerary() {
 
   const { id } = useParams()
   const [reload, setReload] = useState(false);//para lieks
   // const [inputText, setInputText] = useState("");// para comments
-const [itinerary, setItinerary] = useState();
+  // const [itinerary, setItinerary] = useState();
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(itinerariesActions.getItinerariesByCity(id))
     dispatch(itinerariesActions.getItineraries())
   }, [id])
-
+  const user = useSelector((store) => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
   const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
 
-  async function likeOrDislike(props) {
-    await dispatch(usersActions.likeDislike(props))
+  async function likeOrDislike(props) { //con _id???
+    await dispatch(itinerariesActions.likeDislike(props))
     setReload(!reload)
   } //traigo el action de likes
 
@@ -79,20 +76,22 @@ const [itinerary, setItinerary] = useState();
             </Text>
 
             {user ?
-              (<div onClick={() => likeOrDislike(itinerary._id)}>
+              (<div onClick={() =>
+
+                likeOrDislike(itinerary._id)}>
                 {itinerary.likes?.includes(user.userData.id) ?
                   <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
                   :
                   <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
               </div>)
               :
-              (<div onClick={loginPlease} style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon /></div>)
+              (<div style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon /><LinkRouter to={<SignIn />}>You need to sign in, please click here!</LinkRouter></div>)
 
             }
 
-            <Text color="black" size={14}>
+            {/* <Text color="black" size={14}>
               <div className="contenedorIconos"><div className="icono">Likes💖{itinerary.likes}</div></div>
-            </Text>
+            </Text> */}
           </Col>
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description}>

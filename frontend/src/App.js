@@ -16,7 +16,7 @@ import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch,useSelector } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
 import usersActions from './redux/actions/usersActions';
-import Description from '../src/components/itinerary/Description'
+
 function App()  {
     const dispatch = useDispatch();
     useEffect(() => {
@@ -43,7 +43,7 @@ function App()  {
                 {/* <Route path='/signin' element={<SignIn />} /> 
                 <Route path='/signup' element = {<SignUp />} /> */}
                 <Route path='/itinerary' element = {<Itinerary />} />
-                <Route path='/description' element = {<Description />} />
+             
                 <Route path="/signup" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
                 <Route path="/signin" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignIn/>} />
                {!user &&  <Route path='/signin' element= {<SignIn />} /> } 
