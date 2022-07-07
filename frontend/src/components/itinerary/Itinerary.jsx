@@ -1,16 +1,24 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link as LinkRouter } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import itinerariesActions from '../../redux/actions/itinerariesActions';
 import { Card, Col, Row, Button, Text, Collapse } from "@nextui-org/react";
 import { Animated } from "react-animated-css";
-import Description from './Description';
+import likeDislike from '../../redux/actions/usersActions';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
+
+const user = useSelector((store) => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
 
 
 function Itinerary() {
 
   const { id } = useParams()
+  const [reload, setReload] = useState(false);//para lieks
+  // const [inputText, setInputText] = useState("");// para comments
+const [itinerary, setItinerary] = useState();
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -20,6 +28,22 @@ function Itinerary() {
 
   const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
 
+  async function likeOrDislike(props) {
+    await dispatch(usersActions.likeDislike(props))
+    setReload(!reload)
+  } //traigo el action de likes
+
+
+  // async function Comments(event){
+  //   const commentData = { itinerary: itinerary._id , comment: inputText,}
+
+  //   await props.addComment(commentData)
+  //   .then(response => setItinerary(response.data.response.nuevoComment), setInputText(""))
+  //   document.querySelector("#nuevoComment").textContent = ""
+  // }
+
+
+
   return (
     <>
       {itineraries?.map(itinerary =>
@@ -28,31 +52,24 @@ function Itinerary() {
             <Text color="black" size={14}>
               <div className="contenedorIconos">
                 <Col>
-                  <Row justify="flex-end">
+                  <Row justify="center">
 
-                    <Text
+                    <div className="icono">User:{itinerary.nameUser}</div>
 
-                      css={{ color: "inherit" }}
-                      size={12}
-                      weight="bold"
-                      className="user"
-                     
-                      transform="uppercase">
-                      User:
-                      {itinerary.nameUser}
-                    </Text>
                   </Row>
                 </Col>
                 <Col>
-                  <Card.Image
-                    src={itinerary.image}
-                    css={{ bg: "black", br: "50%" }}
-                    height={50}
-                    width={70}
-                    alt="Name User"
-                    className='img'
-                  />
+                  <Row className="imagenUser">
+                    <Card.Image
+                      src={itinerary.image}
+                      css={{ bg: "black", br: "60%" }}
+                      height={50}
+                      width={70}
+                      alt="Name User"
+                      className='img'
+                    /></Row>
                 </Col>
+
                 <div className="icono">Duration⌛:{itinerary.duration}</div>
                 <div className="icono">Price💲:{itinerary.price}</div>
               </div>
@@ -60,12 +77,23 @@ function Itinerary() {
             <Text color="black" size={14}>
               <div className="contenedorIconos"><div className='icono'>Hashtags💭:{itinerary.hashtags}</div></div>
             </Text>
+
+            {user ?
+              (<div onClick={() => likeOrDislike(itinerary._id)}>
+                {itinerary.likes?.includes(user.userData.id) ?
+                  <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
+                  :
+                  <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
+              </div>)
+              :
+              (<div onClick={loginPlease} style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon /></div>)
+
+            }
+
             <Text color="black" size={14}>
-              <div className="contenedorIconos"><div className="icono">Likes💖:{itinerary.likes}</div></div>
+              <div className="contenedorIconos"><div className="icono">Likes💖{itinerary.likes}</div></div>
             </Text>
           </Col>
-
-
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description}>
               <Card css={{ w: "100%", h: "400px", paddingBottom: "0.5em" }} >
@@ -100,7 +128,7 @@ function Itinerary() {
                   <Row>
                     <Col>
                       <Row>
-                        <Col>
+                        <Col className="colActividades">
                           {itinerary.activities?.map(act =>
 
                             <>
@@ -108,14 +136,15 @@ function Itinerary() {
                               <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
                                 {act.names}
                               </Text>
-                          
+
                               <Col>
-                              <Card.Image
-                                src={act.image}
-                                css={{ bg: "black", br: "50%" }}
-                                height={100}
-                                width={100}
-                              /></Col>
+                                <Card.Image
+                                  src={act.image}
+                                  css={{ bg: "black", br: "50%" }}
+                                  height={100}
+                                  width={100}
+                                  className="fotoActividad"
+                                /></Col>
                             </>
 
                           )

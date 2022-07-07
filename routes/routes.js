@@ -42,7 +42,7 @@ Router.route('/verify/:string')
 Router.route('/auth/verifyToken')
 .get(passport.authenticate('jwt', {session:false}), verifyToken)
 
-Router.route('/like/:id')
+Router.route('itineraries/like/:id')
 .put(passport.authenticate('jwt', {session: false}),likeDislike) //porque el usuario requiere validarse
 
 Router.route('/itineraries/activities')

@@ -104,7 +104,7 @@ const activitiesControllers = {
         success:error ? false: true,
         error: error
     })
-}
+},
 
 
 }

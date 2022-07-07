@@ -231,14 +231,6 @@ a {
   text-decoration: none;
 }
 
-/* button a {
-  font-weight: bolder;
-  text-decoration: none;
-  width: 4vw;
-  height: 4vh;
-  color: white;
-} */
-
 .searchpage button:hover {
   box-shadow: 0 4px 8px 0 #25475e, 0 8px 25px orange, 0 8px 25px orange, 0 6px 25px 0 orange;
   border: 0.3em inset gray;
@@ -392,7 +384,7 @@ a {
 }
 
 .detalles .imagenDetail {
-  width: 95%;
+  width: 98%;
   height: 50vh;
   object-fit: contain;
 }
@@ -531,19 +523,21 @@ a {
   margin-top: 0.8em;
   background-color: #ddd;
   display: flex;
-  width: 45vw;
+  width: 52vw;
 }
 
 .textoIt {
   font-size: 1em;
   font-weight: bold;
   font-family: 'Old Standard TT', serif;
+
 }
 
 .contenidoItinerario {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: black;
 }
 
 .itinerarioTItulo {
@@ -551,11 +545,13 @@ a {
 }
 
 .contenedorIconos {
-  width: 18vw;
+  width: 21vw;
+  padding-top: 1em;
 }
 
 .icono {
-  padding: 0.5em !important;
+  padding: 0.6em !important;
+  margin-top: 0.5em;
 }
 
 .icono:hover {
@@ -564,14 +560,38 @@ a {
   transition: all 1s;
 }
 
-.img, .user {
-  padding-top: 0.5em;
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.2em;
+
+}
+
+.imagenUser {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.7em;
+}
+
+.img {
+
   height: 10vh !important;
+}
+
+.fotoActividad {
+  width: 90% !important;
 }
 
 .img:hover {
   transition: all 2s ease;
   transform: rotate(360deg)
+}
+
+.colActividades {
+  margin-top: 1em;
+  width: 80%;
+  background-color: green;
 }
 
 /*-------------------------------------------------LOGUIN-------------------------------- */
