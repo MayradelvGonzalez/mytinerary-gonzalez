@@ -77,7 +77,6 @@ function Itinerary() {
 
             {user ?
               (<div onClick={() =>
-
                 likeOrDislike(itinerary._id)}>
                 {itinerary.likes?.includes(user.userData.id) ?
                   <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
@@ -85,7 +84,9 @@ function Itinerary() {
                   <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
               </div>)
               :
-              (<div style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon /><LinkRouter to={<SignIn />}>You need to sign in, please click here!</LinkRouter></div>)
+              (<div style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon />
+                {/* <LinkRouter to={<SignIn />}>You need to sign in, please click here!</LinkRouter> */}
+              </div>)
 
             }
 
