@@ -16,7 +16,7 @@ import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch,useSelector } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
 import usersActions from './redux/actions/usersActions';
-import Description from '../src/components/itinerary/description'
+import Description from '../src/components/itinerary/Description'
 function App()  {
     const dispatch = useDispatch();
     useEffect(() => {
