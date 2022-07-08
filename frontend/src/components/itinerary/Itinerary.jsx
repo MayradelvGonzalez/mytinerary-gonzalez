@@ -9,10 +9,11 @@ import likeDislike from '../../redux/actions/usersActions';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
+import Comment from '../comments/Comments';
 
 
 function Itinerary() {
-  
+
   const { id } = useParams()
   const [reload, setReload] = useState(false);//para lieks
   // const [inputText, setInputText] = useState("");// para comments
@@ -23,7 +24,7 @@ function Itinerary() {
   useEffect(() => {
     dispatch(itinerariesActions.getItineraries())
     dispatch(itinerariesActions.getItinerariesByCity(id))
-   
+
   }, [id, reload])
   const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
   console.log(itineraries)
@@ -136,8 +137,8 @@ function Itinerary() {
                 >
                   <Row>
                     <Col>
-                      <Row>
-                        <Col className="colActividades"> //mapeo de actividades
+                      <div>
+                        <div className="colActividades"> //mapeo de actividades
                           {itinerary.activities?.map(act =>
 
                             <div key={act._id}>
@@ -161,8 +162,8 @@ function Itinerary() {
 
                           }
 
-                        </Col>
-                      </Row>
+                        </div>
+                      </div>
                     </Col>
 
 
@@ -176,6 +177,7 @@ function Itinerary() {
         </div>
       )
       }
+      <Comment />
     </>
 
 
