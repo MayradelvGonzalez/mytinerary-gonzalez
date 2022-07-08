@@ -10,22 +10,27 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
 
-function Itinerary() {
 
+function Itinerary() {
+  
   const { id } = useParams()
   const [reload, setReload] = useState(false);//para lieks
   // const [inputText, setInputText] = useState("");// para comments
   // const [itinerary, setItinerary] = useState();
+
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(itinerariesActions.getItinerariesByCity(id))
     dispatch(itinerariesActions.getItineraries())
-  }, [id])
-  const user = useSelector((store) => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
+    dispatch(itinerariesActions.getItinerariesByCity(id))
+   
+  }, [id, reload])
   const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
+  console.log(itineraries)
+  const user = useSelector(store => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
+  console.log(user)
 
-  async function likeOrDislike(props) { //con _id???
+  async function likeOrDislike(props) {
     await dispatch(itinerariesActions.likeDislike(props))
     setReload(!reload)
   } //traigo el action de likes
@@ -78,17 +83,21 @@ function Itinerary() {
             {user ?
               (<div onClick={() =>
                 likeOrDislike(itinerary._id)}>
-                {itinerary.likes?.includes(user.userData.id) ?
+                {itinerary.likes?.includes(user.id) ?
                   <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
                   :
                   <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
               </div>)
               :
               (<div style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon />
-                {/* <LinkRouter to={<SignIn />}>You need to sign in, please click here!</LinkRouter> */}
-              </div>)
+
+              </div>
+
+              )
 
             }
+
+            <p style={{ "color": "black ", "fontSize": 30 }} className=''>{itinerary.likes?.length}</p>
 
             {/* <Text color="black" size={14}>
               <div className="contenedorIconos"><div className="icono">Likes💖{itinerary.likes}</div></div>
@@ -128,11 +137,10 @@ function Itinerary() {
                   <Row>
                     <Col>
                       <Row>
-                        <Col className="colActividades">
+                        <Col className="colActividades"> //mapeo de actividades
                           {itinerary.activities?.map(act =>
 
-                            <>
-
+                            <div key={act._id}>
                               <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
                                 {act.names}
                               </Text>
@@ -145,15 +153,13 @@ function Itinerary() {
                                   width={100}
                                   className="fotoActividad"
                                 /></Col>
-                            </>
+                            </div>
 
                           )
 
 
 
                           }
-
-
 
                         </Col>
                       </Row>

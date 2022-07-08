@@ -107,6 +107,7 @@ const itinerariesControllers = {
     let error =null
     try {
         itineraries= await Itineraries.find({city:id}).populate('activities')
+        // populate('comment.userId',{fullName:1, photo:1})
     } catch (err) {error=err}
     res.json({
         response:error ? 'ERROR':{itineraries},
@@ -114,33 +115,14 @@ const itinerariesControllers = {
         error: error
     })
 },
-// likeDislike: async (req, res) => {
-//     const id = req.params.id //LLEGA POR PARAMETRO DESDE AXIOS
-//     const user = req.user.id //LLEGA POR RESPUESTA DE PASSPORT
 
-//     await Itinerary.findOne({ _id: id })
-
-//         .then((itinerary) => {
-
-//             if (itinerary.likes.includes(user)) {
-//                 Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user } }, { new: true })//PULL QUITA, SACA
-//                     .then((response) => res.json({ success: true, response: response.likes }))
-//                     .catch((error) => console.log(error))
-//             } else {
-//                 Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })//PUSH AGREGA
-//                     .then((response) => res.json({ success: true, response: response.likes }))
-//                     .catch((error) => console.log(error))
-//             }
-//         })
-//         .catch((error) => res.json({ success: false, response: error }))
-// },
 likeDislike: async (req, res) =>{
     const id = req.params.id //por parametro desde axios
     const user = req.user.id //por respuesta de passport
-    await itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
+    await Itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
     .then((itinerary) => {
         if(itinerary.likes.includes(user)){
-            itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
+            Itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
             .then((response) => res.json({ success: true, response: response.likes}))
             .catch((error) => console.log(error))
         } else {

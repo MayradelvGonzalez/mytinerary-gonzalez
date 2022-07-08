@@ -10,7 +10,7 @@ const {getActivities, getOneActivity, removeActivity, addActivities, modifyActiv
 const {getCities , getOneCity , removeCity, addCity, modifyCity} = cityControllers;
 const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getItineraryByCity, likeDislike} = itineraryControllers;
 const {signIn, signUp, verifyMail, verifyToken } = usersControllers;
-const { addComment, deleteComment } = commentControllers;
+const {addComment, modifyComment, deleteComment} = commentControllers;
 
 Router.route('/cities')
 .get(getCities)
@@ -44,7 +44,7 @@ Router.route('/verify/:string')
 Router.route('/auth/verifyToken')
 .get(passport.authenticate('jwt', {session:false}), verifyToken)
 
-Router.route('itineraries/like/:id')
+Router.route('/itineraries/like/:id')
 .put(passport.authenticate('jwt', {session: false}),likeDislike) //porque el usuario requiere validarse
 
 Router.route('/itineraries/activities')
@@ -60,13 +60,12 @@ Router.route("/activitybyitinerary/activities/:id")
 .get(getActivityByItinerary)
 
 Router.route("/itineraries/comment")
-.post(passport.authenticate("jwt", { session: false }), addComment);
+.post(passport.authenticate("jwt", { session: false }), addComment)
 
-Router.route("/itineraries/comment/delete/:id")
-.post(passport.authenticate("jwt", { session: false }), deleteComment);
-// Router.route('/comment/:id')
-// .post(passport.authenticate('jwt', { session: false }), addComment)
-// .put(passport.authenticate('jwt',{ session:false }),modifiComment)
+
+Router.route("/itineraries/comment/:id")
+.post(passport.authenticate("jwt", { session: false }), deleteComment)
+.put(passport.authenticate('jwt',{ session: false }), modifyComment)
 
 // Router.route('/upload')
 // .post(passport.authenticate('jwt',{ session:false }), upload) va auth?
