@@ -15,9 +15,9 @@ function SearchPage({cardFilter}) {
           <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA" className="textCard">
           {data.country} 
           </Text>
-          <Text h3 color="black">
+          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}><Text h3 color="black">
             {data.name}
-          </Text>
+          </Text></Animated> 
         </Col>
        </Card.Header>
      <Card.Body css={{ p: 0 }}>

@@ -9,12 +9,12 @@ import likeDislike from '../../redux/actions/usersActions';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
-import Comment from '../comments/Comments';
+import Comments from '../comments/Comments';
 
 function Itinerary() {
 
   const { id } = useParams()
-  const [reload, setReload] = useState(false);//para lieks
+  const [reload, setReload] = useState(false);//para likes
 
   const dispatch = useDispatch()
 
@@ -37,7 +37,7 @@ function Itinerary() {
     <>
       {itineraries?.map(itinerary =>
         <div key={itinerary._id} className="itinerarios" >
-          <Col>
+          <Col> 
             <Text color="black" size={14}>
               <div className="contenedorIconos">
                 <Col>
@@ -87,17 +87,6 @@ function Itinerary() {
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
               <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
-                {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 3 }}>
-                  <div>
-                    <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
-                    </Text>
-                    <Text h3 color="black" className='textoIt'>
-                      Activities ⬇
-                    </Text>
-                  </div>
-                </Card.Header> */}
-                {/* <Card.Body css={{ p: 0 }} className="bodyItineraries">
-                </Card.Body> */}
                 <div
                   isBlurred
                   css={{
@@ -113,7 +102,7 @@ function Itinerary() {
                   <div>
                     <div>
                       <div className="colAct">
-                        <h2>Actividades</h2>
+                        <h2>Activities</h2>
                         <div className="colActividades">
                           {itinerary.activities?.map(act =>
                             <div key={act._id}>
@@ -128,6 +117,7 @@ function Itinerary() {
                                   className="fotoActividad"
                                 />
                               </Col>
+                              
                             </div>
                           )
                           }
@@ -136,15 +126,19 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
+               
               </Card>
             </Collapse>
           </Collapse.Group>
+          <Comments />
         </div>
       )
       }
-      {/* <Comment /> */}
+      
     </>
+    
   );
+ 
 }
 
 export default Itinerary
