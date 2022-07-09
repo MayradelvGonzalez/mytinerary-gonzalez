@@ -41,7 +41,7 @@ const Comments = (props) => {
 
     async function modificarComentario(event) {
         const commentData = {
-            commentID: event.target.id,
+            commentId: event.target.id,
             comment: modifiyComment,
         }
         console.log(modifyComment)
