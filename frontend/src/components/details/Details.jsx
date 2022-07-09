@@ -25,9 +25,9 @@ const dispatch = useDispatch()
          <div className="detalles">
          
         <div className="card-contenido">
-        <h3>{detail.name}</h3>
+        <Animated animationIn="fadeIn" isVisible={true}><h3>{detail.name}</h3></Animated>
         <img src={detail.image} alt='img' className="imagenDetail" />
-        <Animated animationIn="fadeInUp" isVisible={true}><div className='descriptionCard'>Description</div><p>{detail.description}</p></Animated>
+        <Animated animationIn="fadeIn" isVisible={true}><div className='descriptionCard'>Description</div><p>{detail.description}</p></Animated>
             </div>
          <div>
         

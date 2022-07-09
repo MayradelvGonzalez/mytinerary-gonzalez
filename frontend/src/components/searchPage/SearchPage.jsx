@@ -12,16 +12,16 @@ function SearchPage({cardFilter}) {
       key={data._id} className="card">
        <Card.Header css={{ position: "absolute", zIndex: 1, top: 5,  bgBlur: "#ffffff66"}} >
         <Col>
-          <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA" className="textCard">
-          {data.country} 
+        <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA" className="textCard">
+          {data.country}
           </Text>
-          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}><Text h3 color="black">
+          <Animated animationIn="fadeInRight" animationOut="fadeOut" isVisible={true}><Text h3 color="black">
             {data.name}
           </Text></Animated> 
         </Col>
        </Card.Header>
      <Card.Body css={{ p: 0 }}>
-   <Card.Image
+     <Card.Image
         src={data.image}
         width="100%"
         height="100%"

@@ -10,8 +10,8 @@ function Home() {
       <div className="container-landing">
         <div className="landing">
           <div className="container-titulos">
-            <h1 className='titulo'>Mytinerary</h1>
-            <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}> <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2></Animated>
+          <h1 className='titulo'>Mytinerary</h1>
+          <Animated animationIn="zoomIn" animationOut="fadeOut" isVisible={true}><h2>Find your perfect trip, designed by insiders who know and love their cities!</h2></Animated>
           </div>
         </div>
         <div className='container-boton'>

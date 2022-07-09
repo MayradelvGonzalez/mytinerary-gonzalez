@@ -35,7 +35,7 @@ function Itinerary() {
 
   return (
     <>
-      {itineraries?.map(itinerary =>
+      {itineraries ? (itineraries.map(itinerary =>
         <div key={itinerary._id} className="itinerarios" >
           <Col> 
             <Text color="black" size={14}>
@@ -132,8 +132,10 @@ function Itinerary() {
           </Collapse.Group>
           <Comments />
         </div>
-      )
-      }
+      ))
+      : 
+      (<h2>There're not Itineraries here yet</h2>)
+      } 
       
     </>
     

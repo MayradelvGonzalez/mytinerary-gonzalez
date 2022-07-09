@@ -9,7 +9,7 @@ const Carrousel = () => {
 
   return (
    <div className="container-carrousel">
-    <Animated animationIn="fadeInRight" isVisible={true}><h1 className='titulo-carrousel'>Popular Mytineraries</h1></Animated>
+    <Animated animationIn="zoomIn" isVisible={true}><h1 className='titulo-carrousel'>Popular Mytineraries</h1></Animated>
      <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel" 
       mobileBreackpoint={300}
       responsiveLayout =
