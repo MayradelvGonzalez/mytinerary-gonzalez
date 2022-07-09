@@ -85,8 +85,8 @@ function Itinerary() {
 
           </Col>
           <Collapse.Group>
-            <Collapse title={itinerary.name} subtitle={itinerary.description}>
-              <Card css={{ w: "100%", h: "500px", paddingBottom: "0.5em" }} >
+            <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
+              <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
                 {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 3 }}>
                   <div>
                     <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
