@@ -523,6 +523,7 @@ a {
   margin-top: 0.8em;
   background-color: #ddd;
   display: flex;
+  flex-direction: column;
   width: 52vw;
 }
 
@@ -538,6 +539,7 @@ a {
   justify-content: space-around;
   align-items: center;
   color: black;
+
 }
 
 .itinerarioTItulo {
@@ -545,8 +547,10 @@ a {
 }
 
 .contenedorIconos {
-  width: 21vw;
+  width: 100%;
+
   padding-top: 1em;
+
 }
 
 .icono {
@@ -580,7 +584,9 @@ a {
 }
 
 .fotoActividad {
-  width: 90% !important;
+  width: 15vw;
+  height: 60vh;
+  object-fit: contain;
 }
 
 .img:hover {
@@ -589,11 +595,25 @@ a {
 }
 
 .colActividades {
-  width: 100%!important;
-  display:flex;
+  width: 100% !important;
+  display: flex;
   margin-top: 1em;
-  width: 80%;
+  width: 90%;
+  padding: 0.2em;
+  border: 0.1em solid gray;
   background-color: yellow;
+}
+
+
+
+.tituloysub {
+  padding: 0.5em;
+  height: 60vh;
+}
+
+.fotoActividad {
+  height: 40vh;
+  object-fit: contain;
 }
 
 /*-------------------------------------------------LOGUIN-------------------------------- */
