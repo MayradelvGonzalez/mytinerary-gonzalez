@@ -50,33 +50,39 @@ function Itinerary() {
                     <Card.Image
                       src={itinerary.image}
                       css={{ bg: "black", br: "60%" }}
-                      height={50}
+                      height={70}
                       width={70}
                       alt="Name User"
-                      className='img'
-                    /></Row>
+                      className='img' />
+                  </Row>
                 </Col>
-                <div className="icono">Duration⌛:{itinerary.duration}</div>
-                <div className="icono">Price💲:{itinerary.price}</div>
+                <Text color="black" size={14}>
+                  <div className="icono">Duration⌛:{itinerary.duration}</div>
+                </Text>
+                <Text color="black" size={14}>
+                  <div className="icono">Price💲:{itinerary.price}</div>
+                </Text>
               </div>
             </Text>
             <Text color="black" size={14}>
               <div className="contenedorIconos"><div className='icono'>Hashtags💭:{itinerary.hashtags}</div></div>
             </Text>
             {user ?
-              (<div onClick={() =>
+              (<div className="likes" onClick={() =>
                 likeOrDislike(itinerary._id)}>
                 {itinerary.likes?.includes(user.id) ?
+
                   <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
                   :
                   <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
               </div>)
               :
-              (<div style={{ " fontSize": 30 }} className="material-icons coraBlue"><FavoriteBorderIcon />
+              (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
               </div>
               )
             }
-            <p style={{ "color": "black ", "fontSize": 30 }} className=''>{itinerary.likes?.length}</p>
+            <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
+
           </Col>
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description}>
@@ -106,12 +112,12 @@ function Itinerary() {
                 >
                   <div>
                     <div>
-                      <div>
-                        <h1>Actividades</h1>
+                      <div className="colAct">
+                        <h2>Actividades</h2>
                         <div className="colActividades">
                           {itinerary.activities?.map(act =>
                             <div key={act._id}>
-                              <Text size={12} weight="bolder" transform="uppercase" className='textoItinerario'>
+                              <Text size={14} weight="bolder" className='textoItinerario'>
                                 {act.names}
                               </Text>
                               <Col>

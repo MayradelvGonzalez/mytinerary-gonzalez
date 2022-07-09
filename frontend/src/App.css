@@ -384,8 +384,8 @@ a {
 }
 
 .detalles .imagenDetail {
-  width: 98%;
-  height: 50vh;
+  width: 99%;
+  height: 52vh;
   object-fit: contain;
 }
 
@@ -513,10 +513,12 @@ a {
   justify-content: center;
 }
 
+/* -----------------------------------ITINERARIO---------------------------------------------- */
 .Itinerary {
   border-color: #808080;
   flex-direction: row !important;
   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
+
 }
 
 .itinerarios {
@@ -525,6 +527,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 52vw;
+  border-radius: 2em;
 }
 
 .textoIt {
@@ -539,7 +542,7 @@ a {
   justify-content: space-around;
   align-items: center;
   color: black;
-
+  border: 0.2em solid gray;
 }
 
 .itinerarioTItulo {
@@ -549,7 +552,7 @@ a {
 .contenedorIconos {
   width: 100%;
 
-  padding-top: 1em;
+  padding-top: 0.6em;
 
 }
 
@@ -578,15 +581,13 @@ a {
   padding-bottom: 0.7em;
 }
 
-.img {
-
-  height: 10vh !important;
-}
 
 .fotoActividad {
   width: 15vw;
   height: 60vh;
   object-fit: contain;
+  align-items: center;
+  padding: 0.2em;
 }
 
 .img:hover {
@@ -597,14 +598,18 @@ a {
 .colActividades {
   width: 100% !important;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1em;
-  width: 90%;
   padding: 0.2em;
-  border: 0.1em solid gray;
-  background-color: yellow;
+  background-color: #ddd;
+
 }
 
-
+.colAct {
+  background-color: #ddd;
+  padding-top: 6em;
+}
 
 .tituloysub {
   padding: 0.5em;
@@ -614,7 +619,19 @@ a {
 .fotoActividad {
   height: 40vh;
   object-fit: contain;
+  align-items: center;
+
 }
+
+.fotoActividad:hover {
+  transform: scale(1.1)translate(0%, -0.5%);
+  transition: all 1s;
+}
+
+.likes {
+  height: 10%;
+}
+
 
 /*-------------------------------------------------LOGUIN-------------------------------- */
 .container-form {
