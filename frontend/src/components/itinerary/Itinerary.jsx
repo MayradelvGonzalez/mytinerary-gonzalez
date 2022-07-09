@@ -37,7 +37,7 @@ function Itinerary() {
     <>
       {itineraries ? (itineraries.map(itinerary =>
         <div key={itinerary._id} className="itinerarios" >
-          <Col> 
+          <Col>
             <Text color="black" size={14}>
               <div className="contenedorIconos">
                 <Col>
@@ -117,7 +117,7 @@ function Itinerary() {
                                   className="fotoActividad"
                                 />
                               </Col>
-                              
+
                             </div>
                           )
                           }
@@ -126,21 +126,21 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
-               
+
               </Card>
             </Collapse>
           </Collapse.Group>
           <Comments />
         </div>
       ))
-      : 
-      (<h2>There're not Itineraries here yet</h2>)
-      } 
-      
+        :
+        (<h2>There're not Itineraries here yet</h2>)
+      }
+
     </>
-    
+
   );
- 
+
 }
 
 export default Itinerary

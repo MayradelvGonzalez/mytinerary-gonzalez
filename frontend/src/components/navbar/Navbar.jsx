@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import logoNuevo from '../../img/logoNuevo.jpg';
+// import logo from '../../img/logo.jpg';
+import logo_transparent from '../../img/logo_transparent.png';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -50,7 +51,7 @@ const Nav = () => {
       <Container maxWidth="xl" className="nav">
         <Toolbar disableGutters className='caja-menu'>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            <img src={logoNuevo} alt="LogoMyTinerary" style={{ width: "60px" }} /></Box>
+            <img src={logo_transparent} alt="LogoMyTinerary" style={{ width: "6.5rem" }} /></Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -89,7 +90,7 @@ const Nav = () => {
             </Menu>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, width: "100%", justifyContent: "center" }}>
-            <img src={logoNuevo} alt="LogoMyTinerary" style={{ width: "40px" }} />
+            <img src={logo_transparent} alt="LogoMyTinerary" style={{ width: "40px" }} />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', width: '100px', justifyContent: 'center' } }}>

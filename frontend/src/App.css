@@ -35,6 +35,7 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   align-items: center;
+
 }
 
 .nav {
@@ -44,7 +45,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .faceIcon {
-  width: 50vw;
+  width: 40vw;
   height: 40vh;
 }
 
@@ -55,6 +56,13 @@ body::-webkit-scrollbar-thumb {
 
 .OpcionesMenu {
   font-family: 'Concert One', cursive !important;
+
+}
+
+.MuiBox-root button {
+
+  margin-right: 1em;
+
 }
 
 .OpcionesMenu:hover {
@@ -66,11 +74,11 @@ body::-webkit-scrollbar-thumb {
   margin: 0.8em;
   color: black;
   background-color: #4e8cb8;
-  padding: 0.2em 0.5em;
+  padding: 0.4em 0.4em;
   font-family: 'Concert One', cursive !important;
   border: 0.1em solid #25475e;
   border-radius: 0.5em;
-  width: 10vw;
+  width: 11vw;
 }
 
 .boton-menu:hover {
@@ -82,7 +90,7 @@ body::-webkit-scrollbar-thumb {
 
 .logo {
   width: 8vw;
-  height: 10vh;
+  height: 8vh;
 }
 
 /*--------------------------------------LANDING------------------------------------*/
@@ -104,8 +112,8 @@ body::-webkit-scrollbar-thumb {
   object-fit: cover;
   margin-bottom: 2em;
   background-color: #25475e;
-padding-top: 4em;
- 
+  padding-top: 4em;
+
 }
 
 .landing {
@@ -122,7 +130,7 @@ padding-top: 4em;
   height: 57vh;
   margin: 2em auto 7em;
   padding-top: 0.5em;
-  
+
 }
 
 .titulo {
@@ -171,7 +179,7 @@ padding-top: 4em;
 .container-carrousel .titulo-carrousel {
   padding: 1em;
   color: black;
-  
+
 }
 
 .container-carrousel {
@@ -183,8 +191,8 @@ padding-top: 4em;
   margin: 3rem;
   width: 95vw;
   height: 98vh;
-  
-  
+
+
 }
 
 .container-boton {
@@ -369,7 +377,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: contain;
-  
+
 }
 
 .detalles {
@@ -392,9 +400,9 @@ a {
   margin-top: 1.5em;
   font-size: 2em;
   font-weight: bold;
- 
 
- 
+
+
 }
 
 .detalles .imagenDetail {
@@ -402,21 +410,24 @@ a {
   height: 70vh;
   /* object-fit: contain; */
 
-  
+
 }
+
 .nextui-c-hPzDAx .nextui-collapse-title {
   font-size: 1.8em;
 }
 
 .card-contenido p {
-  margin:0 2em;
+  margin: 0 2em;
   font-size: 1.qem;
 }
-.descriptionCard{
+
+.descriptionCard {
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 2em;
 }
+
 .botonCard {
   color: black;
   background-color: #b5cdd0;
@@ -634,15 +645,17 @@ a {
   align-items: center;
   justify-content: space-around;
   margin-top: 0.8em;
-  padding: 0.6em; 
+  padding: 0.6em;
   background-color: #ddd;
 }
-.coments{
+
+.coments {
   display: flex !important;
   flex-direction: column !important;
 
-  
+
 }
+
 .colAct {
   background-color: #ddd;
   padding-top: 4em;
@@ -737,7 +750,7 @@ Form {
   border-radius: 1em;
   padding: 0.6em;
   margin-top: 2em;
-  
+
 }
 
 .formInput:hover {
@@ -761,7 +774,7 @@ form label {
   width: 6vw;
   margin-bottom: 0.5em;
   margin-left: 80% !important;
-  }
+}
 
 .botonSignIn {
   color: white;
@@ -865,7 +878,7 @@ form label {
     height: 60%;
     width: 100%;
     background-size: cover;
-    
+
   }
 
   .container-titulos h2 {
