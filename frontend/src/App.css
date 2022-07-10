@@ -873,6 +873,22 @@ form label {
   height: 8vh;
   padding: 0.5em;
   justify-content: space-between;
+  align-items: center;
+  border-radius: 0.6em;
+}
+
+.inputMensajes {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+
+
+}
+
+.inputMensajes button {
+  width: 8vw;
+  background-color: #25475e;
+  color: white;
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/

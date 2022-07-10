@@ -77,7 +77,7 @@ function Comments({ coment, id, reload, setReload }) {
                     </div>
                 </div>
             )}
-            <div>
+            <div className="inputMensajes">
                 <input type='text' placeholder='Enter your comment' onChange={inputSet}></input>
                 <button onClick={cargarComentario}>Send</button>
             </div>
