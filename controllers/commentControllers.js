@@ -60,7 +60,7 @@ const commentControllers = {
         const {id} = req.params
         const user = req.user._id
         try {
-            const modifyComment = await Itineraries.findOneAndUpdate({"comments._id":id}, {$set: {"comments.$.comment": comment }}, {new: true})
+            const modifyComment = await Itineraries.findOneAndUpdate({"comments._id" : id}, {$set: {"comments.$.comment": comment }}, {new: true})
             console.log(modifyComment)
             res.json({ success: true, response:{modifyComment}, message:"tu comentario a sido modificado" })
 
@@ -92,6 +92,7 @@ const commentControllers = {
     // },
     deleteComment: async (req,res) => {
         const id = req.params.id;
+        const user  =req.user._id; //agregue este
         try{
             const deleteComment = await Itineraries.findOneAndUpdate(
                 { "comments._id": id },

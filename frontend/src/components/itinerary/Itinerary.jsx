@@ -23,10 +23,10 @@ function Itinerary() {
   useEffect(() => {
     dispatch(itinerariesActions.getItineraries())
     dispatch(itinerariesActions.getItinerariesByCity(id))
-    .then(res => setItinerario(res.data.response.itineraries))
+      .then(res => setItinerario(res.data.response.itineraries))
 
   }, [])
-  
+
   // const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
 
   const user = useSelector(store => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
@@ -93,7 +93,7 @@ function Itinerary() {
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
               <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
                 <div
-                  isblurred
+                  isBlurred
                   css={{
                     position: "absolute",
                     bgBlur: "#0f111466",
@@ -111,12 +111,12 @@ function Itinerary() {
                         <div className="colActividades">
 
                           {itinerary.activities?.map(act =>
-                         
+
                             <div key={act._id}>
                               <Text size={14} weight="bolder" className='textoItinerario'>
                                 {act.names}
                               </Text>
-                            
+
                               <Col>
                                 <img
                                   src={act.imageActivity}
@@ -125,7 +125,7 @@ function Itinerary() {
                                   className="fotoActividad"
                                 />
                               </Col>
-                             
+
                             </div>
                           )
                           }
@@ -135,12 +135,12 @@ function Itinerary() {
                   </div>
                 </div>
               </Card>
-             
-                <Comments id={itinerary._id} coment={itinerary.comments} />
-              
+
+              <Comments id={itinerary._id} coment={itinerary.comments} reload={reload} setReload={setReload} />
+
             </Collapse>
           </Collapse.Group>
-         
+
         </div>
       ))
         :

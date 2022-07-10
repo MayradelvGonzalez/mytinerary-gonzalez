@@ -832,26 +832,47 @@ form label {
   width: 12vw;
   height: 7vh;
 }
-.cajaMensaje{
-  border:0.2em solid black;
+
+.cajaMensaje {
+  border: 0.1em solid black;
   margin-top: 1em;
   height: 8rem;
-  
+  background-color: white;
+
 }
-.fotoPerfil{
+
+.cajaMensaje button {
+  width: 8vw;
+
+
+}
+
+.fotoPerfil {
   height: 4rem;
   width: 6rem;
   border: 0.1em dotted green;
   background-color: lightblue;
 }
-.contenidoMensaje{
+
+.contenidoMensaje {
   display: flex;
-  
+  background-color: #25475e;
+  color: white;
+  display: flex;
+  align-items: center;
 }
-.mensaje{
-  display:flex;
-  border: 0.1em solid red;
+
+.contenidoMensaje h4 {
+  padding-left: 0.3em;
+}
+
+.mensaje {
+  display: flex;
+  border: 0.1em solid #808080;
   justify-content: space-around;
+  height: 8vh;
+  padding: 0.5em;
+  justify-content: space-between;
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/

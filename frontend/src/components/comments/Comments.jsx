@@ -4,34 +4,33 @@ import commentsActions from '../../redux/actions/commentActions'
 import { useParams, Link as LinkRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-function Comments({ coment,id }) {
+function Comments({ coment, id, reload, setReload }) {
 
-    // const user = useSelector(store => store.usersReducer.user)
-    
+    const user = useSelector(store => store.usersReducer.user)
+
     const dispatch = useDispatch()
     console.log(coment)
     console.log(id)
-    const [comments, setComments] = useState()
+
+    const [comment, setComments] = useState()
     const [itinerary, setItinerary] = useState()
     const [inputText, setInputText] = useState("")
-  
     const [modifyComment, setModifyComment] = useState()
-    const [reload, setReload] = useState(false)
-    
-    let handleReload = () => {
-        setReload(!reload);
-    };
-   
-    // useEffect(() => {
-    //   dispatch(itinerariesActions.getOneItinerary(itinerary))
-    //   .then(res => setComments(res))
-    // },[reload])
+    // const [reload, setReload] = useState(false)
 
-    useEffect(()=>{
-         dispatch(itinerariesActions.getItinerariesByCity(id))
-    },[reload])
+    // let handleReload = () => {
+    //     setReload(!reload);
+    // };
 
-    console.log(comments)
+    useEffect(() => {
+        dispatch(itinerariesActions.getOneItinerary(itinerary))//byOneItinerary(itinerary)
+            .then(res => setComments(res))
+    }, [reload])
+
+    useEffect(() => {
+        dispatch(itinerariesActions.getItinerariesByCity(id))
+    }, [reload])
+
     async function cargarComentario() {
         const comments = {
             itineraries: id,
@@ -39,6 +38,7 @@ function Comments({ coment,id }) {
         }
         const res = await dispatch(commentsActions.addComment(comments))//requiere el id del itinerario y el comentario
         setReload(!reload)
+        console.log(res)
     }
 
     function inputSet(event) {
@@ -47,11 +47,11 @@ function Comments({ coment,id }) {
 
     async function modificarComentario(id) {
         const comment = {
-            comment : modifyComment
+            comment: modifyComment
         }
-        const res = await dispatch(commentsActions.modifyComment(id,comment))
+        const res = await dispatch(commentsActions.modifyComment(id, comment))
         setReload(!reload)
-        
+
 
     }
 
@@ -62,17 +62,17 @@ function Comments({ coment,id }) {
     return (
         <>
             {coment?.map((comment) =>
-                <div className='cajaMensaje'>
+                <div className='cajaMensaje' key={comment._id}>
                     <div className='contenidoMensaje'>
                         <div className='fotoPerfil'><img src={comment.userId.photo} alt="imagenPerfil" /></div>
                         <h4>{comment.userId.fullName}</h4>
                     </div>
                     <div className="mensaje">
-                    {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
+                        {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
                         <div className="inputMensaje" contentEditable type="text" onChange={(event) => setModifyComment(event.target.value)}>{comment.comment}</div>
                         <div>
-                            <button onClick={()=>eliminarComentario(comment._id)} className='botonEliminar'>Delete</button>
-                            <button onClick={()=>modificarComentario(comment._id)} className='botonEditar'>Edit</button>
+                            <button onClick={() => eliminarComentario(comment._id)} className='botonEliminar'>Delete</button>
+                            <button onClick={() => modificarComentario(comment._id)} className='botonEditar'>Edit</button>
                         </div>
                     </div>
                 </div>
