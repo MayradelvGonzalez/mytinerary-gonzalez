@@ -15,16 +15,20 @@ function Itinerary() {
 
   const { id } = useParams()
   const [reload, setReload] = useState(false);//para likes
+  const [comments, setComments] = useState();
+  const [itinerario, setItinerario] = useState([])
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(itinerariesActions.getItineraries())
     dispatch(itinerariesActions.getItinerariesByCity(id))
+    .then(res => setItinerario(res.data.response.itineraries))
 
-  }, [id, reload])
-  const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
-  console.log(itineraries)
+  }, [])
+  
+  // const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
+
   const user = useSelector(store => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
   console.log(user)
 
@@ -35,7 +39,8 @@ function Itinerary() {
 
   return (
     <>
-      {itineraries ? (itineraries.map(itinerary =>
+      {itinerario ? (itinerario.map(itinerary =>
+
         <div key={itinerary._id} className="itinerarios" >
           <Col>
             <Text color="black" size={14}>
@@ -88,7 +93,7 @@ function Itinerary() {
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
               <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
                 <div
-                  isBlurred
+                  isblurred
                   css={{
                     position: "absolute",
                     bgBlur: "#0f111466",
@@ -104,11 +109,14 @@ function Itinerary() {
                       <div className="colAct">
                         <h2>Activities</h2>
                         <div className="colActividades">
+
                           {itinerary.activities?.map(act =>
+                         
                             <div key={act._id}>
                               <Text size={14} weight="bolder" className='textoItinerario'>
                                 {act.names}
                               </Text>
+                            
                               <Col>
                                 <img
                                   src={act.imageActivity}
@@ -117,7 +125,7 @@ function Itinerary() {
                                   className="fotoActividad"
                                 />
                               </Col>
-
+                             
                             </div>
                           )
                           }
@@ -126,11 +134,13 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
-
               </Card>
+             
+                <Comments id={itinerary._id} coment={itinerary.comments} />
+              
             </Collapse>
           </Collapse.Group>
-          <Comments />
+         
         </div>
       ))
         :

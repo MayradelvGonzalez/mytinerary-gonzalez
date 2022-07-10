@@ -30,14 +30,18 @@ const commentControllers = {
     // },
 
     addComment: async (req, res) => {
-        const {itineraryId,comments} = req.body
+        console.log("aca esta mi reqBody", req.body)
+        const {itineraries,comment} = req.body.comment
+
+         console.log("console de itineraries", itineraries)
+         console.log("console de coment",comment)
         const user = req.user._id
         try {
-            const nuevoComment = await Itineraries.findOneAndUpdate({_id:itineraryId}, {$push: {comments: 
-                {userId: user, comment: comments.comment,}}}, {new: true}).populate("comments.userId", {fullName:1, photo:1})
+            const nuevoComment = await Itineraries.findOneAndUpdate({_id:itineraries}, {$push: {comments: 
+                {userId: user, comment: comment}}}, {new: true}).populate("comments.userId", {fullName:1, photo:1})
             console.log(nuevoComment)
                 res.json({ success: true,
-                    response:{nuevoComment}, 
+                    response: nuevoComment.comments, 
                     message:"Thanks for your comment" })
         }
         catch (error) {
@@ -52,7 +56,7 @@ const commentControllers = {
     },
     
      modifyComment: async (req, res) => {
-        const {comment} = req.body.commentModify
+        const {comment} = req.body
         const {id} = req.params
         const user = req.user._id
         try {

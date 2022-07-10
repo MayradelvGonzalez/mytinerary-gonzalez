@@ -78,7 +78,7 @@ body::-webkit-scrollbar-thumb {
   font-family: 'Concert One', cursive !important;
   border: 0.1em solid #25475e;
   border-radius: 0.5em;
-  width: 11vw;
+  width: 10vw;
 }
 
 .boton-menu:hover {
@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .logo {
-  width: 8vw;
+  width: 5vw !important;
   height: 8vh;
 }
 
@@ -397,7 +397,7 @@ a {
 
 .detalles h3 {
   font-family: 'Cormorant Garamond', serif;
-  margin-top: 1.5em;
+  margin-top: 2.5em;
   font-size: 2em;
   font-weight: bold;
 
@@ -502,7 +502,7 @@ a {
   font-size: 0.5em;
   font-weight: bold;
   height: 14vh;
-  margin-top: 8em;
+  margin-top: 12em;
   background-color: #808080;
 }
 
@@ -831,6 +831,27 @@ form label {
   align-items: center;
   width: 12vw;
   height: 7vh;
+}
+.cajaMensaje{
+  border:0.2em solid black;
+  margin-top: 1em;
+  height: 8rem;
+  
+}
+.fotoPerfil{
+  height: 4rem;
+  width: 6rem;
+  border: 0.1em dotted green;
+  background-color: lightblue;
+}
+.contenidoMensaje{
+  display: flex;
+  
+}
+.mensaje{
+  display:flex;
+  border: 0.1em solid red;
+  justify-content: space-around;
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/

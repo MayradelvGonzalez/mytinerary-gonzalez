@@ -36,11 +36,11 @@ const commentsActions = {
         }
 
     },
-    modifyComment: (commentModify) => {
+    modifyComment: (id,comment) => {
 
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.put(`http://localhost:4000/api/itineraries/comment/${commentModify.commentId}`, { commentModify }, {
+            const res = await axios.put(`http://localhost:4000/api/itineraries/comment/${id}`, { comment }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
