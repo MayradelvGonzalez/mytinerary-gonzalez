@@ -104,7 +104,7 @@ function Itinerary() {
                     className: "actividades",
                   }}
                 >
-                  <div>
+                  <div className='actividad'>
                     <div>
                       <div className="colAct">
                         <h2>Activities</h2>

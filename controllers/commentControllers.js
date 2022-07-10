@@ -31,10 +31,7 @@ const commentControllers = {
 
     addComment: async (req, res) => {
         console.log("aca esta mi reqBody", req.body)
-        const {itineraryId,comment} = req.body.comments//agregue itineraryId y "s"
-
-         console.log("console de itineraries", itineraries)
-         console.log("console de coment",comment)
+        const {itineraries,comment} = req.body.comment
         const user = req.user._id
         try {
             const nuevoComment = await Itineraries.findOneAndUpdate({_id:itineraries}, {$push: {comments: 

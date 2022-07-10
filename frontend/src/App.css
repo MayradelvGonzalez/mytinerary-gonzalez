@@ -648,7 +648,9 @@ a {
   padding: 0.6em;
   background-color: #ddd;
 }
-
+.actividad{
+  background-color:#ddd;
+}
 .coments {
   display: flex !important;
   flex-direction: column !important;
@@ -834,7 +836,7 @@ form label {
 }
 
 .cajaMensaje {
-  border: 0.1em solid black;
+  height: 10vh;
   margin-top: 1em;
   height: 8rem;
   background-color: white;
@@ -843,7 +845,8 @@ form label {
 
 .cajaMensaje button {
   width: 8vw;
-
+  border:0.1em outset black;
+  margin-left: 0.2em;
 
 }
 
@@ -862,13 +865,12 @@ form label {
   align-items: center;
 }
 
-.contenidoMensaje h4 {
+.contenidoMensaje h5 {
   padding-left: 0.3em;
 }
 
 .mensaje {
   display: flex;
-  border: 0.1em solid #808080;
   justify-content: space-around;
   height: 8vh;
   padding: 0.5em;
@@ -884,11 +886,21 @@ form label {
 
 
 }
+.inputMensajes input{
+  width: 90%;
+}
 
 .inputMensajes button {
   width: 8vw;
   background-color: #25475e;
   color: white;
+  
+
+}
+.inputMensajes button:hover{
+  border: 0.1em solid gray;
+  color:black;
+  background-color: green;
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/

@@ -61,11 +61,14 @@ function Comments({ coment, id, reload, setReload }) {
     }
     return (
         <>
+        <h2 className='tituloComentarios'>Comments</h2>
             {coment?.map((comment) =>
+          
                 <div className='cajaMensaje' key={comment._id}>
+                    
                     <div className='contenidoMensaje'>
                         <div className='fotoPerfil'><img src={comment.userId.photo} alt="imagenPerfil" /></div>
-                        <h4>{comment.userId.fullName}</h4>
+                        <h5>{comment.userId.fullName}</h5>
                     </div>
                     <div className="mensaje">
                         {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
