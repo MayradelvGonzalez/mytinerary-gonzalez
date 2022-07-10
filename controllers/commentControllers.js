@@ -31,7 +31,7 @@ const commentControllers = {
 
     addComment: async (req, res) => {
         console.log("aca esta mi reqBody", req.body)
-        const {itineraries,comment} = req.body.comment
+        const {itineraryId,comment} = req.body.comments//agregue itineraryId y "s"
 
          console.log("console de itineraries", itineraries)
          console.log("console de coment",comment)
