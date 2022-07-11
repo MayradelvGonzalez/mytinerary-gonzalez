@@ -73,22 +73,23 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
                     <div className='contenidoMensaje'>
                         <div className='fotoPerfil'><img src={comment.userId.photo} alt="imagenPerfil" /></div>
-                        <h5>{comment.userId.fullName}</h5>
+                        <div><h5 className="nombreComentario">{comment.userId.fullName}</h5></div>
                     </div>
-                    <div className="mensaje">
-                        {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
-                        <div className="inputMensaje" type="text">{comment.comment}</div>
-                        {comment.userId?._id === user?.id  ?
-                       
-                        <div>
-                            <button onClick={() => eliminarComentario(comment._id)} className='botonEliminar'>Delete</button>
-                            <button onClick={() => handleClickOpen(comment._id, comment.comment )} className='botonEditar'>Edit</button> 
-                        </div>
-                        :
-                        null
-                         }
+                    <div className="cajaMensajeInput">
+                        <div className="mensaje">
+                            {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
+                            <div className="inputMensaje" type="text">{comment.comment}</div>
+                            {comment.userId?._id === user?.id ?
 
-                    </div>
+                                <div>
+                                    <button onClick={() => eliminarComentario(comment._id)} className='botonEliminar'>Delete</button>
+                                    <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonEditar'>Edit</button>
+                                </div>
+                                :
+                                null
+                            }
+
+                        </div></div>
                     <Dialog open={open} onClose={handleClose}>
                         <DialogTitle>Subscribe</DialogTitle>
                         <DialogContent>
@@ -125,18 +126,18 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
             )
             }
-            {user?
-            <div className="inputMensajes">
-                <input type='text' placeholder='Enter your comment' onChange={inputSet}></input>
-                <button onClick={cargarComentario}>Send</button>
-            </div>
-            :
-            <div>Please, sign in to comment<LinkRouter to='/signin'>sign in🔗</LinkRouter>or <LinkRouter to='/signup'>sign up</LinkRouter></div>
+            {user ?
+                <div className="inputMensajes">
+                    <input type='text' placeholder='Enter your comment' onChange={inputSet}></input>
+                    <button onClick={cargarComentario}>Send</button>
+                </div>
+                :
+                <div>Please, sign in to comment<LinkRouter to='/signin'>sign in🔗</LinkRouter>or <LinkRouter to='/signup'>sign up</LinkRouter></div>
             }
-        
+
         </>
-        
-        )
+
+    )
 }
 export default Comments
 
