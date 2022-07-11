@@ -117,14 +117,14 @@ function Itinerary() {
                                 {act.names}
                               </Text>
 
-                              <Col>
+                              <div>
                                 <img
                                   src={act.imageActivity}
-                                  height={70}
-                                  width={100}
+                                  // height={70}
+                                  // width={100}
                                   className="fotoActividad"
                                 />
-                              </Col>
+                              </div>
 
                             </div>
                           )
@@ -135,11 +135,12 @@ function Itinerary() {
                   </div>
                 </div>
               </Card>
-
               <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
-
             </Collapse>
+
           </Collapse.Group>
+
+
 
         </div>
       ))

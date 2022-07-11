@@ -628,12 +628,20 @@ a {
 } */
 
 .fotoActividad {
-  width: 75%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   align-items: center;
   padding: 0.2em;
 }
+
+.activities img {
+  width: 98%;
+  height: 98%;
+  padding-top: 0.6em;
+}
+
+
 
 .img:hover {
   transition: all 2s ease;
@@ -643,17 +651,29 @@ a {
 .colActividades {
   width: 100% !important;
   display: flex;
+  padding-bottom: 0.5em;
   flex-wrap: wrap !important;
   align-items: center;
   justify-content: space-around;
   margin-top: 0.8em;
   padding: 0.6em;
   background-color: #ddd;
+  text-align: center;
+
 
 }
 
+.activities {
+  height: 50vh;
+  width: 30%;
+}
+
+
+
 .actividad {
-  background-color: #ddd;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .coments {
@@ -666,9 +686,10 @@ a {
 .colAct {
   background-color: #ddd;
   padding-top: 4em;
-  display: flex;
+
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .tituloysub {
@@ -853,9 +874,11 @@ form label {
 
 }
 
-.fotoPerfil {
 
+
+.fotoPerfil {
   width: 10%;
+  height: 100%;
 }
 
 .cajaMensajeInput {
@@ -872,7 +895,7 @@ form label {
   height: 100%;
   width: 100%;
   border: 0.1em dotted white;
-  border-radius: 0 2em;
+  border-radius: 0 2em !important;
 
 }
 
@@ -885,13 +908,15 @@ form label {
   justify-content: space-between;
   width: 100%;
   height: 38%;
-  margin-left: 2em;
+
 
 }
 
 .contenidoMensaje h5 {
   padding-left: 0.3em;
 }
+
+
 
 .mensaje {
   display: flex;
@@ -950,12 +975,33 @@ form label {
     padding-bottom: 0.8em;
   }
 
+  /* .fotoPerfil img {
+    height: 31%;
+    width: 40%;
+    margin-left: 2em;
+
+
+  } */
+
   /* 
   .colActividades {
 
     flex-direction: column;
     margin-bottom: 1em;
   } */
+  .inputMensajes input {
+    width: 80%;
+    border-radius: 0.5em 0 0 0.5em;
+  }
+
+  .nombreComentario {
+    font-size: 1em;
+  }
+
+
+  .inputMensajes button {
+    width: 20%;
+  }
 
   .formSignIn {
     width: 72%;
