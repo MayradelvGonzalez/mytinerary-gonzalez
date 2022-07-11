@@ -117,7 +117,7 @@ const itinerariesControllers = {
 
 likeDislike: async (req, res) =>{
     const id = req.params.id //por parametro desde axios
-    const user = req.user.id //por respuesta de passport
+     const user = req.user.id //por respuesta de passport
     await Itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
     .then((itinerary) => {
         if(itinerary.likes.includes(user)){

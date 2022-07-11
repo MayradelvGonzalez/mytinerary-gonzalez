@@ -24,6 +24,7 @@ const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const users = useSelector(store => store.usersReducer.user);
+  console.log(users)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -105,7 +106,7 @@ const Nav = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                 {users ? <Box sx={{ display: 'flex', WebkitJustifyContent: 'center', alignItems: 'center', }}>
-                  <Avatar alt="imageUser" src={users.userData?.photo} sx={{ width: 70, height: 70 }} /></Box>
+                  <Avatar alt="imageUser" src={users.photo} sx={{ width: 70, height: 70 }} /></Box>
                   :
                   <Avatar alt="nombre" src="/static/images/avatar/1.jpg" />}
               </IconButton>

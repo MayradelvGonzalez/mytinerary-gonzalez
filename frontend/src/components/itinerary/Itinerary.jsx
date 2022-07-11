@@ -25,7 +25,7 @@ function Itinerary() {
     dispatch(itinerariesActions.getItinerariesByCity(id))
       .then(res => setItinerario(res.data.response.itineraries))
 
-  }, [])
+  }, [id, reload])
 
   // const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
 
@@ -136,7 +136,7 @@ function Itinerary() {
                 </div>
               </Card>
 
-              <Comments id={itinerary._id} coment={itinerary.comments} reload={reload} setReload={setReload} />
+              <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
 
             </Collapse>
           </Collapse.Group>
