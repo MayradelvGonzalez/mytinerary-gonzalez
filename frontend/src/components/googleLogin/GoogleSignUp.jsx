@@ -31,7 +31,7 @@ useEffect(() => {
         document.getElementById('buttonDiv'),
         { theme: "outline" , size:"medium"} 
     )
-});
+},[]);
 
 return(
     <div>

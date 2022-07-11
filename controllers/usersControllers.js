@@ -203,11 +203,14 @@ const usersControllers = {
             res.json({
                 success: true,
                 response: {
-                    id: req.user.id,
-                    fullName: req.user.fullName,
-                    email: req.user.email,
-                    photo: req.user.photo,
-                    from: "token"
+                    userData:{
+                        id: req.user.id,
+                        fullName: req.user.fullName,
+                        email: req.user.email,
+                        photo: req.user.photo,
+                        from: "token"
+                    }
+                    
                 },
                 message: "Hi! Welcome back  " + " " + req.user.fullName  
             })

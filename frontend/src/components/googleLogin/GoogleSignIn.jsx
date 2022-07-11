@@ -22,7 +22,7 @@ function GoogleSignIn(){
         google.accounts.id.initialize({
             client_id: '556028616922-59ljqe7i7ug24kbcf3uji06mvpju3tl5.apps.googleusercontent.com',
             callback: handleCallbackResponse
-        });
+        },[]);
 
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),

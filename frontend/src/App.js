@@ -44,8 +44,8 @@ function App()  {
                 <Route path='/signup' element = {<SignUp />} /> */}
                 <Route path='/itinerary' element = {<Itinerary />} />
              
-                <Route path="/signup" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
-                <Route path="/signin" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignIn/>} />
+                {/* <Route path="/signup" element={ localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignUp/>} />
+                <Route path="/signin" element={localStorage.getItem('token')? (<Navigate replace to="/"/>): <SignIn/>} /> */}
                {!user &&  <Route path='/signin' element= {<SignIn />} /> } 
                {!user &&  <Route path='/signup' element= {<SignUp />} /> } 
             </Routes>
