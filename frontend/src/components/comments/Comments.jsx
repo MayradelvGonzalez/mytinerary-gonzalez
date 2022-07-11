@@ -10,6 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import SnackBar from '../snackbar/Snackbar'
 
 function Comments({ coment, id, idItinerary, reload, setReload }) {
 
@@ -68,7 +69,6 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
         <>
             <h2 className='tituloComentarios'>Comments</h2>
             {coment?.map((comment) =>
-
                 <div className='cajaMensaje' key={comment._id}>
 
                     <div className='contenidoMensaje'>
@@ -76,29 +76,31 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                         <div><h5 className="nombreComentario">{comment.userId.fullName}</h5></div>
                     </div>
                     <div className="cajaMensajeInput">
+
+
                         <div className="mensaje">
-                            {/* <div type="text" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.comment}</div> */}
                             <div className="inputMensaje" type="text">{comment.comment}</div>
-                            {comment.userId?._id === user?.id ?
+                            {comment.userId?.id === comment.user?._id ?
+                                (<div className="botonesComentario">
 
-                                <div>
-                                    <button onClick={() => eliminarComentario(comment._id)} className='botonEliminar'>Delete</button>
-                                    <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonEditar'>Edit</button>
-                                </div>
+                                    <button onClick={() => eliminarComentario(comment._id)} className='botonAccion'>Delete</button>
+                                    <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonAccion'>Edit</button>
+
+
+                                </div>)
                                 :
-                                null
+                                (null)
                             }
+                        </div>
 
-                        </div></div>
+
+                    </div>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogTitle>Edite Comment:</DialogTitle>
                         <DialogContent>
                             <DialogContentText>
-                                To subscribe to this website, please enter your email address here. We
-                                will send updates occasionally.
+                                ✏
                             </DialogContentText>
-
-                            {/* <input  onChange={(event) =>setInputModify(event.target.value)}  id="nuevoComentario" placeholder='Ingresa aqui tu comentario...' className="inputChat" ></input> */}
                             <TextField
                                 autoFocus
                                 margin="dense"
@@ -110,33 +112,29 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                                 id="nuevoComentario"
                             />
                         </DialogContent>
-
                         <DialogActions>
-                            <Button onClick={() => modificarComentario(idComment)}>Edit</Button>
-                            <Button onClick={handleClose}>Finalize</Button>
-
+                            <Button onClick={() => modificarComentario(idComment)}>Save change</Button>
+                            <Button onClick={handleClose}>Finish</Button>
                         </DialogActions>
-
-
                     </Dialog>
 
-
-
                 </div>
+
 
             )
             }
-            {user ?
-                <div className="inputMensajes">
-                    <input type='text' placeholder='Enter your comment' onChange={inputSet}></input>
-                    <button onClick={cargarComentario}>Send</button>
-                </div>
-                :
-                <div>Please, sign in to comment<LinkRouter to='/signin'>sign in🔗</LinkRouter>or <LinkRouter to='/signup'>sign up</LinkRouter></div>
+            {
+                user ?
+                    <div className="inputMensajes">
+                        <input type='text' placeholder='Enter your comment' onChange={inputSet}></input>
+                        <button onClick={cargarComentario}>Send</button>
+
+                    </div>
+                    :
+                    <div>Please, sign in to comment<LinkRouter to='/signin'>sign in🔗</LinkRouter>or <LinkRouter to='/signup'>sign up</LinkRouter></div>
             }
 
         </>
-
     )
 }
 export default Comments

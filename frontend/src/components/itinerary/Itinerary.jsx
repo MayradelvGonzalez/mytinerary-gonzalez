@@ -93,7 +93,7 @@ function Itinerary() {
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
               <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
                 <div
-                  isBlurred
+                  isblurred
                   css={{
                     position: "absolute",
                     bgBlur: "#0f111466",
@@ -112,7 +112,7 @@ function Itinerary() {
 
                           {itinerary.activities?.map(act =>
 
-                            <div key={act._id}>
+                            <div key={act._id} className="activities">
                               <Text size={14} weight="bolder" className='textoItinerario'>
                                 {act.names}
                               </Text>

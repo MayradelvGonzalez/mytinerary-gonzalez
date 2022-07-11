@@ -141,7 +141,7 @@ const usersControllers = {
                             response: { token, userData },//llega a userAction
                             success: true,
                             from: from,
-                            message: "Welcome back" + userData.fullName + "🤗",
+                            message: "Welcome back" + userData.fullName,
                         });
                     } else {
                         //si no hay coincidencias
