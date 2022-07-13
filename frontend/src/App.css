@@ -969,6 +969,52 @@ form label {
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
+@media (min-width:280px) {
+  body {
+    background-color: green;
+  }
+
+  .faceIcon {
+    width: 20vw;
+    height: 20vh;
+  }
+
+  .titulo {
+    font-size: 2.6em !important;
+    padding-bottom: 2rem;
+  }
+
+  .container-titulos {
+    padding: 0.3em;
+  }
+
+  .container-titulos h2 {
+    font-size: 1.3em !important;
+
+  }
+
+  .container-carrousel {
+    background-color: violet;
+    width: 99%;
+    height: 99%;
+    justify-content: center;
+  }
+
+  .carrouselCaja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2em auto 1em;
+    padding-top: 0.2em;
+
+  }
+
+  .sc-dnqmqq img {
+    height: 12rem;
+    width: 15rem;
+  }
+}
+
 @media (min-width:375px) {
   .titulo {
     font-size: 3.5em;
@@ -982,6 +1028,17 @@ form label {
 
 
   } */
+  h6 .nombreAvatar {
+    font-size: 0.5rem !important;
+
+  }
+
+  .MuiAvatar {
+    width: 20px;
+    height: 20px;
+  }
+
+
 
   /* 
   .colActividades {
@@ -1182,6 +1239,8 @@ form label {
     align-items: center;
     width: 100%;
   }
+
+
 
   .footer a {
 

@@ -43,7 +43,7 @@ const Nav = () => {
     setAnchorElUser(null);
   };
   async function signOut() {
-   await dispatch(usersActions.signOut())
+    await dispatch(usersActions.signOut())
       .then(navigate("/signup", { replace: true }))//me lleva de nuevo al home al hacer sign out
   }
 
@@ -105,10 +105,15 @@ const Nav = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
-                {users ? <Box sx={{ display: 'flex', WebkitJustifyContent: 'center', alignItems: 'center', }}>
-                  <Avatar alt="imageUser" src={users.userData?.photo} sx={{ width: 70, height: 70 }} /></Box>
+                {users ? <Box sx={{ display: 'flex', flexDirection: 'column', WebkitJustifyContent: 'center', color: 'white', alignItems: 'center', }} >
+                  <Avatar alt="imageUser" src={users.userData?.photo} sx={{ width: 50, height: 50 }} sm={{ width: 40, height: 40 }} />
+                  <h6 className='nombreAvatar'>{users.userData?.fullName}</h6>
+                </Box>
                   :
-                  <Avatar alt="nombre" src="/static/images/avatar/1.jpg" />}
+                  <Box sx={{ display: 'flex', flexDirection: 'column', WebkitJustifyContent: 'center', alignItems: 'center', color: 'white' }} > <Avatar alt="nombre" src="/static/images/avatar/1.jpg" />
+                    <h6 className='nombreAvatar'>user no registered</h6></Box>
+
+                }
               </IconButton>
             </Tooltip>
             <Menu
