@@ -212,7 +212,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  margin-top: 15rem;
+  margin-top: 3rem;
   border: 0.3em outset gray;
   box-shadow: 0 4px 8px 0 #25475e, 0 10px 25px #25475e, 0 10px 30px 0 #1b3d20, 0 10px 30px 0 #25475e;
   text-decoration: none;
@@ -221,7 +221,6 @@ body::-webkit-scrollbar-thumb {
   width: 17vh !important;
   font-size: 1.5em;
   background-color: #25475e;
-  animation: animate 2s infinite linear;
 }
 
 a {
@@ -292,8 +291,8 @@ a {
 
 .card {
   margin: 1.5em !important;
-
-  height: 90vh !important;
+  width: 20% !important;
+  height: 40vh !important;
   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
 }
 
@@ -306,9 +305,10 @@ a {
   font-family: 'Old Standard TT', serif;
 }
 
+/* 
 .imagenCard {
-  height: 50vh !important;
-}
+  height: 40% !important;
+} */
 
 .card .caja-card {
   background-color: #b5cdd0;
@@ -494,12 +494,13 @@ a {
   font-weight: bold;
   height: 14vh;
   margin-top: 12em;
-  background: transparent;
+  /* background: transparent;
   background-image: url(./img/viaj.jpg);
   background-repeat: no-repeat;
   object-fit: contain;
-  background-size: cover;
-
+  background-size: cover; */
+  background-color: #FF7F00;
+  border: 0.2em outset #25475e;
 }
 
 
@@ -991,23 +992,30 @@ form label {
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
 
-@media (min-width:375px) {
-  .titulo {
+@media (max-width:375px) {
+  /* .titulo {
     font-size: 3.5em;
     padding-bottom: 0.8em;
   }
 
-  /* .fotoPerfil img {
-    height: 31%;
-    width: 40%;
-    margin-left: 2em;
-
-
+  .container-titulos h2 {
+    font-size: 1.4em !important;
+    text-align: center;
+    padding: auto 0.3em;
   } */
+
+
+
   h6 .nombreAvatar {
     font-size: 0.5rem;
 
   }
+
+  /* .card {
+    object-fit: contain;
+    height: 40% !important;
+    width: 40vw !important;
+  } */
 
   .MuiAvatar {
     width: 20px;
@@ -1114,11 +1122,12 @@ form label {
     margin-top: 0.1px;
   }
 
+  /* 
   .card {
     margin: 0.7em;
     width: 25% !important;
     height: 31% !important;
-  }
+  } */
 
   .sc-ifAKCX {
     height: 50vh;
@@ -1156,7 +1165,7 @@ form label {
   }
 }
 
-@media (min-width:576px) {
+@media (max-width:576px) {
   .titulo {
     font-size: 4.2em;
   }
@@ -1246,7 +1255,7 @@ form label {
 
 }
 
-@media (min-width:768px) {
+@media (max-width:768px) {
   .container-titulos {
     padding-top: 2em;
   }
@@ -1435,6 +1444,7 @@ form label {
 
   .titulo {
     font-size: 6em;
+    padding-bottom: 1em;
   }
 
   .container-titulos h2 {
