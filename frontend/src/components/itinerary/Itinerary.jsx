@@ -76,8 +76,7 @@ function Itinerary() {
               <div className="contenedorIconos"><div className='icono'>Hashtags💭:{itinerary.hashtags}</div></div>
             </Text>
             {user ?
-              (<div className="likes" onClick={() =>
-                likeOrDislike(itinerary._id)}>
+              (<div className="likes" onClick={likeOrDislike(itinerary._id)}>
                 {
                   itinerary?.likes.includes(user.id)
                     ?

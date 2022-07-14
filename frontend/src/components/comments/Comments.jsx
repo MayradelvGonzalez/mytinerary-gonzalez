@@ -80,23 +80,22 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
                         <div className="mensaje">
                             <div className="inputMensaje" type="text">{comment.comment}</div>
-                            {comment.userId?.id === comment.user?._id ?
-                                (<div className="botonesComentario">
+                            {comment?.userId._id === user?.id ?
+                                <div className="botonesComentario">
 
                                     <button onClick={() => eliminarComentario(comment._id)} className='botonAccion'>❌Delete</button>
                                     <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonAccion'>✏️Edit</button>
 
 
-                                </div>)
-                                :
-                                (null)
+                                </div> :
+                                null
                             }
                         </div>
 
 
                     </div>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Edite Comment:</DialogTitle>
+                        <DialogTitle>Edit Comment:</DialogTitle>
                         <DialogContent>
 
                             <TextField
