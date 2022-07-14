@@ -729,10 +729,11 @@ a {
   align-items: center;
   justify-content: center;
   padding-bottom: 2em;
+  padding: 1em;
 }
 
 .container-formSignIn {
-  height: 81vh;
+  height: 80vh;
   width: 100%;
   background-image: url('./img/viaj.jpg');
   background-repeat: no-repeat;
@@ -750,7 +751,7 @@ a {
   font-family: 'Cormorant Garamond', serif;
   color: white;
   font-weight: bolder;
-  margin-top: 2.6em;
+  margin-top: 4.6em;
 }
 
 Form {
@@ -765,6 +766,10 @@ Form {
   padding: 0.8em;
   margin-top: 1em !important;
   margin-bottom: 6em !important;
+}
+
+.signUp {
+  height: 60%;
 }
 
 .formSignIn {
@@ -969,51 +974,6 @@ form label {
 }
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
-@media (min-width:280px) {
-  body {
-    background-color: green;
-  }
-
-  .faceIcon {
-    width: 20vw;
-    height: 20vh;
-  }
-
-  .titulo {
-    font-size: 2.6em !important;
-    padding-bottom: 2rem;
-  }
-
-  .container-titulos {
-    padding: 0.3em;
-  }
-
-  .container-titulos h2 {
-    font-size: 1.3em !important;
-
-  }
-
-  .container-carrousel {
-    background-color: violet;
-    width: 99%;
-    height: 99%;
-    justify-content: center;
-  }
-
-  .carrouselCaja {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.2em auto 1em;
-    padding-top: 0.2em;
-
-  }
-
-  .sc-dnqmqq img {
-    height: 12rem;
-    width: 15rem;
-  }
-}
 
 @media (min-width:375px) {
   .titulo {
@@ -1029,7 +989,7 @@ form label {
 
   } */
   h6 .nombreAvatar {
-    font-size: 0.5rem !important;
+    font-size: 0.5rem;
 
   }
 
@@ -1107,12 +1067,12 @@ form label {
 
   }
 
-  .container-titulos h2 {
+  /* .container-titulos h2 {
     font-size: 1.2em !important;
     text-align: center;
     padding: 2em 0.3em 0.4em;
 
-  }
+  } */
 
   .sc-dnqmqq img {
     height: 30vh;

@@ -7,6 +7,8 @@ import usersActions from '../../redux/actions/usersActions';
 import GoogleSignUp from '../googleLogin/GoogleSignUp';
 import SnackBar from '../snackbar/Snackbar';
 import { useNavigate } from 'react-router-dom';
+
+
 function SignUp() {
   const paises = [
     "unselected",
@@ -37,16 +39,16 @@ function SignUp() {
       photo: event.target[4].value,
       from: "form-SignUp"
     }
-    const res = await dispatch(usersActions.signUp(userData))
-    if (res.data.success) {
-      navigate('/')
-    }
-    console.log(userData)
+    // const res = await dispatch(usersActions.signUp(userData))
+    // if (res.data.success) {
+    //   navigate('/')
+    // }
+    // console.log(userData)
   }
   return (
     <div className="container-form">
       <h2 className="tituloSignIn">Create your account</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="signUp">
         <Form.Group className="mb-3">
           <Form.Label className="#">Full Name:</Form.Label>
           <Form.Control type="name" className="formInput" placeholder="Enter name" required />

@@ -122,15 +122,25 @@ likeDislike: async (req, res) =>{
     .then((itinerary) => {
         if(itinerary.likes.includes(user)){
             Itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
-            .then((response) => res.json({ success: true, response: response.likes}))
+            .then((response) => res.json({ success: true, response: response.likes, message:"Thanks for your like!"}))
             .catch((error) => console.log(error))
         } else {
             Itineraries.findOneAndUpdate({ _id: id}, {$push: {likes:user}}, { new:true})
-            .then((response) => res.json({ success: true, response: response.likes}))
+            .then((response) => 
+            res.json({ 
+                success: true, 
+                response: response.likes,
+                message:"dislike!"}))
+           
             .catch((error) => console.log(error))
         }
     })//si place.like incluye user (si loincluye es true), va a actualizar el itinerario y hara un pull, extraera el id del usuario del array de likes, y new true me trae el cambio actualizado y luego me da una respuetsa
-    .catch((error) => res.json({ success: false, response: error }))
+    .catch((error) => 
+    res.json({ 
+        success: false, 
+        response: error,
+        message: "Something goes wrong, please try again later"    
+    }))
    },
 
 

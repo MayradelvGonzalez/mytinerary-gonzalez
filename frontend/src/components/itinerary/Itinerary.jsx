@@ -10,6 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
 import Comments from '../comments/Comments';
+import SnackBar from '../snackbar/Snackbar';
 
 function Itinerary() {
 
@@ -50,6 +51,7 @@ function Itinerary() {
                     <div className="icono">User:{itinerary.nameUser}</div>
                   </Row>
                 </Col>
+                <SnackBar />
                 <Col>
                   <Row className="imagenUser">
                     <Card.Image
@@ -75,11 +77,12 @@ function Itinerary() {
             {user ?
               (<div className="likes" onClick={() =>
                 likeOrDislike(itinerary._id)}>
-                {itinerary.likes?.includes(user.id) ?
-
-                  <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
-                  :
-                  <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
+                {
+                  itinerary.likes?.includes(user.id)
+                    ?
+                    <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
+                    :
+                    <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
               </div>)
               :
               (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
@@ -92,6 +95,7 @@ function Itinerary() {
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
               <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
+
                 <div
                   isblurred
                   css={{
@@ -120,8 +124,6 @@ function Itinerary() {
                               <div>
                                 <img
                                   src={act.imageActivity}
-                                  // height={70}
-                                  // width={100}
                                   className="fotoActividad"
                                 />
                               </div>

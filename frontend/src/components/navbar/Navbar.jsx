@@ -16,6 +16,8 @@ import Avatar from '@mui/material/Avatar';
 import { Link as LinkRouter, useNavigate } from 'react-router-dom';
 import usersActions from '../../redux/actions/usersActions';
 import { useDispatch } from 'react-redux';
+import SnackBar from '../snackbar/Snackbar';
+
 
 const settings = [{ to: '/signup', name: 'Sign Up' }, { to: '/signin', name: 'Sign In' }];
 const opcionesNavBar = [{ to: '/', name: 'Home' }, { to: '/cities', name: 'Cities' }]
@@ -44,9 +46,9 @@ const Nav = () => {
   };
   async function signOut() {
     await dispatch(usersActions.signOut())
-      .then(navigate("/signup", { replace: true }))//me lleva de nuevo al home al hacer sign out
+      .then(navigate("/signup", { replace: true, message: "Bye!👋 come back soon!" }))//me lleva de nuevo al home al hacer sign out
   }
-
+  <SnackBar />
   return (
     <AppBar position="static">
       <Container maxWidth="xl" className="nav">

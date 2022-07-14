@@ -98,9 +98,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                     <Dialog open={open} onClose={handleClose}>
                         <DialogTitle>Edite Comment:</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>
-                                ✏
-                            </DialogContentText>
+
                             <TextField
                                 autoFocus
                                 margin="dense"
@@ -113,7 +111,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                             />
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={() => modificarComentario(idComment)}>Save change</Button>
+                            <Button onClick={() => modificarComentario(idComment)}>Save changes</Button>
                             <Button onClick={handleClose}>Finish</Button>
                         </DialogActions>
                     </Dialog>
@@ -131,7 +129,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
                     </div>
                     :
-                    <div>Please, sign in to comment<LinkRouter to='/signin'>sign in🔗</LinkRouter>or <LinkRouter to='/signup'>sign up</LinkRouter></div>
+                    <div>Please, <LinkRouter to='/signin'>sign in🔗</LinkRouter> or <LinkRouter to='/signup'>sign up </LinkRouter>to comment</div>
             }
 
         </>
