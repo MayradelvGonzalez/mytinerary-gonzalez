@@ -12,6 +12,7 @@ import SignIn from '../login/SignIn';
 import Comments from '../comments/Comments';
 import SnackBar from '../snackbar/Snackbar';
 
+
 function Itinerary() {
 
   const { id } = useParams()
@@ -78,11 +79,12 @@ function Itinerary() {
               (<div className="likes" onClick={() =>
                 likeOrDislike(itinerary._id)}>
                 {
-                  itinerary.likes?.includes(user.id)
+                  itinerary?.likes.includes(user.id)
                     ?
                     <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
                     :
                     <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
+
               </div>)
               :
               (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
@@ -90,6 +92,8 @@ function Itinerary() {
               )
             }
             <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
+
+
 
           </Col>
           <Collapse.Group>
@@ -136,6 +140,7 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
+
               </Card>
               <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
             </Collapse>
@@ -147,7 +152,7 @@ function Itinerary() {
         </div>
       ))
         :
-        (<h2>There're not Itineraries here yet</h2>)
+        (<h2>There're not Itineraries here yet 🕵️‍♀️</h2>)
       }
 
     </>

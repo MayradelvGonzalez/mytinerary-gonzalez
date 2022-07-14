@@ -973,6 +973,12 @@ form label {
   background-color: green;
 }
 
+.likes {
+  cursor: pointer;
+
+}
+
+
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
 
 @media (min-width:375px) {

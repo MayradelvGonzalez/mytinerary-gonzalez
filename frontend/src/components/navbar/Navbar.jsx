@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import logo from '../../img/logo.jpg';
 import logo_transparent from '../../img/logo_transparent.png';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';

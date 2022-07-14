@@ -32,7 +32,7 @@ function GoogleSignUp() {
             document.getElementById('buttonDiv'),
             { theme: "outline", size: "medium" }
         )
-    }, []);
+    }); //le saque []
 
     return (
         <div>

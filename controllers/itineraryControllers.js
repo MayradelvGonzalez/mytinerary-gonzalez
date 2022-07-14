@@ -116,13 +116,17 @@ const itinerariesControllers = {
 },
 
 likeDislike: async (req, res) =>{
-    const id = req.params.id //por parametro desde axios
+     const id = req.params.id //por parametro desde axios
      const user = req.user.id //por respuesta de passport
-    await Itineraries.findOne({_id: id})//Busca por id, que viene por parametro, desde el front le paso a la ruta y va a entrar en el controlador
+    await Itineraries.findOne({_id: id})//Busca por id,queviene por parametro,desde el front lepaso a laruta y entraenelcontroller
     .then((itinerary) => {
         if(itinerary.likes.includes(user)){
             Itineraries.findOneAndUpdate({_id: id}, { $pull: {likes: user}}, { new: true })
-            .then((response) => res.json({ success: true, response: response.likes, message:"Thanks for your like!"}))
+            .then((response) => 
+            res.json({ 
+                success: true, 
+                response: response.likes, 
+                message:"Thanks for your like!"}))
             .catch((error) => console.log(error))
         } else {
             Itineraries.findOneAndUpdate({ _id: id}, {$push: {likes:user}}, { new:true})
@@ -130,7 +134,7 @@ likeDislike: async (req, res) =>{
             res.json({ 
                 success: true, 
                 response: response.likes,
-                message:"dislike!"}))
+                message:"dislike"}))
            
             .catch((error) => console.log(error))
         }

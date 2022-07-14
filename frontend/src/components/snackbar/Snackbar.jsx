@@ -19,17 +19,18 @@ function SnackBar() {
     icon: {
       marginTop: '.5rem',
       color: snackbar.success ? '#4c8a4c' : '#c62b27',
-      width: '1rem',
-      height: '1rem',
-      fontSize: '1.5rem',
-      alignSelf: 'flex-start'
+      width: '1.2rem',
+      height: '1.2rem',
+      fontSize: '2.8rem',
+      alignSelf: 'flex-start',
+
     },
     iconHover: {
       marginTop: '.5rem',
       color: snackbar.success ? '#4c8a4c' : '#c62b27',
-      width: '1rem',
-      height: '1rem',
-      fontSize: '1.5rem',
+      width: '1.2rem',
+      height: '1.2rem',
+      fontSize: '1.8rem',
       alignSelf: 'flex-start'
     }
   }));
@@ -48,6 +49,7 @@ function SnackBar() {
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
+
   });
 
   const classes = useStyles();

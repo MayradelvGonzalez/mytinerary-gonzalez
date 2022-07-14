@@ -83,8 +83,8 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                             {comment.userId?.id === comment.user?._id ?
                                 (<div className="botonesComentario">
 
-                                    <button onClick={() => eliminarComentario(comment._id)} className='botonAccion'>Delete</button>
-                                    <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonAccion'>Edit</button>
+                                    <button onClick={() => eliminarComentario(comment._id)} className='botonAccion'>❌Delete</button>
+                                    <button onClick={() => handleClickOpen(comment._id, comment.comment)} className='botonAccion'>✏️Edit</button>
 
 
                                 </div>)
