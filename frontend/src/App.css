@@ -1150,9 +1150,9 @@ form label {
     align-items: center;
     justify-content: space-evenly;
     padding: 0.3rem;
-    margin: 0.3rem;
+    margin: 1rem;
     width: 95vw;
-    height: 65vh;
+    height: 68vh;
   }
 
   .container-footer {
@@ -1308,9 +1308,9 @@ form label {
     align-items: center;
     justify-content: center;
     border-radius: 1em;
-    margin-top: 6rem;
+    margin-top: 4rem;
 
-    height: 12vh;
+    height: 10vh;
     color: black;
 
 
