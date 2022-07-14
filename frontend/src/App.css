@@ -285,19 +285,23 @@ a {
 
 /*--------------------------------------SEARCH PAGE CARDS---------------------------------------*/
 .cardsBox {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap !important;
   background: linear-gradient(#25475e, #b5cdd0, #4e8cb8, white);
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 1em;
+  padding: 3em;
 
 }
 
-.nextui-c-iVzbCs {
-  width: 30vw;
-}
+/* 
+.nextui-c-eFfoBo {
+  width: 15%;
+  height: 40%;
+  margin: 1em;
+  border: 0.2em solid green;
+} */
 
 .cards h2, h3 {
   color: black;
@@ -305,9 +309,9 @@ a {
 }
 
 .card {
-  margin: 1em;
-  width: 30% !important;
-  height: 50vh;
+  margin: 2em !important;
+
+
   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
 }
 
@@ -407,8 +411,8 @@ a {
 }
 
 .detalles .imagenDetail {
-  width: 70%;
-  height: 50%;
+  width: 75%;
+  height: 38%;
   object-fit: contain;
 
 
@@ -420,7 +424,7 @@ a {
 
 .card-contenido p {
   margin: 0 2em;
-  font-size: 1.qem;
+  font-size: 1em;
 }
 
 .descriptionCard {
@@ -621,11 +625,6 @@ a {
   padding-bottom: 0.7em;
 }
 
-/* .tituloSub {
-  padding-right: 1em;
-  height: 27vh;
-  color: black;
-} */
 
 .fotoActividad {
   width: 100%;
@@ -665,31 +664,42 @@ a {
 
 .activities {
   height: 50vh;
-  width: 30%;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: #9BBED6;
+  padding: 0.2em;
+
+
 }
 
-
-
 .actividad {
-
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
 }
 
 .coments {
   display: flex !important;
   flex-direction: column !important;
-
-
 }
 
 .colAct {
   background-color: #ddd;
-  padding-top: 4em;
+  padding-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+.imagenActividad {
+  align-items: center;
+  padding: 0.1em;
 }
 
 .tituloysub {
@@ -701,7 +711,10 @@ a {
   height: 40vh;
   object-fit: contain;
   align-items: center;
+}
 
+.tituloComentarios {
+  margin-top: 1em;
 }
 
 .fotoActividad:hover {
@@ -712,7 +725,6 @@ a {
 .likes {
   height: 10%;
 }
-
 
 /*-------------------------------------------------LOGUIN-------------------------------- */
 .container-form {
@@ -900,7 +912,7 @@ form label {
   height: 100%;
   width: 100%;
   border: 0.1em dotted white;
-  border-radius: 0 2em !important;
+  border-radius: 0 2em;
 
 }
 
@@ -913,7 +925,7 @@ form label {
   justify-content: space-between;
   width: 100%;
   height: 38%;
-
+  border-radius: 0.5em;
 
 }
 
@@ -934,7 +946,7 @@ form label {
 }
 
 .nombreComentario {
-  padding-right: 30em;
+  padding-right: 40em;
 }
 
 .inputMensajes {
@@ -1004,14 +1016,6 @@ form label {
     height: 20px;
   }
 
-
-
-  /* 
-  .colActividades {
-
-    flex-direction: column;
-    margin-bottom: 1em;
-  } */
   .inputMensajes input {
     width: 80%;
     border-radius: 0.5em 0 0 0.5em;
@@ -1037,11 +1041,6 @@ form label {
     margin: 4em;
     font-size: 0.7em;
   }
-
-  /* .card {
-    margin: 1em !important;
-    width: 40% !important;
-  } */
 
   .boton-form {
     font-weight: lighter;
@@ -1072,13 +1071,6 @@ form label {
     background-size: cover;
 
   }
-
-  /* .container-titulos h2 {
-    font-size: 1.2em !important;
-    text-align: center;
-    padding: 2em 0.3em 0.4em;
-
-  } */
 
   .sc-dnqmqq img {
     height: 30vh;
@@ -1125,9 +1117,9 @@ form label {
   }
 
   .card {
-    margin: 0.5em !important;
-    width: 28% !important;
-    height: 30% !important;
+    margin: 0.7em;
+    width: 25% !important;
+    height: 35% !important;
   }
 
   .sc-ifAKCX {
@@ -1387,7 +1379,7 @@ form label {
   .notFound {
     width: 100%;
     border-radius: 2em;
-
+    height: 49vh;
   }
 
   .footer a {

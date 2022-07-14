@@ -16,7 +16,7 @@ import { Link as LinkRouter, useNavigate } from 'react-router-dom';
 import usersActions from '../../redux/actions/usersActions';
 import { useDispatch } from 'react-redux';
 import SnackBar from '../snackbar/Snackbar';
-
+import avatarNoUsuario from '../../img/avatarNoUsuario.png';
 
 const settings = [{ to: '/signup', name: 'Sign Up' }, { to: '/signin', name: 'Sign In' }];
 const opcionesNavBar = [{ to: '/', name: 'Home' }, { to: '/cities', name: 'Cities' }]
@@ -111,7 +111,7 @@ const Nav = () => {
                   <h6 className='nombreAvatar'>{users.userData?.fullName}</h6>
                 </Box>
                   :
-                  <Box sx={{ display: 'flex', flexDirection: 'column', WebkitJustifyContent: 'center', alignItems: 'center', color: 'white' }} > <Avatar alt="nombre" src="/static/images/avatar/1.jpg" />
+                  <Box sx={{ display: 'flex', flexDirection: 'column', WebkitJustifyContent: 'center', alignItems: 'center', color: 'white' }} > <Avatar alt="nombre" src={avatarNoUsuario} />
                     <h6 className='nombreAvatar'>user no registered</h6></Box>
 
                 }

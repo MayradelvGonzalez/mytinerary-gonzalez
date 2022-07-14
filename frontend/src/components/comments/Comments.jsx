@@ -72,7 +72,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                 <div className='cajaMensaje' key={comment._id}>
 
                     <div className='contenidoMensaje'>
-                        <div className='fotoPerfil'><img src={comment.userId.photo} alt="imagenPerfil" /></div>
+                        <div className='fotoPerfil'><img src={comment.userId.photo} alt="photo perfil" /></div>
                         <div><h5 className="nombreComentario">{comment.userId.fullName}</h5></div>
                     </div>
                     <div className="cajaMensajeInput">
@@ -80,7 +80,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
                         <div className="mensaje">
                             <div className="inputMensaje" type="text">{comment.comment}</div>
-                            {comment?.userId._id === user?.id ?
+                            {user?.userData?.id === comment.userId?._id ?
                                 <div className="botonesComentario">
 
                                     <button onClick={() => eliminarComentario(comment._id)} className='botonAccion'>❌Delete</button>
@@ -91,8 +91,6 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                                 null
                             }
                         </div>
-
-
                     </div>
                     <Dialog open={open} onClose={handleClose}>
                         <DialogTitle>Edit Comment:</DialogTitle>

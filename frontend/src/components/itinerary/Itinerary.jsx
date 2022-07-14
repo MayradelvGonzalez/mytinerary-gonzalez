@@ -75,24 +75,23 @@ function Itinerary() {
             <Text color="black" size={14}>
               <div className="contenedorIconos"><div className='icono'>Hashtags💭:{itinerary.hashtags}</div></div>
             </Text>
-            {user ?
-              (<div className="likes" onClick={likeOrDislike(itinerary._id)}>
-                {
-                  itinerary?.likes.includes(user.id)
+            {<div>
+              {user ?
+                (<div className="likes" onClick={() => likeOrDislike(itinerary._id)}>
+                  {itinerary?.likes.includes(user.userData?.id)
                     ?
                     <span style={{ "color": "red", "fontSize": 30, "backgroundColor": "white" }} className="material-icons corazon"><FavoriteIcon /></span>
                     :
                     <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
+                </div>)
+                :
+                (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
+                </div>
+                )
+              }
+              <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
 
-              </div>)
-              :
-              (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
-              </div>
-              )
-            }
-            <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
-
-
+            </div>}
 
           </Col>
           <Collapse.Group>
@@ -124,7 +123,7 @@ function Itinerary() {
                                 {act.names}
                               </Text>
 
-                              <div>
+                              <div className="imagenActividad">
                                 <img
                                   src={act.imageActivity}
                                   className="fotoActividad"
