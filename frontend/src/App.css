@@ -108,6 +108,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 99vh;
   background-image: url(./img/trip.webp);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   object-fit: cover;
   margin-bottom: 2em;
@@ -201,25 +202,6 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
-@keyframes animate {
-
-  0% {
-    color: gradient(orange, white);
-  }
-
-  50% {
-    color: gradient(white, orange);
-  }
-
-  75% {
-    color: gradient(#25475e, yellow);
-  }
-
-  100% {
-    color: gradient(#25475e, yellow);
-  }
-}
-
 .botonCall {
   color: white !important;
   text-shadow: 1px 1px 3px #3f7746;
@@ -287,7 +269,7 @@ a {
 .cardsBox {
   display: flex !important;
   flex-wrap: wrap !important;
-  background: linear-gradient(#25475e, #b5cdd0, #4e8cb8, white);
+  background: linear-gradient(#FF7F00, #8A541B, #b5cdd0, #4e8cb8, white);
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -309,9 +291,9 @@ a {
 }
 
 .card {
-  margin: 2em !important;
+  margin: 1.5em !important;
 
-
+  height: 90vh !important;
   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
 }
 
@@ -322,6 +304,10 @@ a {
 
 .card-container {
   font-family: 'Old Standard TT', serif;
+}
+
+.imagenCard {
+  height: 50vh !important;
 }
 
 .card .caja-card {
@@ -412,7 +398,7 @@ a {
 
 .detalles .imagenDetail {
   width: 75%;
-  height: 38%;
+  height: 35%;
   object-fit: contain;
 
 
@@ -508,8 +494,14 @@ a {
   font-weight: bold;
   height: 14vh;
   margin-top: 12em;
-  background-color: #808080;
+  background: transparent;
+  background-image: url(./img/viaj.jpg);
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: cover;
+
 }
+
 
 .containerInput input {
   background-color: white;
@@ -521,6 +513,10 @@ a {
   margin-left: 0.5em;
 }
 
+.cajaInput {
+  background: rgba(0, 0, 0, 0.75);
+}
+
 .containerInput input:hover {
   border: 0.2em solid #25475e;
 }
@@ -528,6 +524,7 @@ a {
 .containerInput .buscadorTitulo, .containerInput input {
   display: flex;
   align-items: center;
+
 }
 
 .buscadorTitulo {
@@ -536,6 +533,7 @@ a {
   font-size: 2.5em;
   font-weight: bold;
   align-items: center;
+
 }
 
 .notFound {
@@ -1119,7 +1117,7 @@ form label {
   .card {
     margin: 0.7em;
     width: 25% !important;
-    height: 35% !important;
+    height: 31% !important;
   }
 
   .sc-ifAKCX {
