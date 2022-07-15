@@ -47,7 +47,7 @@ const Nav = () => {
     await dispatch(usersActions.signOut())
       .then(navigate("/signup", { replace: true, message: "Bye!👋 come back soon!" }))//me lleva de nuevo al home al hacer sign out
   }
-  <SnackBar />
+  
   return (
     <AppBar position="static">
       <Container maxWidth="xl" className="nav">
@@ -137,6 +137,7 @@ const Nav = () => {
                   <MenuItem
                     sx={{ '&:hover': { bgcolor: 'rgb(224,224,224)' } }} onClick={handleCloseUserMenu}>
                     <Typography sx={{ padding: '2px', paddingLeft: '6px', paddingRight: '6px', color: 'rgb(2,0,3)' }} onClick={signOut}>Sign Out</Typography>
+                    <SnackBar />
                   </MenuItem>
                 </Box>
               )
@@ -152,6 +153,7 @@ const Nav = () => {
           </Box>
         </Toolbar>
       </Container>
+     
     </AppBar>
   )
 }

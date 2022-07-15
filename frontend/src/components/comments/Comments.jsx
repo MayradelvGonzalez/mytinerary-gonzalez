@@ -112,7 +112,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                             <Button onClick={handleClose}>Finish</Button>
                         </DialogActions>
                     </Dialog>
-
+<SnackBar />
                 </div>
 
 
@@ -126,7 +126,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
 
                     </div>
                     :
-                    <div>Please, <LinkRouter to='/signin'>sign in🔗</LinkRouter> or <LinkRouter to='/signup'>sign up </LinkRouter>to comment</div>
+                    <div>To comment please <LinkRouter to='/signin'>sign in 🔗</LinkRouter> or <LinkRouter to='/signup'>sign up </LinkRouter></div>
             }
 
         </>

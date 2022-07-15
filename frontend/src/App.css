@@ -157,7 +157,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container-titulos {
-  height: 75vh;
+  height: 60vh;
   margin-top: 2em;
   display: flex;
   flex-direction: column;
@@ -216,7 +216,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  margin-top: 3rem;
+  margin-top: 2rem;
   border: 0.3em outset gray;
   box-shadow: 0 4px 8px 0 #25475e, 0 10px 25px #25475e, 0 10px 30px 0 #1b3d20, 0 10px 30px 0 #25475e;
   text-decoration: none;
@@ -225,6 +225,7 @@ body::-webkit-scrollbar-thumb {
   width: 17vh !important;
   font-size: 1.5em;
   background-color: #25475e;
+  
 }
 
 a {
@@ -277,7 +278,7 @@ margin-bottom: 2em !important;
   height: 30vh !important;
   width: 35vw;
   border-radius: 5px;
-  border: solid 2px blue;
+  border: solid 2px #25475e;
 }
 
 /*--------------------------------------SEARCH PAGE CARDS---------------------------------------*/
@@ -515,7 +516,7 @@ margin-bottom: 2em !important;
   background-repeat: no-repeat;
   object-fit: contain;
   background-size: cover; */
-  background-color: #FF7F00;
+  background-color: #fca61e;
   border: 0.2em outset #25475e;
 }
 
@@ -911,6 +912,8 @@ form label {
 .fotoPerfil {
   width: 10%;
   height: 100%;
+  object-fit: contain;
+ 
 }
 
 .cajaMensajeInput {
@@ -928,7 +931,8 @@ form label {
   width: 100%;
   border: 0.1em dotted white;
   border-radius: 0 2em;
-
+  object-fit: contain;
+ 
 }
 
 .contenidoMensaje {
@@ -961,7 +965,7 @@ form label {
 }
 
 .nombreComentario {
-  padding-right: 40em;
+  padding-right: 30em;
 }
 
 .inputMensajes {
@@ -1148,17 +1152,18 @@ form label {
   .sc-ifAKCX {
     /* height: 100% !important; */
     /* margin: 0.2em auto; */
-    /* width: 80vw; */
+    width: 80vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: green !important;
+   
   }
 
   .sc-EHOje {
     /* height: 100%; */
     width: 100%;
    display:flex;
+   justify-content: center;
    flex-direction: column !important;
 
 
@@ -1169,9 +1174,14 @@ form label {
   } */
 .container-carrousel .imgCarrousel{
   width: 40vw !important;
-  height: 8vh !important;
+  height: 10vh !important;
 }
-
+.noItinerary{
+  font-size: 1em;
+  margin: 1em;
+  background-color: #25475e;
+  color: whitesmoke;
+}
 .carrouselCaja{
    display: flex;
     flex-direction: column;
@@ -1186,8 +1196,8 @@ form label {
 }
   .container-carrousel {
     /* width: 90vw !important; */
-    min-height: 70vh !important;
-    border:0.2em solid red !important;
+    min-height: 60vh !important;
+    
     margin-bottom: 2rem !important;
   }
 
@@ -1395,7 +1405,7 @@ form label {
 
     width: 40%;
     font-size: 2em;
-    height: 4vh;
+    min-height: 4vh;
 
     margin-left: 0.5em;
 

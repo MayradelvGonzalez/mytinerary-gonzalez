@@ -125,16 +125,18 @@ likeDislike: async (req, res) =>{
             .then((response) => 
             res.json({ 
                 success: true, 
-                response: response.likes, 
-                message:"Thanks for your like!"}))
+                response: response.likes
+               
+            }))
             .catch((error) => console.log(error))
         } else {
             Itineraries.findOneAndUpdate({ _id: id}, {$push: {likes:user}}, { new:true})
             .then((response) => 
             res.json({ 
                 success: true, 
-                response: response.likes,
-                message:"dislike"}))
+                response: response.likes
+                
+            }))
            
             .catch((error) => console.log(error))
         }

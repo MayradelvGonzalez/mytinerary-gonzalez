@@ -9,8 +9,8 @@ function NotFound() {
         <div className="notFound">
             <h1>City was not found</h1>
 
-
-            <button onclick="window.history.back();">⬅ Back</button>
+{/* 
+            <button onclick="window.history.back();">⬅ Back</button> */}
 
 
         </div>

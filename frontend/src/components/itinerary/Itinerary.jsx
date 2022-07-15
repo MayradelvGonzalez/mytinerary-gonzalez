@@ -11,7 +11,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
 import Comments from '../comments/Comments';
 import SnackBar from '../snackbar/Snackbar';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Itinerary() {
 
@@ -34,15 +35,37 @@ function Itinerary() {
   const user = useSelector(store => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
   console.log(user)
 
-  async function likeOrDislike(props) {
-    await dispatch(itinerariesActions.likeDislike(props))
-    setReload(!reload)
-  } //traigo el action de likes
+  // async function likeOrDislike(props) {
+  //   await dispatch(itinerariesActions.likeDislike(props))
+  //   setReload(!reload)
+  // } //traigo el action de likes
 
+  async function likeOrDislike(props) {
+    const res = await dispatch(itinerariesActions.likeDislike(props))
+    setReload(!reload)
+
+    if(res.data.message){
+
+      toast('Thanks for your like 👍!',
+      {
+        icon: '👏',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      }
+    );
+
+    }else{
+      toast.error("Dislike 👎")
+    }
+  }
+ 
   return (
     <>
-      {itinerario ? (itinerario.map(itinerary =>
-
+     {itinerario ? (itinerario.map(itinerary =>
+       
         <div key={itinerary._id} className="itinerarios" >
           <Col>
             <Text color="black" size={14}>
@@ -52,7 +75,7 @@ function Itinerary() {
                     <div className="icono">User:{itinerary.nameUser}</div>
                   </Row>
                 </Col>
-                <SnackBar />
+          
                 <Col>
                   <Row className="imagenUser">
                     <Card.Image
@@ -90,7 +113,7 @@ function Itinerary() {
                 )
               }
               <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
-
+              
             </div>}
 
           </Col>
@@ -138,19 +161,20 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
-
+                <SnackBar />
               </Card>
               <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
             </Collapse>
-
+            
           </Collapse.Group>
 
 
 
         </div>
+        
       ))
         :
-        (<h2>There're not Itineraries here yet 🕵️‍♀️</h2>)
+        (<div className='noItinerary'><h2>There're not Itineraries here yet 🕵️‍♀️</h2></div>)
       }
 
     </>

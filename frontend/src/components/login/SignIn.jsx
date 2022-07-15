@@ -30,6 +30,7 @@ function SignIn() {
     return (
         <div className='container-formSignIn'>
             <h2 className="tituloSignIn">Welcome back!</h2>
+            <SnackBar />
             <Form onSubmit={handleSubmit} className="formSignIn">
                 <Form.Group>
                     <Form.Label>Email address</Form.Label>
@@ -43,7 +44,7 @@ function SignIn() {
                 <Button variant="primary" type="submit" className="botonSignIn">
                     Submit
                 </Button>
-                <SnackBar />
+               
                 <Form.Text>Do not have an account?<LinkRouter to='/signup'>Sign up!</LinkRouter></Form.Text>
             </Form>
         </div>

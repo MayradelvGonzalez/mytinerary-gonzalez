@@ -34,8 +34,10 @@ function GoogleSignIn() {
     })
     return (
         <div>
+            <div id='buttonDiv'>
             <SnackBar />
-            <div id='buttonDiv'></div>
+
+            </div>
         </div>
     )
 }
