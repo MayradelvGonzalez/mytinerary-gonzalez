@@ -10,7 +10,7 @@ const Carrousel = () => {
   return (
     <div className="container-carrousel">
       <Animated animationIn="zoomIn" isVisible={true}><h1 className='titulo-carrousel'>Popular Mytineraries</h1></Animated>
-      <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel"
+      {/* <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop className="carrousel"
         mobileBreackpoint={250}
         responsiveLayout=
         {[
@@ -41,22 +41,24 @@ const Carrousel = () => {
             autoplay: 4000,
           },
           {
-            breakpoint: 375,
+            breakpoint: 370,
             cols: 1,
             rows: 4,
-            gap: 10,
+            gap: 5,
             loop: true,
             autoplay: 4000,
-          },
-          {
-            breakpoint: 280,
-            cols: 1,
-            rows: 4,
-            gap: 10,
-            loop: true,
-            autoplay: 4000,
-
           }
+        ]}> */}
+        <Carousel mobileBreakpoint={300} cols={2} rows={2} gap={10} autoplay={2000} className="carrousel" loop
+            responsiveLayout={[
+            {
+                breakpoint:760,
+                cols: 1,
+                rows: 4,
+                gap: 10,
+                loop: true,
+                autoplay: 2000
+            }
         ]}>
         {cities?.map(item =>
           <Carousel.Item key={item._id}>

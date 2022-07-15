@@ -174,11 +174,11 @@ body::-webkit-scrollbar-thumb {
 .container-titulos h2, .titulo-carrousel {
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
-  margin-top: 2em;
+ 
 }
 
 .container-carrousel .titulo-carrousel {
-  padding: 1em;
+ 
   color: black;
 
 }
@@ -188,12 +188,16 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 4rem;
-  margin: 3rem;
-  width: 95vw;
-  height: 98vh;
+  /* padding: 4rem; */
+  /* margin: 3rem; */
+  /* width: 95vw; */
+  min-height: 60vh;
 
 
+}
+.carrousel{
+  background-color: green;
+  height: 200px;
 }
 
 .container-boton {
@@ -217,7 +221,7 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 4px 8px 0 #25475e, 0 10px 25px #25475e, 0 10px 30px 0 #1b3d20, 0 10px 30px 0 #25475e;
   text-decoration: none;
   font-family: 'Acme', sans-serif;
-  height: 5vw !important;
+  min-height: 5vw !important;
   width: 17vh !important;
   font-size: 1.5em;
   background-color: #25475e;
@@ -240,9 +244,9 @@ a {
 }
 
 .sc-dnqmqq img {
-  width: 90%;
+  width: 70%;
   object-fit: cover;
-  height: 80vh;
+  height: 40vh;
 }
 
 .titulo-carrousel {
@@ -253,7 +257,8 @@ a {
 }
 
 .carrouselCaja {
-  padding: 1em;
+  /* padding: 1em; */
+  margin-top: 2em;
 }
 
 .nombrePais {
@@ -262,6 +267,17 @@ a {
   color: black;
   font-weight: bold;
   font-family: 'Concert One';
+}
+.sc-EHOje {
+
+margin-bottom: 2em !important;
+
+}
+.imgCarrousel{
+  height: 30vh !important;
+  width: 35vw;
+  border-radius: 5px;
+  border: solid 2px blue;
 }
 
 /*--------------------------------------SEARCH PAGE CARDS---------------------------------------*/
@@ -272,7 +288,7 @@ a {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 3em;
+  padding: 0.5em;
 
 }
 
@@ -992,17 +1008,20 @@ form label {
 
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
 
-@media (max-width:375px) {
-  /* .titulo {
-    font-size: 3.5em;
+@media (width < 375px) {
+  .imagenCard{
+    height: 40vh !important;
+  }
+ .titulo {
+    font-size: 2.5em !important;
     padding-bottom: 0.8em;
   }
 
   .container-titulos h2 {
-    font-size: 1.4em !important;
+    font-size: 0.9em !important;
     text-align: center;
-    padding: auto 0.3em;
-  } */
+    padding: auto 0.3em !important;
+  } 
 
 
 
@@ -1011,11 +1030,11 @@ form label {
 
   }
 
-  /* .card {
+  .card {
     object-fit: contain;
     height: 40% !important;
     width: 40vw !important;
-  } */
+  }
 
   .MuiAvatar {
     width: 20px;
@@ -1079,12 +1098,13 @@ form label {
   }
 
   .sc-dnqmqq img {
-    height: 30vh;
+    height: 20vh !important;
   }
 
   .carrouselCaja {
     height: 100%;
     margin: 0.3em auto 0.5em;
+  
   }
 
   .botonCall button {
@@ -1118,41 +1138,57 @@ form label {
     padding-top: 0.6em;
   }
 
-  .titulo-carrousel {
+  /* .titulo-carrousel {
     margin-top: 0.1px;
-  }
-
-  /* 
-  .card {
-    margin: 0.7em;
-    width: 25% !important;
-    height: 31% !important;
   } */
 
+  
+
+
   .sc-ifAKCX {
-    height: 50vh;
-    margin: 0.2em auto;
+    /* height: 100% !important; */
+    /* margin: 0.2em auto; */
+    /* width: 80vw; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: green !important;
   }
 
   .sc-EHOje {
-    height: 100%;
+    /* height: 100%; */
+    width: 100%;
+   display:flex;
+   flex-direction: column !important;
+
 
   }
+  /* .sc-bdVaJa{
+    background-color: red !important;
+    width: 90vw;
+  } */
+.container-carrousel .imgCarrousel{
+  width: 40vw !important;
+  height: 8vh !important;
+}
 
-  .sc-dnqmqq img {
-    height: 10vh;
-
-  }
-
-  .container-carrousel {
-    display: flex;
+.carrouselCaja{
+   display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 0.3rem;
-    margin: 1rem;
-    width: 95vw;
-    height: 68vh;
+    /* margin: 5rem; */
+    width: 90vw !important;
+    min-height: 60vh !important;
+    
+    
+}
+  .container-carrousel {
+    /* width: 90vw !important; */
+    min-height: 70vh !important;
+    border:0.2em solid red !important;
+    margin-bottom: 2rem !important;
   }
 
   .container-footer {
@@ -1310,7 +1346,7 @@ form label {
     border-radius: 1em;
     margin-top: 4rem;
 
-    height: 10vh;
+    min-height: 10vh;
     color: black;
 
 
@@ -1320,18 +1356,18 @@ form label {
 
     padding: 0.5rem;
     margin: 1em;
-    width: 95vw;
-    height: 98vh;
+    /* width: 95vw; */
+    min-height: 70vh;
     text-align: center;
 
-  }
-
+  } 
+/* 
   .sc-ifAKCX {
     height: 80vh;
     margin: 0.5em auto;
 
 
-  }
+  } */
 
   .sc-EHOje {
     height: 100%;
@@ -1377,7 +1413,7 @@ form label {
 
   .card {
     margin: 1em;
-    width: 40%;
+    width: 50vw !important;
     height: 45vh;
 
 
