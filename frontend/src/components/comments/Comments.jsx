@@ -65,7 +65,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
     const handleClose = () => { //para editar
         setOpen(false);
     };
-   
+
     return (
         <>
             <h2 className='tituloComentarios'>Comments</h2>
@@ -113,9 +113,10 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                             <Button onClick={handleClose}>Finish</Button>
                         </DialogActions>
                     </Dialog>
-                    <SnackBar />
+
+
                 </div>
-               
+
 
             )
             }

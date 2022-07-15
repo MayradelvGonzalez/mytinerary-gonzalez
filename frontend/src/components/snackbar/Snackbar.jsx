@@ -17,7 +17,7 @@ function SnackBar() {
 
   const useStyles = makeStyles(theme => ({
     icon: {
-      marginTop: '.5rem',
+      marginTop: '.2rem',
       color: snackbar.success ? '#4c8a4c' : '#c62b27',
       width: '1.2rem',
       height: '1.2rem',
@@ -37,7 +37,7 @@ function SnackBar() {
   const MySnackbar = styled(Snackbar)({
     backgroundColor: snackbar.success ? 'RGBA(223, 240, 214, 0.7)' : 'RGBA(250, 225, 220, 0.7)',
     color: snackbar.success ? 'RGBA(47, 123, 48, 0.9)' : 'RGBA(194, 25, 20, 0.9)',
-    borderRadius: '5px',
+    borderRadius: '1px',
     boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
     padding: '6px 16px',
     fontWeight: '700',

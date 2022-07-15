@@ -154,7 +154,6 @@ function Itinerary() {
                     </div>
                   </div>
                 </div>
-                <SnackBar />
               </Card>
               <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
             </Collapse>
