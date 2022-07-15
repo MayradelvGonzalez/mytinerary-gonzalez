@@ -49,7 +49,12 @@ function Itinerary() {
       toast.error(res.data.message)
   }
   }
- 
+  function loginPlease()
+    {
+      return(
+        toast.error("Login Please!")
+      )
+    }
   return (
     <>
      {itinerario ? (itinerario.map(itinerary =>
@@ -96,7 +101,7 @@ function Itinerary() {
                     <span style={{ "fontSize": 30 }} className="material-icons"><FavoriteBorderIcon /></span>}
                 </div>)
                 :
-                (<div style={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
+                (<div onClick={loginPlease} vstyle={{ " fontSize": 0 }} className="material-icons coraBlue"><FavoriteBorderIcon />
                 </div>
                 )
               }

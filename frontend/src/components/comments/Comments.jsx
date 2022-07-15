@@ -11,6 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SnackBar from '../snackbar/Snackbar'
+import { toast } from 'react-hot-toast';
 
 function Comments({ coment, id, idItinerary, reload, setReload }) {
 
@@ -64,7 +65,7 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
     const handleClose = () => { //para editar
         setOpen(false);
     };
-
+   
     return (
         <>
             <h2 className='tituloComentarios'>Comments</h2>
