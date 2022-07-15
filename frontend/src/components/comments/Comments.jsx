@@ -112,9 +112,9 @@ function Comments({ coment, id, idItinerary, reload, setReload }) {
                             <Button onClick={handleClose}>Finish</Button>
                         </DialogActions>
                     </Dialog>
-<SnackBar />
+                    <SnackBar />
                 </div>
-
+               
 
             )
             }

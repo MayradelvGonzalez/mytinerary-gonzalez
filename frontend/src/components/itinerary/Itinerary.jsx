@@ -11,8 +11,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SignIn from '../login/SignIn';
 import Comments from '../comments/Comments';
 import SnackBar from '../snackbar/Snackbar';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast';
 
 function Itinerary() {
 
@@ -44,22 +43,11 @@ function Itinerary() {
     const res = await dispatch(itinerariesActions.likeDislike(props))
     setReload(!reload)
 
-    if(res.data.message){
-
-      toast('Thanks for your like 👍!',
-      {
-        icon: '👏',
-        style: {
-          borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
-        },
-      }
-    );
-
-    }else{
-      toast.error("Dislike 👎")
-    }
+    if (res.data.success) {
+      toast(res.data.message)
+  } else {
+      toast.error(res.data.message)
+  }
   }
  
   return (

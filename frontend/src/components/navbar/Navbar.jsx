@@ -137,7 +137,7 @@ const Nav = () => {
                   <MenuItem
                     sx={{ '&:hover': { bgcolor: 'rgb(224,224,224)' } }} onClick={handleCloseUserMenu}>
                     <Typography sx={{ padding: '2px', paddingLeft: '6px', paddingRight: '6px', color: 'rgb(2,0,3)' }} onClick={signOut}>Sign Out</Typography>
-                    <SnackBar />
+                    
                   </MenuItem>
                 </Box>
               )
@@ -152,6 +152,7 @@ const Nav = () => {
             </Menu>
           </Box>
         </Toolbar>
+        <SnackBar />
       </Container>
      
     </AppBar>

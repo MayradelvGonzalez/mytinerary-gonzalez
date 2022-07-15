@@ -125,8 +125,8 @@ likeDislike: async (req, res) =>{
             .then((response) => 
             res.json({ 
                 success: true, 
-                response: response.likes
-               
+                response: response.likes,
+                message:'Dislike'
             }))
             .catch((error) => console.log(error))
         } else {
@@ -134,7 +134,8 @@ likeDislike: async (req, res) =>{
             .then((response) => 
             res.json({ 
                 success: true, 
-                response: response.likes
+                response: response.likes,
+                message:"thanks for your like!"
                 
             }))
            

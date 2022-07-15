@@ -16,6 +16,9 @@ import citiesActions from '../src/redux/actions/citiesActions'
 import { useDispatch,useSelector } from 'react-redux';
 import Itinerary from '../src/components/itinerary/Itinerary';
 import usersActions from './redux/actions/usersActions';
+import { Toaster } from 'react-hot-toast';
+
+
 
 function App()  {
     const dispatch = useDispatch();
@@ -54,7 +57,30 @@ function App()  {
             style={{backgroundColor:"#25475e", color:"white"}}
             smooth
             component={<ArrowUpwardTwoToneIcon />}/>
-          
+        <Toaster
+  position="top-center"
+  reverseOrder={false}
+  gutter={8}
+  containerClassName=""
+  containerStyle={{}}
+  toastOptions={{
+    // Define default options
+    className: '',
+    duration: 5000,
+    style: {
+      background: '#363636',
+      color: '#fff',
+    },
+    // Default options for specific types
+    success: {
+      duration: 3000,
+      theme: {
+        primary: 'green',
+        secondary: 'black',
+      },
+    },
+  }}
+/>
       </div>
     )  
 }
