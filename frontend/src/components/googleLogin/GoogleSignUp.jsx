@@ -37,7 +37,7 @@ function GoogleSignUp() {
     return (
         <div>
            
-            <div id='buttonDiv'> <SnackBar /></div>
+            <div id='buttonDiv'><SnackBar /></div>
         </div>
     )
 }
