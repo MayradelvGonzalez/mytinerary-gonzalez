@@ -128,7 +128,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .carrouselCaja {
-  height: 57vh;
+  height: 59vh;
   margin: 2em auto 7em;
   padding-top: 0.5em;
 
@@ -174,13 +174,14 @@ body::-webkit-scrollbar-thumb {
 .container-titulos h2, .titulo-carrousel {
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
- 
+
 }
 
 .container-carrousel .titulo-carrousel {
- 
-  color: black;
 
+  color: black;
+  text-align: center;
+  margin: 1em;
 }
 
 .container-carrousel {
@@ -194,9 +195,10 @@ body::-webkit-scrollbar-thumb {
   min-height: 60vh;
 
 
+
 }
-.carrousel{
-  background-color: green;
+
+.carrousel {
   height: 200px;
 }
 
@@ -209,7 +211,10 @@ body::-webkit-scrollbar-thumb {
 .botonCall {
   color: white !important;
   text-shadow: 1px 1px 3px #3f7746;
+
 }
+
+
 
 .searchpage button {
   display: flex;
@@ -218,14 +223,14 @@ body::-webkit-scrollbar-thumb {
   border-radius: 1em;
   margin-top: 2rem;
   border: 0.3em outset gray;
-  box-shadow: 0 4px 8px 0 #25475e, 0 10px 25px #25475e, 0 10px 30px 0 #1b3d20, 0 10px 30px 0 #25475e;
+  box-shadow: 0 4px 8px 0 #9D5519, 0 10px 25px #25475e, 0 10px 30px 0 #1b3d20, 0 10px 30px 0 #25475e;
   text-decoration: none;
   font-family: 'Acme', sans-serif;
-  min-height: 5vw !important;
-  width: 17vh !important;
-  font-size: 1.5em;
+  min-height: 3vw !important;
+  width: 15vh !important;
+  font-size: 1.1em !important;
   background-color: #25475e;
-  
+
 }
 
 a {
@@ -242,6 +247,7 @@ a {
 .sc-dnqmqq {
   display: flex;
   justify-content: center;
+
 }
 
 .sc-dnqmqq img {
@@ -260,6 +266,7 @@ a {
 .carrouselCaja {
   /* padding: 1em; */
   margin-top: 2em;
+
 }
 
 .nombrePais {
@@ -269,23 +276,27 @@ a {
   font-weight: bold;
   font-family: 'Concert One';
 }
+
 .sc-EHOje {
 
-margin-bottom: 2em !important;
+  margin-bottom: 2em !important;
 
 }
-.imgCarrousel{
+
+.imgCarrousel {
   height: 30vh !important;
   width: 35vw;
   border-radius: 5px;
   border: solid 2px #25475e;
+
+
 }
 
 /*--------------------------------------SEARCH PAGE CARDS---------------------------------------*/
 .cardsBox {
   display: flex !important;
   flex-wrap: wrap !important;
-  background: linear-gradient(#FF7F00, #8A541B, #b5cdd0, #4e8cb8, white);
+  background: linear-gradient(#BA8F62, #FCEFCB, #BA8F62, #F9D59F, #4e8cb8, white);
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -510,13 +521,10 @@ margin-bottom: 2em !important;
   font-size: 0.5em;
   font-weight: bold;
   height: 14vh;
+  width: 100%;
   margin-top: 12em;
-  /* background: transparent;
-  background-image: url(./img/viaj.jpg);
-  background-repeat: no-repeat;
-  object-fit: contain;
-  background-size: cover; */
-  background-color: #537890;
+  background-color: #F9D59F;
+
 
 }
 
@@ -529,10 +537,14 @@ margin-bottom: 2em !important;
   height: 4vh;
   border: 0.1em solid #808080;
   margin-left: 0.5em;
+
 }
 
 .cajaInput {
   background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .containerInput input:hover {
@@ -551,7 +563,7 @@ margin-bottom: 2em !important;
   font-size: 2.5em;
   font-weight: bold;
   align-items: center;
-
+  margin-top: 0.2em;
 }
 
 .notFound {
@@ -913,7 +925,7 @@ form label {
   width: 10%;
   height: 100%;
   object-fit: contain;
- 
+
 }
 
 .cajaMensajeInput {
@@ -932,7 +944,7 @@ form label {
   border: 0.1em dotted white;
   border-radius: 0 2em;
   object-fit: contain;
- 
+
 }
 
 .contenidoMensaje {
@@ -1013,10 +1025,36 @@ form label {
 /*----------------------------------------MEDIA QUERIES -------------------------------------*/
 
 @media (width < 375px) {
-  .imagenCard{
+  .imagenCard {
     height: 40vh !important;
   }
- .titulo {
+
+  .css-1h4hpwj {
+
+    height: 12vh;
+
+
+  }
+
+
+  .MuiBox-root .MuiAvatar-img {
+
+    width: 12vw;
+    height: 5vh;
+
+  }
+
+  .buttonDiv {
+    width: 50%;
+    background-color: red;
+  }
+
+  .nombreAvatar {
+
+    font-size: 0.5em;
+  }
+
+  .titulo {
     font-size: 2.5em !important;
     padding-bottom: 0.8em;
   }
@@ -1025,7 +1063,7 @@ form label {
     font-size: 0.9em !important;
     text-align: center;
     padding: auto 0.3em !important;
-  } 
+  }
 
 
 
@@ -1103,12 +1141,14 @@ form label {
 
   .sc-dnqmqq img {
     height: 20vh !important;
+
   }
 
   .carrouselCaja {
     height: 100%;
-    margin: 0.3em auto 0.5em;
-  
+    /* margin: 0.3em auto 0.3em; */
+
+
   }
 
   .botonCall button {
@@ -1142,62 +1182,55 @@ form label {
     padding-top: 0.6em;
   }
 
-  /* .titulo-carrousel {
-    margin-top: 0.1px;
-  } */
-
-  
-
 
   .sc-ifAKCX {
-    /* height: 100% !important; */
-    /* margin: 0.2em auto; */
-    width: 80vw;
+
+    width: 83vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-   
+
   }
 
   .sc-EHOje {
-    /* height: 100%; */
+
     width: 100%;
-   display:flex;
-   justify-content: center;
-   flex-direction: column !important;
+    display: flex;
+    justify-content: center;
+    flex-direction: column !important;
 
 
   }
-  /* .sc-bdVaJa{
-    background-color: red !important;
-    width: 90vw;
-  } */
-.container-carrousel .imgCarrousel{
-  width: 40vw !important;
-  height: 10vh !important;
-}
-.noItinerary{
-  font-size: 1em;
-  margin: 1em;
-  background-color: #25475e;
-  color: whitesmoke;
-}
-.carrouselCaja{
-   display: flex;
+
+
+  .container-carrousel .imgCarrousel {
+    width: 46vw !important;
+    height: 12vh !important;
+    margin-right: 2em;
+  }
+
+  .noItinerary {
+    font-size: 1em;
+    margin: 1em;
+    background-color: #25475e;
+    color: whitesmoke;
+  }
+
+  .carrouselCaja {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0.3rem;
-    /* margin: 5rem; */
-    width: 90vw !important;
+    width: 92vw !important;
     min-height: 60vh !important;
-    
-    
-}
+
+  }
+
   .container-carrousel {
     /* width: 90vw !important; */
     min-height: 60vh !important;
-    
+
     margin-bottom: 2rem !important;
   }
 
@@ -1370,8 +1403,9 @@ form label {
     min-height: 70vh;
     text-align: center;
 
-  } 
-/* 
+  }
+
+  /* 
   .sc-ifAKCX {
     height: 80vh;
     margin: 0.5em auto;
@@ -1469,7 +1503,7 @@ form label {
   }
 
   .searchpage .botonCall {
-    font-size: 1em !important;
+    font-size: 1em;
   }
 
   .container-carrousel {
