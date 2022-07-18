@@ -596,6 +596,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 70vw;
+
   border-radius: 2em;
   text-align: center;
   padding: 0.5em;
@@ -660,55 +661,74 @@ a {
   object-fit: contain;
   align-items: center;
   padding: 0.2em;
+
 }
 
 .activities img {
-  width: 98%;
-  height: 98%;
-  padding-top: 0.6em;
-}
-
-
-
-.img:hover {
-  transition: all 2s ease;
-  transform: rotate(360deg)
+  width: 100%;
+  height: 100%;
+  padding-top: 0.4em;
+  border-radius: 1em;
+  margin-bottom: 5em;
 }
 
 .colActividades {
   width: 100% !important;
+  height: 60vh;
   display: flex;
   padding-bottom: 0.5em;
   flex-wrap: wrap !important;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-top: 0.8em;
-  padding: 0.6em;
+  margin-top: 2.5em;
   background-color: #ddd;
   text-align: center;
 
 
 }
 
-.activities {
-  height: 50vh;
-  width: 32%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  background-color: #9BBED6;
+.activitiesCarrusel {
+  color: black;
+  background-color: #ddd;
+  height: 80vh;
+}
+
+
+
+.actividadesCarrusel {
+
+  width: 95%;
+
+  height: 90%;
+  background-color: #ddd;
+
   padding: 0.2em;
 
 
 }
 
 .actividad {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 1em;
+  background-color: #ddd;
+  width: 100%;
+
+
+
+
+}
+
+.actividadesCarrusel .carousel-control-prev-icon, .carousel-control-next-icon {
+
+  background-color: black;
+}
+
+.caption {
+  color: black;
+  margin-bottom: 3em;
+  text-align: center;
+  background-color: #ddd;
+  border-radius: 1em;
+
 }
 
 .coments {
@@ -717,12 +737,12 @@ a {
 }
 
 .colAct {
-  background-color: #ddd;
-  padding-top: 3em;
+  padding-top: 2em;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+
 }
 
 .imagenActividad {
@@ -733,6 +753,10 @@ a {
 .tituloysub {
   padding: 0.5em;
   height: 60vh;
+}
+
+.imgAct {
+  padding-bottom: 6em;
 }
 
 .fotoActividad {
@@ -1029,19 +1053,31 @@ form label {
     height: 40vh !important;
   }
 
-  .css-1h4hpwj {
-
-    height: 12vh;
-
-
+  .contendioMensaje {
+    background-color: greenyellow !important;
   }
 
 
-  .MuiBox-root .MuiAvatar-img {
 
+  .formSignIn {
+    min-height: 55% !important;
+  }
+
+  Form {
+    min-height: 95vh;
+    width: 95% !important;
+    margin: 2em;
+    font-size: 0.7em;
+
+  }
+
+  .css-1h4hpwj {
+    height: 12vh;
+  }
+
+  .MuiBox-root .MuiAvatar-img {
     width: 12vw;
     height: 5vh;
-
   }
 
   .buttonDiv {
@@ -1049,8 +1085,34 @@ form label {
     background-color: red;
   }
 
-  .nombreAvatar {
+  .boton-form {
+    font-weight: lighter;
+    width: 23%;
+    align-self: center;
+    margin-bottom: 0.2em;
+    margin-left: 50% !important;
+  }
 
+  .botonSignIn {
+    width: 5em;
+    height: 13.5%;
+    margin-bottom: 0.3em;
+    margin-left: 65%;
+  }
+
+  .boton-form-reiniciar {
+    font-weight: lighter;
+    width: 5em;
+    align-self: center;
+    margin-bottom: 0.2em;
+    margin-left: 5em;
+  }
+
+  .nextui-collapse-title-content {
+    font-size: 0.6em !important;
+  }
+
+  .nombreAvatar {
     font-size: 0.5em;
   }
 
@@ -1065,11 +1127,8 @@ form label {
     padding: auto 0.3em !important;
   }
 
-
-
   h6 .nombreAvatar {
     font-size: 0.5rem;
-
   }
 
   .card {
@@ -1092,7 +1151,6 @@ form label {
     font-size: 1em;
   }
 
-
   .inputMensajes button {
     width: 20%;
   }
@@ -1103,7 +1161,7 @@ form label {
   }
 
   Form {
-    height: 95vh;
+    min-height: 96vh;
     width: 90%;
     margin: 4em;
     font-size: 0.7em;
@@ -1111,25 +1169,31 @@ form label {
 
   .boton-form {
     font-weight: lighter;
-    width: 23%;
-    align-self: center;
-    margin-bottom: 0.2em;
-    margin-left: 64%;
+    width: 50vw !important;
+    margin-right: 0.5em;
+  }
+
+  .tituloSignIn {
+    color: black;
+    background-color: #ddd;
+    border-radius: 1em;
+    width: 70%;
+    text-align: center;
   }
 
   .botonSignIn {
     width: 5em;
-    height: 10.5%;
+    height: 13% !important;
     margin-bottom: 0.3em;
     margin-left: 70%;
   }
 
-  .boton-form-reiniciar {
+  .botones .boton-form-reiniciar {
     font-weight: lighter;
-    width: 5em;
     align-self: center;
     margin-bottom: 0.2em;
     margin-left: 5em;
+    width: 70vw !important;
   }
 
   .landing {
@@ -1146,9 +1210,6 @@ form label {
 
   .carrouselCaja {
     height: 100%;
-    /* margin: 0.3em auto 0.3em; */
-
-
   }
 
   .botonCall button {
@@ -1170,7 +1231,6 @@ form label {
     border-radius: 1em;
     margin-top: 3rem;
     height: 9vh !important;
-
   }
 
   .containerInput .buscadorTitulo, .containerInput input {
@@ -1184,22 +1244,17 @@ form label {
 
 
   .sc-ifAKCX {
-
     width: 83vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
   }
 
   .sc-EHOje {
-
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column !important;
-
-
   }
 
 
@@ -1224,13 +1279,10 @@ form label {
     padding: 0.3rem;
     width: 92vw !important;
     min-height: 60vh !important;
-
   }
 
   .container-carrousel {
-    /* width: 90vw !important; */
     min-height: 60vh !important;
-
     margin-bottom: 2rem !important;
   }
 
@@ -1284,17 +1336,13 @@ form label {
     width: 100%;
   }
 
-
-
   .footer a {
-
     display: flex;
     justify-content: space-around;
   }
 
   .form {
     font-size: 1px;
-
   }
 
   .form label {
@@ -1318,7 +1366,6 @@ form label {
   .botonSignIn {
     width: 5em;
     height: 10.5%;
-
     margin-bottom: 0.3em;
     margin-left: 70%;
   }
@@ -1376,7 +1423,6 @@ form label {
   }
 
   .container-boton {
-
     width: 100%;
     height: 20%;
 
@@ -1388,62 +1434,39 @@ form label {
     justify-content: center;
     border-radius: 1em;
     margin-top: 4rem;
-
     min-height: 10vh;
     color: black;
-
-
   }
 
   .container-carrousel {
-
     padding: 0.5rem;
     margin: 1em;
-    /* width: 95vw; */
     min-height: 70vh;
     text-align: center;
-
   }
-
-  /* 
-  .sc-ifAKCX {
-    height: 80vh;
-    margin: 0.5em auto;
-
-
-  } */
 
   .sc-EHOje {
     height: 100%;
-
   }
 
   .sc-dnqmqq img {
     height: 30vh;
-
   }
 
   .titulo-carrousel {
     padding: 0.1em;
-
-
   }
 
   .carrouselCaja {
     height: 20%;
     margin: 1em auto 3em;
-
   }
 
   .containerInput input {
-
     width: 40%;
     font-size: 2em;
     min-height: 4vh;
-
     margin-left: 0.5em;
-
-
   }
 
   .containerInput .buscadorTitulo, .containerInput input {
@@ -1459,8 +1482,6 @@ form label {
     margin: 1em;
     width: 50vw !important;
     height: 45vh;
-
-
   }
 
   .notFound {
@@ -1470,7 +1491,6 @@ form label {
   }
 
   .footer a {
-
     display: flex;
     justify-content: space-around;
   }

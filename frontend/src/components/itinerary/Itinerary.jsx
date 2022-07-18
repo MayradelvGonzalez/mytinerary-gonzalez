@@ -12,6 +12,7 @@ import SignIn from '../login/SignIn';
 import Comments from '../comments/Comments';
 import SnackBar from '../snackbar/Snackbar';
 import { toast } from 'react-hot-toast';
+import Carousel from 'react-bootstrap/Carousel';
 
 function Itinerary() {
 
@@ -29,15 +30,8 @@ function Itinerary() {
 
   }, [id, reload])
 
-  // const itineraries = useSelector(store => store.itinerariesReducer.getItinerariesByCity)
-
   const user = useSelector(store => store.usersReducer.user); //traigo el user del reducer,para saber si esta o no logueado
   console.log(user)
-
-  // async function likeOrDislike(props) {
-  //   await dispatch(itinerariesActions.likeDislike(props))
-  //   setReload(!reload)
-  // } //traigo el action de likes
 
   async function likeOrDislike(props) {
     const res = await dispatch(itinerariesActions.likeDislike(props))
@@ -45,20 +39,19 @@ function Itinerary() {
 
     if (res.data.success) {
       toast(res.data.message)
-  } else {
+    } else {
       toast.error(res.data.message)
-  }
-  }
-  function loginPlease()
-    {
-      return(
-        toast.error("Login Please!")
-      )
     }
+  }
+  function loginPlease() {
+    return (
+      toast.error("Login first Please!🔒")
+    )
+  }
   return (
     <>
-     {itinerario ? (itinerario.map(itinerary =>
-       
+      {itinerario ? (itinerario.map(itinerary =>
+
         <div key={itinerary._id} className="itinerarios" >
           <Col>
             <Text color="black" size={14}>
@@ -68,7 +61,7 @@ function Itinerary() {
                     <div className="icono">User:{itinerary.nameUser}</div>
                   </Row>
                 </Col>
-          
+
                 <Col>
                   <Row className="imagenUser">
                     <Card.Image
@@ -106,13 +99,13 @@ function Itinerary() {
                 )
               }
               <div><p style={{ "color": "black ", "fontSize": 20 }}>{itinerary.likes?.length}</p></div>
-              
+
             </div>}
 
           </Col>
           <Collapse.Group>
             <Collapse title={itinerary.name} subtitle={itinerary.description} className="tituloSub">
-              <Card css={{ w: "100%", h: "500px", paddingBottom: "0.7em" }} >
+              <Card css={{ w: "100%", h: "700px", paddingBottom: "0.7em", backgroundColor: "#ddd" }} className="cardItinerarios">
 
                 <div
                   isblurred
@@ -126,44 +119,49 @@ function Itinerary() {
                     className: "actividades",
                   }}
                 >
+
                   <div className='actividad'>
                     <div>
                       <div className="colAct">
                         <h2>Activities</h2>
+
+
                         <div className="colActividades">
 
-                          {itinerary.activities?.map(act =>
 
-                            <div key={act._id} className="activities">
-                              <Text size={14} weight="bolder" className='textoItinerario'>
-                                {act.names}
-                              </Text>
 
-                              <div className="imagenActividad">
-                                <img
-                                  src={act.imageActivity}
-                                  className="fotoActividad"
-                                />
-                              </div>
+                          <Carousel fade className="actividadesCarrusel">
+                            {itinerary.activities?.map(act =>
+                              <Carousel.Item key={act._id} className="activitiesCarrusel">
 
-                            </div>
-                          )
-                          }
+                                <Carousel.Caption className="caption">
+                                  <h4>{act.names}</h4>
+
+                                </Carousel.Caption>
+
+                                <div className="imgAct">
+                                  <img
+
+                                    src={act.imageActivity}
+                                    alt="First slide"
+                                  /></div>
+                              </Carousel.Item>)}
+                          </Carousel>
+
                         </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </Card>
               <Comments idItinerary={itinerary._id} id={id} coment={itinerary.comments} reload={reload} setReload={setReload} />
             </Collapse>
-            
+
           </Collapse.Group>
 
-
-
         </div>
-        
+
       ))
         :
         (<div className='noItinerary'><h2>There're not Itineraries here yet 🕵️‍♀️</h2></div>)
