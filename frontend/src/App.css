@@ -1053,11 +1053,26 @@ form label {
     height: 40vh !important;
   }
 
-  .contendioMensaje {
-    background-color: greenyellow !important;
+  .contenidoMensaje img {
+
+    width: 15vw;
   }
 
+  .contenidoMensaje .nombreComentario {
+    width: 30vw;
+    margin-left: 2em;
+  }
 
+  .botonesComentario button {
+    width: 4.5em;
+    font-size: 0.6em;
+    border-radius: 0.3em;
+  }
+
+  .botonesComentario {
+    display: flex;
+    flex-direction: column;
+  }
 
   .formSignIn {
     min-height: 55% !important;
