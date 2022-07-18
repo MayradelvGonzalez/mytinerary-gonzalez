@@ -35,7 +35,6 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   align-items: center;
-
 }
 
 .nav {
@@ -56,13 +55,10 @@ body::-webkit-scrollbar-thumb {
 
 .OpcionesMenu {
   font-family: 'Concert One', cursive !important;
-
 }
 
 .MuiBox-root button {
-
   margin-right: 1em;
-
 }
 
 .OpcionesMenu:hover {
@@ -114,7 +110,6 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 2em;
   background-color: #25475e;
   padding-top: 4em;
-
 }
 
 .landing {
@@ -124,14 +119,12 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
   width: 100%;
   height: 98%;
-
 }
 
 .carrouselCaja {
   height: 59vh;
   margin: 2em auto 7em;
   padding-top: 0.5em;
-
 }
 
 .titulo {
@@ -168,7 +161,6 @@ body::-webkit-scrollbar-thumb {
 .container-titulos h2 {
   font-size: 2.5em !important;
   text-shadow: 2px 2px 4px white;
-
 }
 
 .container-titulos h2, .titulo-carrousel {
@@ -178,7 +170,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container-carrousel .titulo-carrousel {
-
   color: black;
   text-align: center;
   margin: 1em;
@@ -189,13 +180,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  /* padding: 4rem; */
-  /* margin: 3rem; */
-  /* width: 95vw; */
   min-height: 60vh;
-
-
-
 }
 
 .carrousel {
@@ -211,7 +196,6 @@ body::-webkit-scrollbar-thumb {
 .botonCall {
   color: white !important;
   text-shadow: 1px 1px 3px #3f7746;
-
 }
 
 
@@ -230,7 +214,6 @@ body::-webkit-scrollbar-thumb {
   width: 15vh !important;
   font-size: 1.1em !important;
   background-color: #25475e;
-
 }
 
 a {
@@ -247,7 +230,6 @@ a {
 .sc-dnqmqq {
   display: flex;
   justify-content: center;
-
 }
 
 .sc-dnqmqq img {
@@ -264,9 +246,7 @@ a {
 }
 
 .carrouselCaja {
-  /* padding: 1em; */
   margin-top: 2em;
-
 }
 
 .nombrePais {
@@ -278,9 +258,7 @@ a {
 }
 
 .sc-EHOje {
-
   margin-bottom: 2em !important;
-
 }
 
 .imgCarrousel {
@@ -288,8 +266,6 @@ a {
   width: 35vw;
   border-radius: 5px;
   border: solid 2px #25475e;
-
-
 }
 
 /*--------------------------------------SEARCH PAGE CARDS---------------------------------------*/
@@ -301,16 +277,7 @@ a {
   align-items: center;
   width: 100%;
   padding: 0.5em;
-
 }
-
-/* 
-.nextui-c-eFfoBo {
-  width: 15%;
-  height: 40%;
-  margin: 1em;
-  border: 0.2em solid green;
-} */
 
 .cards h2, h3 {
   color: black;
@@ -332,11 +299,6 @@ a {
 .card-container {
   font-family: 'Old Standard TT', serif;
 }
-
-/* 
-.imagenCard {
-  height: 40% !important;
-} */
 
 .card .caja-card {
   background-color: #b5cdd0;
@@ -396,7 +358,6 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: contain;
-
 }
 
 .detalles {
@@ -419,17 +380,12 @@ a {
   margin-top: 2.5em;
   font-size: 2em;
   font-weight: bold;
-
-
-
 }
 
 .detalles .imagenDetail {
   width: 75%;
   height: 35%;
   object-fit: contain;
-
-
 }
 
 .nextui-c-hPzDAx .nextui-collapse-title {
@@ -524,8 +480,6 @@ a {
   width: 100%;
   margin-top: 12em;
   background-color: #F9D59F;
-
-
 }
 
 
@@ -537,7 +491,6 @@ a {
   height: 4vh;
   border: 0.1em solid #808080;
   margin-left: 0.5em;
-
 }
 
 .cajaInput {
@@ -554,7 +507,6 @@ a {
 .containerInput .buscadorTitulo, .containerInput input {
   display: flex;
   align-items: center;
-
 }
 
 .buscadorTitulo {
@@ -587,7 +539,6 @@ a {
   border-color: #808080;
   flex-direction: row !important;
   box-shadow: rgba(2, 2, 2, 2.4) 0px 30px 90px;
-
 }
 
 .itinerarios {
@@ -596,7 +547,6 @@ a {
   display: flex;
   flex-direction: column;
   width: 70vw;
-
   border-radius: 2em;
   text-align: center;
   padding: 0.5em;
@@ -607,7 +557,6 @@ a {
   font-size: 1em;
   font-weight: bold;
   font-family: 'Old Standard TT', serif;
-
 }
 
 .contenidoItinerario {
@@ -624,9 +573,7 @@ a {
 
 .contenedorIconos {
   width: 100%;
-
   padding-top: 0.6em;
-
 }
 
 .icono {
@@ -646,7 +593,6 @@ a {
   align-items: center;
   text-align: center;
   margin: 0.2em;
-
 }
 
 .imagenUser {
@@ -661,7 +607,6 @@ a {
   object-fit: contain;
   align-items: center;
   padding: 0.2em;
-
 }
 
 .activities img {
@@ -684,8 +629,6 @@ a {
   margin-top: 2.5em;
   background-color: #ddd;
   text-align: center;
-
-
 }
 
 .activitiesCarrusel {
@@ -694,31 +637,19 @@ a {
   height: 80vh;
 }
 
-
-
 .actividadesCarrusel {
-
   width: 95%;
-
   height: 90%;
   background-color: #ddd;
-
   padding: 0.2em;
-
-
 }
 
 .actividad {
   background-color: #ddd;
   width: 100%;
-
-
-
-
 }
 
 .actividadesCarrusel .carousel-control-prev-icon, .carousel-control-next-icon {
-
   background-color: black;
 }
 
@@ -728,7 +659,6 @@ a {
   text-align: center;
   background-color: #ddd;
   border-radius: 1em;
-
 }
 
 .coments {
@@ -742,7 +672,6 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-
 }
 
 .imagenActividad {
@@ -940,16 +869,12 @@ form label {
   width: 8vw;
   border: 0.1em outset black;
   margin-left: 0.2em;
-
 }
-
-
 
 .fotoPerfil {
   width: 10%;
   height: 100%;
   object-fit: contain;
-
 }
 
 .cajaMensajeInput {
@@ -968,7 +893,6 @@ form label {
   border: 0.1em dotted white;
   border-radius: 0 2em;
   object-fit: contain;
-
 }
 
 .contenidoMensaje {
@@ -981,14 +905,11 @@ form label {
   width: 100%;
   height: 38%;
   border-radius: 0.5em;
-
 }
 
 .contenidoMensaje h5 {
   padding-left: 0.3em;
 }
-
-
 
 .mensaje {
   display: flex;
@@ -1042,7 +963,6 @@ form label {
 
 .likes {
   cursor: pointer;
-
 }
 
 
@@ -1054,7 +974,6 @@ form label {
   }
 
   .contenidoMensaje img {
-
     width: 15vw;
   }
 
@@ -1083,7 +1002,6 @@ form label {
     width: 95% !important;
     margin: 2em;
     font-size: 0.7em;
-
   }
 
   .css-1h4hpwj {
@@ -1215,12 +1133,10 @@ form label {
     height: 60%;
     width: 100%;
     background-size: cover;
-
   }
 
   .sc-dnqmqq img {
     height: 20vh !important;
-
   }
 
   .carrouselCaja {
@@ -1392,8 +1308,6 @@ form label {
     margin-bottom: 0.2em;
     margin-left: 5em;
   }
-
-
 }
 
 @media (max-width:768px) {
@@ -1547,14 +1461,12 @@ form label {
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 
   .botonCall button {
     font-size: 1em;
     color: black;
     text-shadow: -1px 0 rgb(255, 255, 255), 0 1px #25475e, 1.5px 0 #25475e, 0 -1.5px #25475e;
-
   }
 
   .titulo {
@@ -1567,9 +1479,7 @@ form label {
   }
 
   .bghjHX {
-
     height: 60vh;
-
   }
 
   .bghjHX .imgCarrousel {
@@ -1578,7 +1488,6 @@ form label {
   }
 
   .footer a {
-
     display: flex;
     justify-content: space-around;
   }
