@@ -792,7 +792,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2em;
+  padding-bottom: 1.5em;
   padding: 1em;
 }
 
@@ -815,7 +815,7 @@ a {
   font-family: 'Cormorant Garamond', serif;
   color: white;
   font-weight: bolder;
-  margin-top: 4.6em;
+  margin-top: 3.5em;
 }
 
 Form {
@@ -823,13 +823,13 @@ Form {
   background: rgba(0, 0, 0, 0.75);
   color: white;
   font-family: 'Old Standard TT', serif;
-  height: 73vh;
+  height: 69vh;
   width: 60% !important;
   font-size: 1em !important;
   border-radius: 1em;
   padding: 0.8em;
   margin-top: 1em !important;
-  margin-bottom: 6em !important;
+  margin-bottom: 1em !important;
 }
 
 .signUp {
@@ -841,7 +841,7 @@ Form {
   background: rgba(0, 0, 0, 0.75);
   color: white;
   font-family: 'Old Standard TT', serif;
-  height: 50vh;
+  height: 45vh;
   width: 40%;
   font-size: 1em;
   border-radius: 1em;
@@ -869,7 +869,7 @@ form label {
   border: 0.1em solid white;
   font-weight: bold;
   width: 6vw;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
   margin-left: 80% !important;
 }
 
