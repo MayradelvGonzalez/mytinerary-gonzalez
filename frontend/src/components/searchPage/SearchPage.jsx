@@ -65,6 +65,7 @@ function SearchPage({ cardFilter }) {
           </Col>
         </Card.Footer>
       </Card>
+
     )
     )
   )

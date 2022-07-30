@@ -3,6 +3,7 @@ import { Link as LinkRouter } from 'react-router-dom'
 import Carrousel from '../carrousel/Carrousel'
 import { Animated } from "react-animated-css";
 
+
 function Home() {
 
   return (
@@ -23,6 +24,7 @@ function Home() {
         </div>
       </div>
       <div className="carrouselCaja"><Carrousel /></div>
+
     </div>
   );
 }
